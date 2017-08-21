@@ -1,38 +1,31 @@
-body {
-  margin: 0;
-}
+@charset "UTF-8";
 
-.splash {
-  text-align: center;
-  margin: 10% 0 0 0;
-  box-sizing: border-box;
-}
+/**
+ * Third-pary libraries and fonts
+ */
+@import '_openColors';
+@import '_variables';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap-sprockets.scss';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import '../node_modules/animate.css/animate.css';
+@import '../node_modules/font-awesome/css/font-awesome.css';
 
-.splash .message {
-  font-size: 72px;
-  line-height: 72px;
-  text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
-  text-transform: uppercase;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.splash .fa-spinner {
-  text-align: center;
-  display: inline-block;
-  font-size: 72px;
-  margin-top: 50px;
-}
+/**
+ * App styles
+ */
+@import 'base';
+@import 'splash';
+@import 'nav-bar';
 
 .page-host {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 80px;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
 }
-
 @media print {
   .page-host {
     position: absolute;
@@ -132,43 +125,44 @@ div.au-stagger {
   0% {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0)
+    transform: translate3d(100%, 0, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
-    transform: none
+    transform: none;
   }
 }
-
 @keyframes fadeInRight {
   0% {
     opacity: 0;
     -webkit-transform: translate3d(100%, 0, 0);
     -ms-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0)
+    transform: translate3d(100%, 0, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
     -ms-transform: none;
-    transform: none
+    transform: none;
   }
 }
-
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

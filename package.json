@@ -68,6 +68,7 @@
     }
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "aurelia-bootstrapper-webpack": "^1.1.0",
     "aurelia-event-aggregator": "^1.0.0",
     "aurelia-fetch-client": "^1.0.1",
@@ -85,6 +86,7 @@
     "babel-polyfill": "^6.20.0",
     "bluebird": "^3.4.6",
     "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1"
@@ -105,6 +107,7 @@
     "@easy-webpack/config-global-regenerator": "^1.2.2",
     "@easy-webpack/config-html": "^3.1.0",
     "@easy-webpack/config-json": "^3.1.0",
+    "@easy-webpack/config-sass": "^5.0.0",
     "@easy-webpack/config-test-coverage-istanbul": "^3.2.0",
     "@easy-webpack/config-uglify": "^2.2.3",
     "@easy-webpack/core": "^2.0.0",
