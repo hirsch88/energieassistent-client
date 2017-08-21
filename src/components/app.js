@@ -3,9 +3,9 @@ export class App {
     config.title = 'Logo';
     config.map([
       { route: ['', 'overview'], name: 'overview', moduleId: './overview/overview', nav: false, title: 'Übersicht' },
-      { route: 'energy', name: 'energy', moduleId: './detail/energy', nav: true, title: 'Strom' },
-      { route: 'heat', name: 'heat', moduleId: './detail/heat', nav: true, title: 'Wärme' },
-      { route: 'water', name: 'water', moduleId: './detail/water', nav: true, title: 'Wasser' }
+      { route: 'energy', name: 'energy', moduleId: './detail/energy', nav: true, title: 'Strom', icon: 'fa fa-bolt' },
+      { route: 'heat', name: 'heat', moduleId: './detail/heat', nav: true, title: 'Wärme', icon: 'fa fa-fire' },
+      { route: 'water', name: 'water', moduleId: './detail/water', nav: true, title: 'Wasser', icon: 'fa fa-tint' }
     ]);
 
     console.log(router.navigation);

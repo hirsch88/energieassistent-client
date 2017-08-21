@@ -10,7 +10,9 @@
     <div class="menu">
       <ul class="nav navbar-nav">
         <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''} ${row.config.name}">
-          <a data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse.in" href.bind="row.href">${row.title}</a>
+          <a data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse.in" href.bind="row.href">
+            <i class="${row.config.icon}" aria-hidden="true"></i> ${row.title}
+          </a>
         </li>
       </ul>
     </div>
