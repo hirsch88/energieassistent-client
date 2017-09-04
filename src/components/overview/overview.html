@@ -1,40 +1,91 @@
 <template>
   <section class="au-animate overview">
 
-    <div class="overview_charts">
-      <div class="title_energy">
+    <div class="overview-charts-energy">
+      <div class="title">
         <i class="fa fa-bolt" aria-hidden="true"></i>
         Strom
       </div>
-      <div class="smile_bad">
+      <div class="smile-bad">
         + 17%
         <i class="fa fa-frown-o" aria-hidden="true"></i>
       </div>
       <canvas id="energyChart" width="320" height="320"></canvas>
+      <table class="overview-table">
+        <tr class="overview-table-row">
+          <td><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td class="text">Dein aktueller Verbrauch</td>
+          <td class="zahl">22.3 kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td><i class="fa fa-history" aria-hidden="true"></i></td>
+          <td class="text">Dein Stromverbrauch vor einem Jahr</td>
+          <td class="zahl">12 kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td>ø</td>
+          <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+          <td class="zahl">17.5 kWh</td>
+        </tr>
+      </table>
     </div>
 
-    <div class="overview_charts">
-      <div class="title_heat">
+    <div class="overview-charts-heat">
+      <div class="title">
         <i class="fa fa-fire" aria-hidden="true"></i>
         Wärme
       </div>
-      <div class="smile_neutral">
+      <div class="smile-neutral">
         + 3%
         <i class="fa fa-meh-o" aria-hidden="true"></i>
       </div>
       <canvas id="heatChart" width="320" height="320"></canvas>
+      <table class="overview-table">
+          <tr class="overview-table-row">
+            <td><i class="fa fa-user" aria-hidden="true"></i></td>
+            <td class="text">Dein aktueller Verbrauch</td>
+            <td class="zahl">14.4 kWh</td>
+          </tr>
+          <tr class="overview-table-row">
+            <td><i class="fa fa-history" aria-hidden="true"></i></td>
+            <td class="text">Dein Wärmeverbrauch vor einem Jahr</td>
+            <td class="zahl">13.2 kWh</td>
+          </tr>
+          <tr class="overview-table-row">
+            <td>ø</td>
+            <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+            <td class="zahl">10 kWh</td>
+          </tr>
+        </table>
     </div>
 
-    <div class="overview_charts">
-      <div class="title_water">
+    <div class="overview-charts-water">
+      <div class="title">
         <i class="fa fa-tint" aria-hidden="true"></i>
         Wasser
       </div>
-      <div class="smile_good">
+      <div class="smile-good">
         - 11%
         <i class="fa fa-smile-o" aria-hidden="true"></i>
       </div>
       <canvas id="waterChart" width="320" height="320"></canvas>
+      <table class="overview-table">
+          <tr class="overview-table-row">
+            <td><i class="fa fa-user" aria-hidden="true"></i></td>
+            <td class="text">Dein aktueller Verbrauch</td>
+            <td class="zahl">100 l</td>
+          </tr>
+          <tr class="overview-table-row">
+            <td><i class="fa fa-history" aria-hidden="true"></i></td>
+            <td class="text">Dein Wasserverbrauch vor einem Jahr</td>
+            <td class="zahl">103.5 l</td>
+          </tr>
+          <tr class="overview-table-row">
+            <td>ø</td>
+            <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+            <td class="zahl">110 l</td>
+          </tr>
+        </table>
     </div>
 
   </section>

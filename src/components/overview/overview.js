@@ -4,6 +4,15 @@ import Chart from 'chart.js';
 export class Overview {
 
   attached() {
+    //timer für pulse animated
+    setTimeout(() => {
+      var nodes = document.getElementsByClassName('smile-bad');
+      for (let i = 0; i < nodes.length; i++) {
+        nodes[i].className += " animated shake";
+      }
+    },1000);
+
+
     var ctx_energy = $("#energyChart");
     var energyChart = new Chart(ctx_energy, {
       type: 'bar',
@@ -174,6 +183,5 @@ export class Overview {
         }
       }
     });
-
   }
 }
