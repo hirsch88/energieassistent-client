@@ -5,21 +5,84 @@ import { EnergyService } from '../../services/energy.service';
 import { HeatService } from '../../services/heat.service';
 import { WaterService } from '../../services/water.service';
 
+
 @inject(EnergyService, HeatService, WaterService)
 export class Overview {
-
   constructor(energyService, heatService, waterService){
     this.energyService = energyService;
     this.heatService = heatService;
     this.waterService = waterService;
-    console.log(energyService);
+    this.data = {};
   }
 
   attached() {
 
+    var moodWarningThreshold = 10;
+
     var dataEnergy = this.energyService.GetOverviewData;
     var dataHeat = this.heatService.GetOverviewData;
     var dataWater = this.waterService.GetOverviewData;
+
+    this.data.trendEnergy = Math.round(100/(Number(dataEnergy[1][0].value)+Number(dataEnergy[1][1].value)+Number(dataEnergy[1][2].value)+Number(dataEnergy[1][3].value))*(Number(dataEnergy[0][0].value)+Number(dataEnergy[0][1].value)+Number(dataEnergy[0][2].value)+Number(dataEnergy[0][3].value))-100);
+    this.data.trendHeat = Math.round(100/(Number(dataHeat[1][0].value)+Number(dataHeat[1][1].value)+Number(dataHeat[1][2].value)+Number(dataHeat[1][3].value))*(Number(dataHeat[0][0].value)+Number(dataHeat[0][1].value)+Number(dataHeat[0][2].value)+Number(dataHeat[0][3].value))-100);
+    this.data.trendWater = Math.round(100/(Number(dataWater[1][0].value)+Number(dataWater[1][1].value)+Number(dataWater[1][2].value)+Number(dataWater[1][3].value))*(Number(dataWater[0][0].value)+Number(dataWater[0][1].value)+Number(dataWater[0][2].value)+Number(dataWater[0][3].value))-100);
+
+    this.data.actualEnergy = Math.round(Number(dataEnergy[0][0].value)*10)/10;
+    this.data.actualHeat = Math.round(Number(dataHeat[0][0].value)*10)/10;
+    this.data.actualWater = Math.round(Number(dataWater[0][0].value)*10)/10;
+
+    this.data.historyEnergy = Math.round(Number(dataEnergy[1][0].value)*10)/10;
+    this.data.historyHeat = Math.round(Number(dataHeat[1][0].value)*10)/10;
+    this.data.historyWater = Math.round(Number(dataWater[1][0].value)*10)/10;
+
+    this.data.averageEnergy = 1250;
+    this.data.averageHeat = 2800;
+    this.data.averageWater = 1800;
+
+    console.log (this.data.trendEnergy);
+
+    if (this.data.trendEnergy < 0){
+      //green
+      this.data.moodEnergy = "smile-good";
+      this.data.iconEnergy = "fa fa-smile-o";
+    } else if (this.data.trendEnergy < moodWarningThreshold){
+      //orange
+      this.data.moodEnergy = "smile-neutral";
+      this.data.iconEnergy = "fa fa-meh-o";
+    } else {
+      //red
+      this.data.moodEnergy = "smile-bad";
+      this.data.iconEnergy = "fa fa-frown-o";
+    }
+
+    if (this.data.trendHeat < 0){
+      //green
+      this.data.moodHeat = "smile-good";
+      this.data.iconHeat = "fa fa-smile-o";
+    } else if (this.data.trendHeat < moodWarningThreshold){
+      //orange
+      this.data.moodHeat = "smile-neutral";
+      this.data.iconHeat = "fa fa-meh-o";
+    } else {
+      //red
+      this.data.moodHeat = "smile-bad";
+      this.data.iconHeat = "fa fa-frown-o";
+    }
+
+    if (this.data.trendWater < 0){
+      //green
+      this.data.moodWater = "smile-good";
+      this.data.iconWater = "fa fa-smile-o";
+    } else if (this.data.trendWater < moodWarningThreshold){
+      //orange
+      this.data.moodWater = "smile-neutral";
+      this.data.iconWater = "fa fa-meh-o";
+    } else {
+      //red
+      this.data.moodWater = "smile-bad";
+      this.data.iconWater = "fa fa-frown-o";
+    }
+
     //timer für pulse animated
     setTimeout(() => {
       var nodes = document.getElementsByClassName('smile-bad');

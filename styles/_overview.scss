@@ -5,6 +5,7 @@ section.overview {
   div.overview-charts-energy,
   div.overview-charts-heat,
   div.overview-charts-water{
+    margin-top:50px;
     width: 320px; 
     height: 320px; 
     display:flex; 
@@ -42,6 +43,7 @@ section.overview {
     table.overview-table {
       margin-top: 50px;
       font-size: 20px;
+      width: 320px;
       color: $oc-gray-5;
       border-collapse: collapse;
 
