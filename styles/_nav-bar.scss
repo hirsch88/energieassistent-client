@@ -16,13 +16,15 @@ nav.navbar {
 
   div.logo,
   div.menu,
-  div.user {
+  div.user,
+  div.trophy {
     display: flex;
     justify-content: center;
   }
 
   div.logo,
-  div.user {
+  div.user,
+  div.trophy {
     width: 10vw;
   }
 
@@ -30,7 +32,8 @@ nav.navbar {
     flex: 1;
   }
 
-  div.user a.navbar-brand {
+  div.user a.navbar-brand, 
+  div.trophy a.navbar-brand {
     padding: 30px 15px !important;
 
     i {

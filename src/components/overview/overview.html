@@ -1,8 +1,40 @@
 <template>
-  <section class="au-animate">
+  <section class="au-animate overview">
 
-    <div style="width: 320px; height: 320px">
-      <canvas id="myChart" width="320" height="320"></canvas>
+    <div class="overview_charts">
+      <div class="title_energy">
+        <i class="fa fa-bolt" aria-hidden="true"></i>
+        Strom
+      </div>
+      <div class="smile_bad">
+        + 17%
+        <i class="fa fa-frown-o" aria-hidden="true"></i>
+      </div>
+      <canvas id="energyChart" width="320" height="320"></canvas>
+    </div>
+
+    <div class="overview_charts">
+      <div class="title_heat">
+        <i class="fa fa-fire" aria-hidden="true"></i>
+        Wärme
+      </div>
+      <div class="smile_neutral">
+        + 3%
+        <i class="fa fa-meh-o" aria-hidden="true"></i>
+      </div>
+      <canvas id="heatChart" width="320" height="320"></canvas>
+    </div>
+
+    <div class="overview_charts">
+      <div class="title_water">
+        <i class="fa fa-tint" aria-hidden="true"></i>
+        Wasser
+      </div>
+      <div class="smile_good">
+        - 11%
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+      </div>
+      <canvas id="waterChart" width="320" height="320"></canvas>
     </div>
 
   </section>
