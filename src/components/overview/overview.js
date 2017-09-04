@@ -1,9 +1,25 @@
 //import {computedFrom} from 'aurelia-framework';
 import Chart from 'chart.js';
+import { inject } from 'aurelia-framework';
+import { EnergyService } from '../../services/energy.service';
+import { HeatService } from '../../services/heat.service';
+import { WaterService } from '../../services/water.service';
 
+@inject(EnergyService, HeatService, WaterService)
 export class Overview {
 
+  constructor(energyService, heatService, waterService){
+    this.energyService = energyService;
+    this.heatService = heatService;
+    this.waterService = waterService;
+    console.log(energyService);
+  }
+
   attached() {
+
+    var dataEnergy = this.energyService.GetOverviewData;
+    var dataHeat = this.heatService.GetOverviewData;
+    var dataWater = this.waterService.GetOverviewData;
     //timer für pulse animated
     setTimeout(() => {
       var nodes = document.getElementsByClassName('smile-bad');
@@ -17,23 +33,23 @@ export class Overview {
     var energyChart = new Chart(ctx_energy, {
       type: 'bar',
       data: {
-        labels: ["KW44", "KW45", "KW46", "KW47"],
+        labels: ["KW"+dataEnergy[0][3].week, "KW"+dataEnergy[0][2].week, "KW"+dataEnergy[0][1].week, "KW"+dataEnergy[0][0].week],
         datasets: [{
           label: "Aktueller Verbrauch",
-          data: [4, 8, 12, 13],
+          data: [dataEnergy[0][3].value, dataEnergy[0][2].value, dataEnergy[0][1].value, dataEnergy[0][0].value],
           backgroundColor: 'rgba(255, 224, 102, 0.37)',
           borderColor: '#ffe066',
           borderWidth: 2
         },{
           label: "Verbrauch 2016",
-          data: [5,7,11,14],
+          data: [dataEnergy[1][3].value, dataEnergy[1][2].value, dataEnergy[1][1].value, dataEnergy[1][0].value],
           borderColor: "#e67700",
           backgroundColor: "rgba(230, 119, 0, 0.36)",
           fill: false,
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [10,10,10,10],
+          data: [1250,1250,1250,1250],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -56,8 +72,7 @@ export class Overview {
         scales: {
           yAxes: [{
             ticks: {
-              min: 0,
-              max: 16
+              min: 0
             }
           }],
           xAxes: [{
@@ -74,23 +89,23 @@ export class Overview {
     var heatChart = new Chart(ctx_heat, {
       type: 'bar',
       data: {
-        labels: ["KW44", "KW45", "KW46", "KW47"],
+        labels: ["KW"+dataHeat[0][3].week, "KW"+dataHeat[0][2].week, "KW"+dataHeat[0][1].week, "KW"+dataHeat[0][0].week],
         datasets: [{
           label: "Aktueller Verbrauch",
-          data: [12, 9, 8, 10],
+          data: [dataHeat[0][3].value, dataHeat[0][2].value, dataHeat[0][1].value, dataHeat[0][0].value],
           backgroundColor: 'rgba(255, 168, 168, 0.37)',
           borderColor: '#ffa8a8',
           borderWidth: 2
         },{
           label: "Verbrauch 2016",
-          data: [14,7,11,12],
+          data: [dataHeat[1][3].value, dataHeat[1][2].value, dataHeat[1][1].value, dataHeat[1][0].value],
           borderColor: "#c92a2a",
           backgroundColor: "rgba(201, 42, 42, 0.36)",
           fill: false,
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [7,7,7,7],
+          data: [2800,2800,2800,2800],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -113,8 +128,7 @@ export class Overview {
         scales: {
           yAxes: [{
             ticks: {
-              min: 0,
-              max: 16
+              min: 0
             }
           }],
           xAxes: [{
@@ -128,26 +142,26 @@ export class Overview {
     });
 
     var ctx_water = $("#waterChart");
-    var heatChart = new Chart(ctx_water, {
+    var waterChart = new Chart(ctx_water, {
       type: 'bar',
       data: {
-        labels: ["KW44", "KW45", "KW46", "KW47"],
+        labels: ["KW"+dataWater[0][3].week, "KW"+dataWater[0][2].week, "KW"+dataWater[0][1].week, "KW"+dataWater[0][0].week],
         datasets: [{
           label: "Aktueller Verbrauch",
-          data: [103, 107, 120, 110],
+          data: [dataWater[0][3].value, dataWater[0][2].value, dataWater[0][1].value, dataWater[0][0].value],
           backgroundColor: 'rgba(114, 195, 252, 0.37)',
           borderColor: '#72c3fc',
           borderWidth: 2
         },{
           label: "Verbrauch 2016",
-          data: [105,107,111,112],
+          data: [dataWater[1][3].value, dataWater[1][2].value, dataWater[1][1].value, dataWater[1][0].value],
           borderColor: "#1862ab",
           backgroundColor: "rgba(24, 98, 171, 0.36)",
           fill: false,
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [105,105,105,105],
+          data: [1800,1800,1800,1800],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -170,8 +184,7 @@ export class Overview {
         scales: {
           yAxes: [{
             ticks: {
-              min: 80,
-              max: 140
+              min: 0
             }
           }],
           xAxes: [{
