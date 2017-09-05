@@ -53,6 +53,9 @@ section.overview {
         td {
           padding: 15px 10px;
         }
+        td.icon {
+          text-align:center;
+        }
         td.text {
           font-size: 16px;
           flex-wrap: wrap;
