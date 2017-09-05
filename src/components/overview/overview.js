@@ -111,7 +111,7 @@ export class Overview {
           borderColor: '#ffe066',
           borderWidth: 2
         },{
-          label: "Verbrauch 2016",
+          label: "Verbrauch "+dataEnergy[1][0].year,
           data: [dataEnergy[1][3].value, dataEnergy[1][2].value, dataEnergy[1][1].value, dataEnergy[1][0].value],
           borderColor: "#e67700",
           backgroundColor: "rgba(230, 119, 0, 0.36)",
@@ -119,7 +119,7 @@ export class Overview {
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [1250,1250,1250,1250],
+          data: [this.data.averageEnergy,this.data.averageEnergy,this.data.averageEnergy,this.data.averageEnergy],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -167,7 +167,7 @@ export class Overview {
           borderColor: '#ffa8a8',
           borderWidth: 2
         },{
-          label: "Verbrauch 2016",
+          label: "Verbrauch "+dataHeat[1][0].year,
           data: [dataHeat[1][3].value, dataHeat[1][2].value, dataHeat[1][1].value, dataHeat[1][0].value],
           borderColor: "#c92a2a",
           backgroundColor: "rgba(201, 42, 42, 0.36)",
@@ -175,7 +175,7 @@ export class Overview {
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [2800,2800,2800,2800],
+          data: [this.data.averageHeat,this.data.averageHeat,this.data.averageHeat,this.data.averageHeat],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -223,7 +223,7 @@ export class Overview {
           borderColor: '#72c3fc',
           borderWidth: 2
         },{
-          label: "Verbrauch 2016",
+          label: "Verbrauch "+dataWater[1][0].year,
           data: [dataWater[1][3].value, dataWater[1][2].value, dataWater[1][1].value, dataWater[1][0].value],
           borderColor: "#1862ab",
           backgroundColor: "rgba(24, 98, 171, 0.36)",
@@ -231,7 +231,7 @@ export class Overview {
           type: 'line'
         },{
           label: "Schweizer Durchschnitt",
-          data: [1800,1800,1800,1800],
+          data: [this.data.averageWater,this.data.averageWater,this.data.averageWater,this.data.averageWater],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,

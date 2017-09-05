@@ -11,6 +11,7 @@ export class Energy {
 
   attached() {
     var swissAverageCosts = 100;
+    var swissAverageEnergy = 1250;
 
     var dataEnergy = this.energyService.GetDetailDataQuarter;
     this.data.costsThisWeek = Math.round((Number(dataEnergy[0][0].costNormal) + Number(dataEnergy[0][0].costLow))*100)/100;
@@ -39,6 +40,285 @@ export class Energy {
       this.data.comparedToSwissValue = Math.round((this.data.costsThisWeek - swissAverageCosts)*100)/100;
       this.data.comparedToSwissClass = "red";
     }
-  }
 
+    var ctx_total = $("#totalChart");
+    var energyChart = new Chart(ctx_total, {
+      type: 'bar',
+      data: {
+        labels: [
+          "KW"+dataEnergy[0][12].week,
+          "KW"+dataEnergy[0][11].week, 
+          "KW"+dataEnergy[0][10].week, 
+          "KW"+dataEnergy[0][9].week, 
+          "KW"+dataEnergy[0][8].week, 
+          "KW"+dataEnergy[0][7].week, 
+          "KW"+dataEnergy[0][6].week, 
+          "KW"+dataEnergy[0][5].week, 
+          "KW"+dataEnergy[0][4].week, 
+          "KW"+dataEnergy[0][3].week, 
+          "KW"+dataEnergy[0][2].week, 
+          "KW"+dataEnergy[0][1].week, 
+          "KW"+dataEnergy[0][0].week
+        ],
+        datasets: [{
+          label: "Aktueller Verbrauch",
+          data: [
+            dataEnergy[0][12].value, 
+            dataEnergy[0][11].value, 
+            dataEnergy[0][10].value, 
+            dataEnergy[0][9].value, 
+            dataEnergy[0][8].value, 
+            dataEnergy[0][7].value, 
+            dataEnergy[0][6].value, 
+            dataEnergy[0][5].value, 
+            dataEnergy[0][4].value, 
+            dataEnergy[0][3].value, 
+            dataEnergy[0][2].value, 
+            dataEnergy[0][1].value, 
+            dataEnergy[0][0].value
+          ],
+          backgroundColor: 'rgba(255, 224, 102, 0.37)',
+          borderColor: '#ffe066',
+          borderWidth: 2
+        },{
+          label: "Verbrauch "+dataEnergy[1][0].year,
+          data: [
+            dataEnergy[1][12].value, 
+            dataEnergy[1][11].value, 
+            dataEnergy[1][10].value, 
+            dataEnergy[1][9].value, 
+            dataEnergy[1][8].value, 
+            dataEnergy[1][7].value, 
+            dataEnergy[1][6].value, 
+            dataEnergy[1][5].value, 
+            dataEnergy[1][4].value, 
+            dataEnergy[1][3].value, 
+            dataEnergy[1][2].value, 
+            dataEnergy[1][1].value, 
+            dataEnergy[1][0].value
+          ],
+          borderColor: "#e67700",
+          backgroundColor: "rgba(230, 119, 0, 0.36)",
+          fill: false,
+          type: 'line'
+        },{
+          label: "Schweizer Durchschnitt",
+          data: [swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy],
+          borderColor: "#adb5bd",
+          backgroundColor: "rgba(173, 181, 189, 0.36)",
+          fill: false,
+          type: 'line'
+        }]
+      },
+      options: {
+        responsive: false,
+        title: {
+          display: true,
+          fontSize: 12
+        },
+        tooltips: {
+          titleFontSize: 12,
+          titleFontFamily: 'Arial'
+        },
+        legend: {
+          position: 'bottom'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontFamily: 'Arial',
+
+            }
+          }]
+        }
+      }
+    });
+
+    var ctx_normal = $("#normalChart");
+    var energyChart = new Chart(ctx_normal, {
+      type: 'bar',
+      data: {
+        labels: [
+          "KW"+dataEnergy[0][12].week,
+          "KW"+dataEnergy[0][11].week, 
+          "KW"+dataEnergy[0][10].week, 
+          "KW"+dataEnergy[0][9].week, 
+          "KW"+dataEnergy[0][8].week, 
+          "KW"+dataEnergy[0][7].week, 
+          "KW"+dataEnergy[0][6].week, 
+          "KW"+dataEnergy[0][5].week, 
+          "KW"+dataEnergy[0][4].week, 
+          "KW"+dataEnergy[0][3].week, 
+          "KW"+dataEnergy[0][2].week, 
+          "KW"+dataEnergy[0][1].week, 
+          "KW"+dataEnergy[0][0].week
+        ],
+        datasets: [{
+          label: "Aktueller Verbrauch",
+          data: [
+            dataEnergy[0][12].valueNormal, 
+            dataEnergy[0][11].valueNormal, 
+            dataEnergy[0][10].valueNormal, 
+            dataEnergy[0][9].valueNormal, 
+            dataEnergy[0][8].valueNormal, 
+            dataEnergy[0][7].valueNormal, 
+            dataEnergy[0][6].valueNormal, 
+            dataEnergy[0][5].valueNormal, 
+            dataEnergy[0][4].valueNormal, 
+            dataEnergy[0][3].valueNormal, 
+            dataEnergy[0][2].valueNormal, 
+            dataEnergy[0][1].valueNormal, 
+            dataEnergy[0][0].valueNormal
+          ],
+          backgroundColor: 'rgba(255, 224, 102, 0.37)',
+          borderColor: '#ffe066',
+          borderWidth: 2
+        },{
+          label: "Verbrauch "+dataEnergy[1][0].year,
+          data: [
+            dataEnergy[1][12].valueNormal, 
+            dataEnergy[1][11].valueNormal, 
+            dataEnergy[1][10].valueNormal, 
+            dataEnergy[1][9].valueNormal, 
+            dataEnergy[1][8].valueNormal, 
+            dataEnergy[1][7].valueNormal, 
+            dataEnergy[1][6].valueNormal, 
+            dataEnergy[1][5].valueNormal, 
+            dataEnergy[1][4].valueNormal, 
+            dataEnergy[1][3].valueNormal, 
+            dataEnergy[1][2].valueNormal, 
+            dataEnergy[1][1].valueNormal, 
+            dataEnergy[1][0].valueNormal
+          ],
+          borderColor: "#e67700",
+          backgroundColor: "rgba(230, 119, 0, 0.36)",
+          fill: false,
+          type: 'line'
+        }]
+      },
+      options: {
+        responsive: false,
+        title: {
+          display: true,
+          fontSize: 12
+        },
+        tooltips: {
+          titleFontSize: 12,
+          titleFontFamily: 'Arial'
+        },
+        legend: {
+          position: 'bottom'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontFamily: 'Arial',
+
+            }
+          }]
+        }
+      }
+    });
+
+    var ctx_low = $("#lowChart");
+    var energyChart = new Chart(ctx_low, {
+      type: 'bar',
+      data: {
+        labels: [
+          "KW"+dataEnergy[0][12].week,
+          "KW"+dataEnergy[0][11].week, 
+          "KW"+dataEnergy[0][10].week, 
+          "KW"+dataEnergy[0][9].week, 
+          "KW"+dataEnergy[0][8].week, 
+          "KW"+dataEnergy[0][7].week, 
+          "KW"+dataEnergy[0][6].week, 
+          "KW"+dataEnergy[0][5].week, 
+          "KW"+dataEnergy[0][4].week, 
+          "KW"+dataEnergy[0][3].week, 
+          "KW"+dataEnergy[0][2].week, 
+          "KW"+dataEnergy[0][1].week, 
+          "KW"+dataEnergy[0][0].week
+        ],
+        datasets: [{
+          label: "Aktueller Verbrauch",
+          data: [
+            dataEnergy[0][12].valueLow, 
+            dataEnergy[0][11].valueLow, 
+            dataEnergy[0][10].valueLow, 
+            dataEnergy[0][9].valueLow, 
+            dataEnergy[0][8].valueLow, 
+            dataEnergy[0][7].valueLow, 
+            dataEnergy[0][6].valueLow, 
+            dataEnergy[0][5].valueLow, 
+            dataEnergy[0][4].valueLow, 
+            dataEnergy[0][3].valueLow, 
+            dataEnergy[0][2].valueLow, 
+            dataEnergy[0][1].valueLow, 
+            dataEnergy[0][0].valueLow
+          ],
+          backgroundColor: 'rgba(255, 224, 102, 0.37)',
+          borderColor: '#ffe066',
+          borderWidth: 2
+        },{
+          label: "Verbrauch "+dataEnergy[1][0].year,
+          data: [
+            dataEnergy[1][12].valueLow, 
+            dataEnergy[1][11].valueLow, 
+            dataEnergy[1][10].valueLow, 
+            dataEnergy[1][9].valueLow, 
+            dataEnergy[1][8].valueLow, 
+            dataEnergy[1][7].valueLow, 
+            dataEnergy[1][6].valueLow, 
+            dataEnergy[1][5].valueLow, 
+            dataEnergy[1][4].valueLow, 
+            dataEnergy[1][3].valueLow, 
+            dataEnergy[1][2].valueLow, 
+            dataEnergy[1][1].valueLow, 
+            dataEnergy[1][0].valueLow
+          ],
+          borderColor: "#e67700",
+          backgroundColor: "rgba(230, 119, 0, 0.36)",
+          fill: false,
+          type: 'line'
+        }]
+      },
+      options: {
+        responsive: false,
+        title: {
+          display: true,
+          fontSize: 12
+        },
+        tooltips: {
+          titleFontSize: 12,
+          titleFontFamily: 'Arial'
+        },
+        legend: {
+          position: 'bottom'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              fontFamily: 'Arial',
+
+            }
+          }]
+        }
+      }
+    });
+  }
 }
