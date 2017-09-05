@@ -6,9 +6,10 @@
         <i class="fa fa-bolt" aria-hidden="true"></i>
         Strom
       </div>
-      <div class="${data.moodEnergy}">
+      <div class="${data.moodEnergy} tipp">
         ${data.trendEnergy}%
         <i class="${data.iconEnergy}" aria-hidden="true"></i>
+        <span class="tooltiptext">${data.tooltipEnergy}</span>
       </div>
       <canvas id="energyChart" width="320" height="320"></canvas>
       <table class="overview-table">
@@ -35,9 +36,10 @@
         <i class="fa fa-fire" aria-hidden="true"></i>
         Wärme
       </div>
-      <div class="${data.moodHeat}">
+      <div class="${data.moodHeat} tipp">
         ${data.trendHeat}%
         <i class="${data.iconHeat}" aria-hidden="true"></i>
+        <span class="tooltiptext">${data.tooltipHeat}</span>
       </div>
       <canvas id="heatChart" width="320" height="320"></canvas>
       <table class="overview-table">
@@ -64,9 +66,10 @@
         <i class="fa fa-tint" aria-hidden="true"></i>
         Wasser
       </div>
-      <div class="${data.moodWater}">
+      <div class="${data.moodWater} tipp">
         ${data.trendWater}%
         <i class="${data.iconWater}" aria-hidden="true"></i>
+        <span class="tooltiptext">${data.tooltipWater}</span>
       </div>
       <canvas id="waterChart" width="320" height="320"></canvas>
       <table class="overview-table">

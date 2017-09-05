@@ -43,42 +43,51 @@ export class Overview {
       //green
       this.data.moodEnergy = "smile-good";
       this.data.iconEnergy = "fa fa-smile-o";
+      this.data.tooltipEnergy = "Sie haben "+Math.abs(this.data.trendEnergy)+"% weniger Strom verbraucht";
     } else if (this.data.trendEnergy < moodWarningThreshold){
       //orange
       this.data.moodEnergy = "smile-neutral";
       this.data.iconEnergy = "fa fa-meh-o";
+      this.data.tooltipEnergy = "Sie haben "+this.data.trendEnergy+"% mehr Strom verbraucht";
     } else {
       //red
       this.data.moodEnergy = "smile-bad";
       this.data.iconEnergy = "fa fa-frown-o";
+      this.data.tooltipEnergy = "Sie haben "+this.data.trendEnergy+"% mehr Strom verbraucht";
     }
 
     if (this.data.trendHeat < 0){
       //green
       this.data.moodHeat = "smile-good";
       this.data.iconHeat = "fa fa-smile-o";
+      this.data.tooltipHeat = "Sie haben "+Math.abs(this.data.trendHeat)+"% weniger Wärme verbraucht";
     } else if (this.data.trendHeat < moodWarningThreshold){
       //orange
       this.data.moodHeat = "smile-neutral";
       this.data.iconHeat = "fa fa-meh-o";
+      this.data.tooltipHeat = "Sie haben "+this.data.trendHeat+"% mehr Wärme verbraucht";
     } else {
       //red
       this.data.moodHeat = "smile-bad";
       this.data.iconHeat = "fa fa-frown-o";
+      this.data.tooltipHeat = "Sie haben "+this.data.trendHeat+"% mehr Wärme verbraucht";
     }
 
     if (this.data.trendWater < 0){
       //green
       this.data.moodWater = "smile-good";
       this.data.iconWater = "fa fa-smile-o";
+      this.data.tooltipWater = "Sie haben "+Math.abs(this.data.trendWater)+"% weniger Wasser verbraucht";
     } else if (this.data.trendWater < moodWarningThreshold){
       //orange
       this.data.moodWater = "smile-neutral";
       this.data.iconWater = "fa fa-meh-o";
+      this.data.tooltipWater = "Sie haben "+this.data.trendWater+"% mehr Wasser verbraucht";
     } else {
       //red
       this.data.moodWater = "smile-bad";
       this.data.iconWater = "fa fa-frown-o";
+      this.data.tooltipWater = "Sie haben "+this.data.trendWater+"% mehr Wasser verbraucht";
     }
 
     //timer für pulse animated
