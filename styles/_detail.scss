@@ -5,18 +5,29 @@ section.water {
   flex-direction: column;
   align-items: center;
 
-  div.costoverview {
+  div.costoverview,
+  div.tipps,
+  div.comparison,
+  div.total,
+  div.normal,
+  div.low,
+  div.costsplit,
+  div.energytypes,
+  div.bill {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom:30px;
+    padding-bottom:40px;
+    width: 100%;
+    color: $oc-gray-7;
 
     h1 {
       font-size: 48px;
-      color: $oc-gray-7;
       margin: 40px auto;
     }
+  }
 
+  div.costoverview {
     table.detail-table {
       font-size: 30px;
       width: 930px;
@@ -50,23 +61,21 @@ section.water {
           color: $oc-red-7;
         }
       }
-
-      tr.detail-table-row:last-child { 
-        border-bottom: none; 
-      }
     }
   }
-  div.tipps {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+
+  div.tipps,
+  div.normal,
+  div.low,
+  div.energytypes {
     background-color: $oc-gray-0;
+  }
+
+  div.tipps {
     padding-bottom:50px;
 
     h1 {
       font-size: 40px;
-      margin: 40px auto;
     }
     h1.green {
       color: $oc-green-7;
@@ -76,7 +85,6 @@ section.water {
     }
     table.tipp-table {
       width: 930px;
-      color: $oc-gray-7;
       tr.tipp-table-row {
         padding:0;
 
@@ -109,23 +117,44 @@ section.water {
       }
     }
   }
-  div.comparison {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: $oc-gray-7;
-    padding-bottom:40px;
 
-    h1 {
-      color:white;
-      font-size: 48px;
-      margin: 40px auto;
-    }
-    div.comparison-row {
+  div.comparison,
+  div.costsplit,
+  div.energytypes {
+    
+    div.comparison-row,
+    div.costsplit-row,
+    div.energytypes-row {
       display: flex;
       flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
+      span{
+        font-size: 20px;
+        text-align: justify;
+      }
+    }
+  }
+
+  div.comparison,
+  div.costsplit {
+    background-color: $oc-gray-7;
+    color: $oc-gray-0;
+    h1 {
+      color:white;
+    }
+
+    div.comparison-row,
+    div.costsplit-row {
+      span{
+        color: $oc-gray-5;
+      }
+    }
+  }
+
+  div.comparison {
+    div.comparison-row {
       div.compare{
         display: flex;
         flex-direction: column;
@@ -141,46 +170,27 @@ section.water {
           font-size:40px;
           margin:20px auto;
         }
-        span{
-          font-size: 20px;
-          text-align: justify;
-          color: $oc-gray-5;
-        }
+        
       }
-    }
-  }
-
-  div.total {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom:40px;
-    color: $oc-gray-7;
-
-    h1 {
-      font-size: 48px;
-      margin: 40px auto;
     }
   }
 
   div.normal,
   div.low {
-    background-color: $oc-gray-0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom:40px;
-    color: $oc-gray-7;
-    
-    h1 { 
-      font-size: 48px;
-      margin: 40px auto;
-    }
     span {
       width: 930px;
       font-size: 20px;
+    }
+  }
+
+  div.costsplit,
+  div.energytypes {
+    div.costsplit-row,
+    div.energytypes-row {
+      span {
+        width: 470px;
+        padding: 0 40px;
+      }
     }
   }
 }

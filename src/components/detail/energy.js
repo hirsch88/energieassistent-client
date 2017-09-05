@@ -42,7 +42,7 @@ export class Energy {
     }
 
     var ctx_total = $("#totalChart");
-    var energyChart = new Chart(ctx_total, {
+    var totalChart = new Chart(ctx_total, {
       type: 'bar',
       data: {
         labels: [
@@ -140,7 +140,7 @@ export class Energy {
     });
 
     var ctx_normal = $("#normalChart");
-    var energyChart = new Chart(ctx_normal, {
+    var normalChart = new Chart(ctx_normal, {
       type: 'bar',
       data: {
         labels: [
@@ -231,7 +231,7 @@ export class Energy {
     });
 
     var ctx_low = $("#lowChart");
-    var energyChart = new Chart(ctx_low, {
+    var lowChart = new Chart(ctx_low, {
       type: 'bar',
       data: {
         labels: [
@@ -317,6 +317,74 @@ export class Energy {
 
             }
           }]
+        }
+      }
+    });
+    
+    var nne_normal = Number(dataEnergy[0][0].valueNormal)*0.13;
+    var nne_low = Number(dataEnergy[0][0].valueLow)*0.042;
+    var la_normal = Number(dataEnergy[0][0].valueNormal)*0.052;
+    var la_low = Number(dataEnergy[0][0].valueLow)*0.04;
+    var abgaben = Number(dataEnergy[0][0].value)*0.011+Number(dataEnergy[0][0].value)*0.013+la_normal+la_low + ((nne_normal+nne_low+la_low+la_normal)/100*9);
+    var strom = Number(dataEnergy[0][0].valueNormal)*0.09+Number(dataEnergy[0][0].valueLow)*0.0735;
+    var netz = Number(dataEnergy[0][0].value)*0.0054+nne_normal+nne_low;
+
+
+    var ctx_costs = $("#costsChart");
+    var costsChart = new Chart(ctx_costs,{
+      type: 'pie',
+      data: {
+        datasets: [{
+          label: ["Stromkosten", "Netzkosten", "Abgaben"],
+          data: [Math.round(strom*100)/100, Math.round(netz*100)/100, Math.round(abgaben*100)/100],
+          backgroundColor: ['#ffe066','#f59f00', '#dee2e6'],
+          borderColor: '#495057'
+        }],
+        labels: ["Stromkosten", "Netzkosten", "Abgaben"],
+      },
+      options: {
+        responsive: false,
+        tooltips: {
+          titleFontSize: 12,
+          titleFontFamily: 'Arial'
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontColor: '#adb5bd'
+          }
+        }
+      }
+    });
+
+
+    var aqua = 123;
+    var pure = 234;
+    var solar = 432;
+
+    var ctx_types = $("#typesChart");
+    var typesChart = new Chart(ctx_types,{
+      type: 'pie',
+      data: {
+        datasets: [{
+          label: ["Aqua", "Pure", "Solar"],
+          data: [aqua, pure, solar],
+          backgroundColor: ['#ffe066','#f59f00', '#dee2e6'],
+          borderColor: '#f8f9fa'
+        }],
+        labels: ["Aqua", "Pure", "Solar"],
+      },
+      options: {
+        responsive: false,
+        tooltips: {
+          titleFontSize: 12,
+          titleFontFamily: 'Arial'
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontColor: '#495057'
+          }
         }
       }
     });
