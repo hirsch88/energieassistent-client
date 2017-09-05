@@ -39,8 +39,6 @@ export class Overview {
     this.data.averageHeat = 2800;
     this.data.averageWater = 1800;
 
-    console.log (this.data.trendEnergy);
-
     if (this.data.trendEnergy < 0){
       //green
       this.data.moodEnergy = "smile-good";

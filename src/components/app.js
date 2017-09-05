@@ -1,6 +1,7 @@
 export class App {
   configureRouter(config, router) {
     config.title = 'Logo';
+    config.apiversion = '1.2.13';
     config.map([
       { route: ['', 'overview'], name: 'overview', moduleId: './overview/overview', nav: false, title: 'Übersicht' },
       { route: 'energy', name: 'energy', moduleId: './detail/energy', nav: true, title: 'Strom', icon: 'fa fa-bolt' },

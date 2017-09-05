@@ -1,0 +1,47 @@
+div.footer {
+  display: flex !important;
+  justify-content: space-between;
+  height: 60px;
+  line-height: 40px;
+  position: absolute;
+  bottom:0px;
+  color: $oc-gray-5;
+  width:100%;
+  padding: 10px 30px;
+  background-color: $oc-gray-2;
+
+  div.left-footer{
+    font-size: 16px;
+
+    a {
+      color: $oc-gray-7;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      color: $oc-gray-5;
+    }
+  }
+
+  div.right-footer {
+    font-size: 36px;
+    a {
+      color: $oc-gray-7;
+      font-weight: bold;
+      text-decoration: none;
+
+      i {
+        padding-left: 20px;
+      }
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      color: $oc-gray-5;
+    }
+  }
+}

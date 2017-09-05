@@ -18,7 +18,6 @@ export class EnergyService {
       pointer.subtract(1, 'week');
     }
     console.log(this.GetOverviewData);
-    console.log(this.getISOWeeks);
   }
 
   get getISOWeeks() {
