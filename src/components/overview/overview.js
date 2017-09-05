@@ -19,9 +19,9 @@ export class Overview {
 
     var moodWarningThreshold = 10;
 
-    var dataEnergy = this.energyService.GetOverviewData;
-    var dataHeat = this.heatService.GetOverviewData;
-    var dataWater = this.waterService.GetOverviewData;
+    var dataEnergy = this.energyService.GetOverviewDataWeeks;
+    var dataHeat = this.heatService.GetOverviewDataWeeks;
+    var dataWater = this.waterService.GetOverviewDataWeeks;
 
     this.data.trendEnergy = Math.round(100/(Number(dataEnergy[1][0].value)+Number(dataEnergy[1][1].value)+Number(dataEnergy[1][2].value)+Number(dataEnergy[1][3].value))*(Number(dataEnergy[0][0].value)+Number(dataEnergy[0][1].value)+Number(dataEnergy[0][2].value)+Number(dataEnergy[0][3].value))-100);
     this.data.trendHeat = Math.round(100/(Number(dataHeat[1][0].value)+Number(dataHeat[1][1].value)+Number(dataHeat[1][2].value)+Number(dataHeat[1][3].value))*(Number(dataHeat[0][0].value)+Number(dataHeat[0][1].value)+Number(dataHeat[0][2].value)+Number(dataHeat[0][3].value))-100);

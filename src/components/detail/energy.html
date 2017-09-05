@@ -1,6 +1,65 @@
 <template>
-  <section class="au-animate">
-    <h2>Strom</h2>
+  <section class="au-animate energy">
+    <div class="costoverview">
+      <h1>Kostenübersicht</h1>
+      <table class="detail-table">
+          <tr class="detail-table-row">
+            <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
+            <td class="text">Dies sind Ihre Kosten für KW${data.actualWeek}.</td>
+            <td class="zahl">${data.costsThisWeek} CHF</td>
+          </tr>
+          <tr class="detail-table-row">
+            <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
+            <td class="text">${data.comparedToLastYearText}</td>
+            <td class="zahl ${data.comparedToLastYearClass}">${data.comparedToLastYearValue} CHF</td>
+          </tr>
+          <tr class="detail-table-row">
+            <td class="icon">ø</td>
+            <td class="text">${data.comparedToSwissText}</td>
+            <td class="zahl ${data.comparedToSwissClass}">${data.comparedToSwissValue} CHF</td>
+          </tr>
+        </table>
+    </div>
+    <div class="tipps">
+      <h1 class="${data.comparedToLastYearClass}">"${data.tippText}"</h1>
+      <table class="tipp-table">
+        <tr class="tipp-table-row">
+          <td class="icon" rowspan="3"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+          <td class="title">Niedrige Waschtemperatur wählen</td>
+        </tr>
+        <tr class="tipp-table-row">
+          <td class="text">Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. 
+            Kochwaschprogramme bei 90 Grad sind nicht mehr notwendig. 
+            Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber zu bekommen.
+          </td>
+        </tr>
+        <tr class="tipp-table-row">
+          <td class="button">
+            <a href="#">Nächster Tipp</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="comparison">
 
+    </div>
+    <div class="total">
+
+    </div>
+    <div class="normal">
+
+    </div>
+    <div class="low">
+
+    </div>
+    <div class="costsplit">
+
+    </div>
+    <div class="energytypes">
+
+    </div>
+    <div class="bill">
+
+    </div>
   </section>
 </template>

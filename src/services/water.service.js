@@ -17,7 +17,7 @@ export class WaterService {
       ));
       pointer.subtract(1, 'week');
     }
-    console.log(this.GetOverviewData);
+    console.log(this.GetOverviewDataWeeks);
   }
 
   get getISOWeeks() {
@@ -33,7 +33,7 @@ export class WaterService {
     return d.getDay() === 4 || isLeap && d.getDay() === 3 ? 53 : 52
   }
 
-  get GetOverviewData() {
+  get GetOverviewDataWeeks() {
     var a = [];
     a.push(this.data.filter((_, index) => index < 4));
     a.push(this.data.filter((_,index) => index < 4+this.getISOWeeks && index >= this.getISOWeeks));

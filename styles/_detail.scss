@@ -1,0 +1,112 @@
+section.energy,
+section.heat,
+section.water {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div.costoverview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom:30px;
+
+    h1 {
+      font-size: 48px;
+      color: $oc-gray-7;
+      margin: 40px auto;
+    }
+
+    table.detail-table {
+      font-size: 30px;
+      width: 930px;
+      color: $oc-gray-7;
+      font-weight: bold;
+      border-collapse: collapse;
+
+      tr.detail-table-row {
+        border-bottom: 1px solid;
+
+        td {
+          padding: 15px 10px;
+        }
+        td.icon {
+          text-align:center;
+          font-size: 48px;
+        }
+        td.text {
+          flex-wrap: wrap;
+          width: 60%;
+        }
+        td.zahl {
+          white-space: nowrap;
+          text-align: right;
+          font-size: 36px;
+        }
+        td.green {
+          color: $oc-green-7;
+        }
+        td.red {
+          color: $oc-red-7;
+        }
+      }
+
+      tr.detail-table-row:last-child { 
+        border-bottom: none; 
+      }
+    }
+  }
+  div.tipps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: $oc-gray-0;
+    padding-bottom:30px;
+
+    h1 {
+      font-size: 40px;
+      margin: 40px auto;
+    }
+    h1.green {
+      color: $oc-green-7;
+    }
+    h1.red {
+      color: $oc-red-7;
+    }
+    table.tipp-table {
+      width: 930px;
+      color: $oc-gray-7;
+      tr.tipp-table-row {
+        padding:0;
+
+        td.icon {
+          font-size:120px;
+          padding: 0 20px;
+        }
+        td.title{
+          font-size:36px;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        td.text {
+          font-size: 20px;
+          padding-bottom: 10px;
+        }
+        td.button {
+          padding-top:10px;
+
+          a {
+            color:white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 20px;
+            padding: 5px 15px !important;
+            background-color: $oc-gray-7;
+          }
+
+        }
+      }
+    }
+  }
+}

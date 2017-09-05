@@ -9,15 +9,21 @@ export class EnergyService {
     const pointer = moment();
     const start = moment().subtract(2, 'years');
     while (!(pointer.year() === start.year() && pointer.week() === start.week())) {
+      var valueNormal = (Math.random() * (1000 - 300) + 0.05).toFixed(2);
+      var valueLow = (Math.random() * (1500 - 300) + 0.05).toFixed(2);
       this.data.push(new DataItem(
         pointer.year(),
         pointer.month(),
         pointer.week(),
-        (Math.random() * (2000 - 300) + 0.05).toFixed(2)
+        Number(valueNormal)+Number(valueLow),
+        valueNormal,
+        valueLow,
+        valueNormal * 0.09,
+        valueLow * 0.0735
       ));
       pointer.subtract(1, 'week');
     }
-    console.log(this.GetOverviewData);
+    console.log(this.GetOverviewDataWeeks);
   }
 
   get getISOWeeks() {
@@ -33,10 +39,17 @@ export class EnergyService {
     return d.getDay() === 4 || isLeap && d.getDay() === 3 ? 53 : 52
   }
 
-  get GetOverviewData() {
+  get GetOverviewDataWeeks() {
     var a = [];
     a.push(this.data.filter((_, index) => index < 4));
     a.push(this.data.filter((_,index) => index < 4+this.getISOWeeks && index >= this.getISOWeeks));
+    return a;
+  }
+
+  get GetDetailDataQuarter(){
+    var a = [];
+    a.push(this.data.filter((_, index) => index < 13));
+    a.push(this.data.filter((_,index) => index < 13+this.getISOWeeks && index >= this.getISOWeeks));
     return a;
   }
 }
