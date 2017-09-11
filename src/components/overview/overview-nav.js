@@ -91,7 +91,9 @@ export class OverviewNavCustomElement {
   }
 
   fireChangeEvent() {
-    this.onChange(this.navList[this.selectedNav].actions[this.selectedType].key);
+    this.onChange({
+      value: this.navList[this.selectedNav].actions[this.selectedType].key
+    });
   }
 
   changeType(item) {

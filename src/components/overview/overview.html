@@ -2,7 +2,7 @@
   <require from="../common/header.js"></require>
   <require from="./overview-nav.js"></require>
   <header router.bind="router">
-    <overview-nav router.bind="router" on-change.bind="onChange"></overview-nav>
+    <overview-nav router.bind="router" on-change.call="onChange(value)"></overview-nav>
   </header>
 
   <section class="au-animate overview">

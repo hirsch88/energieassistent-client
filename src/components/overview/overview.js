@@ -16,7 +16,7 @@ export class Overview {
   }
 
   onChange(selection) {
-    console.warn('Overview->onChange', selection);
+    console.warn('Overview->onChange', selection, this);
   }
 
   attached() {
