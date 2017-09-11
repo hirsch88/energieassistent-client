@@ -4,7 +4,7 @@ import { EnergyService } from '../../services/energy.service';
 
 @inject(EnergyService)
 export class Energy {
-  constructor(energyService){
+  constructor(energyService) {
     this.energyService = energyService;
     this.data = {};
   }
@@ -14,30 +14,30 @@ export class Energy {
     var swissAverageEnergy = 1250;
 
     var dataEnergy = this.energyService.GetDetailDataQuarter;
-    this.data.costsThisWeek = Math.round((Number(dataEnergy[0][0].costNormal) + Number(dataEnergy[0][0].costLow))*100)/100;
-    this.data.costsHistoryWeek = Math.round((Number(dataEnergy[1][0].costNormal) + Number(dataEnergy[1][0].costLow))*100)/100;
+    this.data.costsThisWeek = Math.round((Number(dataEnergy[0][0].costNormal) + Number(dataEnergy[0][0].costLow)) * 100) / 100;
+    this.data.costsHistoryWeek = Math.round((Number(dataEnergy[1][0].costNormal) + Number(dataEnergy[1][0].costLow)) * 100) / 100;
     this.data.actualWeek = dataEnergy[0][0].week;
-    
+
 
     if (this.data.costsThisWeek < this.data.costsHistoryWeek) {
       this.data.comparedToLastYearText = "Sie haben zum Vorjahr gespart.";
-      this.data.comparedToLastYearValue = Math.round((this.data.costsHistoryWeek - this.data.costsThisWeek)*100)/100;
+      this.data.comparedToLastYearValue = Math.round((this.data.costsHistoryWeek - this.data.costsThisWeek) * 100) / 100;
       this.data.comparedToLastYearClass = "green";
       this.data.tippText = "Bravo, Sie haben zum Vorjahr gespart!";
     } else {
       this.data.comparedToLastYearText = "Sie haben zum Vorjahr mehr benötigt.";
-      this.data.comparedToLastYearValue = Math.round((this.data.costsThisWeek - this.data.costsHistoryWeek)*100)/100;
+      this.data.comparedToLastYearValue = Math.round((this.data.costsThisWeek - this.data.costsHistoryWeek) * 100) / 100;
       this.data.comparedToLastYearClass = "red";
       this.data.tippText = "Hier einige Tipps um Energie zu sparen."
     }
 
-    if (this.data.costsThisWeek < swissAverageCosts){
+    if (this.data.costsThisWeek < swissAverageCosts) {
       this.data.comparedToSwissText = "Sie sind unter dem Durchschnitt der schweizer Haushalte.";
-      this.data.comparedToSwissValue = Math.round((swissAverageCosts - this.data.costsThisWeek)*100)/100;
+      this.data.comparedToSwissValue = Math.round((swissAverageCosts - this.data.costsThisWeek) * 100) / 100;
       this.data.comparedToSwissClass = "green";
     } else {
       this.data.comparedToSwissText = "Sie sind über dem Durchschnitt der schweizer Haushalte.";
-      this.data.comparedToSwissValue = Math.round((this.data.costsThisWeek - swissAverageCosts)*100)/100;
+      this.data.comparedToSwissValue = Math.round((this.data.costsThisWeek - swissAverageCosts) * 100) / 100;
       this.data.comparedToSwissClass = "red";
     }
 
@@ -46,64 +46,64 @@ export class Energy {
       type: 'bar',
       data: {
         labels: [
-          "KW"+dataEnergy[0][12].week,
-          "KW"+dataEnergy[0][11].week, 
-          "KW"+dataEnergy[0][10].week, 
-          "KW"+dataEnergy[0][9].week, 
-          "KW"+dataEnergy[0][8].week, 
-          "KW"+dataEnergy[0][7].week, 
-          "KW"+dataEnergy[0][6].week, 
-          "KW"+dataEnergy[0][5].week, 
-          "KW"+dataEnergy[0][4].week, 
-          "KW"+dataEnergy[0][3].week, 
-          "KW"+dataEnergy[0][2].week, 
-          "KW"+dataEnergy[0][1].week, 
-          "KW"+dataEnergy[0][0].week
+          "KW" + dataEnergy[0][12].week,
+          "KW" + dataEnergy[0][11].week,
+          "KW" + dataEnergy[0][10].week,
+          "KW" + dataEnergy[0][9].week,
+          "KW" + dataEnergy[0][8].week,
+          "KW" + dataEnergy[0][7].week,
+          "KW" + dataEnergy[0][6].week,
+          "KW" + dataEnergy[0][5].week,
+          "KW" + dataEnergy[0][4].week,
+          "KW" + dataEnergy[0][3].week,
+          "KW" + dataEnergy[0][2].week,
+          "KW" + dataEnergy[0][1].week,
+          "KW" + dataEnergy[0][0].week
         ],
         datasets: [{
           label: "Aktueller Verbrauch",
           data: [
-            dataEnergy[0][12].value, 
-            dataEnergy[0][11].value, 
-            dataEnergy[0][10].value, 
-            dataEnergy[0][9].value, 
-            dataEnergy[0][8].value, 
-            dataEnergy[0][7].value, 
-            dataEnergy[0][6].value, 
-            dataEnergy[0][5].value, 
-            dataEnergy[0][4].value, 
-            dataEnergy[0][3].value, 
-            dataEnergy[0][2].value, 
-            dataEnergy[0][1].value, 
+            dataEnergy[0][12].value,
+            dataEnergy[0][11].value,
+            dataEnergy[0][10].value,
+            dataEnergy[0][9].value,
+            dataEnergy[0][8].value,
+            dataEnergy[0][7].value,
+            dataEnergy[0][6].value,
+            dataEnergy[0][5].value,
+            dataEnergy[0][4].value,
+            dataEnergy[0][3].value,
+            dataEnergy[0][2].value,
+            dataEnergy[0][1].value,
             dataEnergy[0][0].value
           ],
           backgroundColor: 'rgba(255, 224, 102, 0.37)',
           borderColor: '#ffe066',
           borderWidth: 2
-        },{
-          label: "Verbrauch "+dataEnergy[1][0].year,
+        }, {
+          label: "Verbrauch " + dataEnergy[1][0].year,
           data: [
-            dataEnergy[1][12].value, 
-            dataEnergy[1][11].value, 
-            dataEnergy[1][10].value, 
-            dataEnergy[1][9].value, 
-            dataEnergy[1][8].value, 
-            dataEnergy[1][7].value, 
-            dataEnergy[1][6].value, 
-            dataEnergy[1][5].value, 
-            dataEnergy[1][4].value, 
-            dataEnergy[1][3].value, 
-            dataEnergy[1][2].value, 
-            dataEnergy[1][1].value, 
+            dataEnergy[1][12].value,
+            dataEnergy[1][11].value,
+            dataEnergy[1][10].value,
+            dataEnergy[1][9].value,
+            dataEnergy[1][8].value,
+            dataEnergy[1][7].value,
+            dataEnergy[1][6].value,
+            dataEnergy[1][5].value,
+            dataEnergy[1][4].value,
+            dataEnergy[1][3].value,
+            dataEnergy[1][2].value,
+            dataEnergy[1][1].value,
             dataEnergy[1][0].value
           ],
           borderColor: "#e67700",
           backgroundColor: "rgba(230, 119, 0, 0.36)",
           fill: false,
           type: 'line'
-        },{
+        }, {
           label: "Schweizer Durchschnitt",
-          data: [swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy,swissAverageEnergy],
+          data: [swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy],
           borderColor: "#adb5bd",
           backgroundColor: "rgba(173, 181, 189, 0.36)",
           fill: false,
@@ -144,55 +144,55 @@ export class Energy {
       type: 'bar',
       data: {
         labels: [
-          "KW"+dataEnergy[0][12].week,
-          "KW"+dataEnergy[0][11].week, 
-          "KW"+dataEnergy[0][10].week, 
-          "KW"+dataEnergy[0][9].week, 
-          "KW"+dataEnergy[0][8].week, 
-          "KW"+dataEnergy[0][7].week, 
-          "KW"+dataEnergy[0][6].week, 
-          "KW"+dataEnergy[0][5].week, 
-          "KW"+dataEnergy[0][4].week, 
-          "KW"+dataEnergy[0][3].week, 
-          "KW"+dataEnergy[0][2].week, 
-          "KW"+dataEnergy[0][1].week, 
-          "KW"+dataEnergy[0][0].week
+          "KW" + dataEnergy[0][12].week,
+          "KW" + dataEnergy[0][11].week,
+          "KW" + dataEnergy[0][10].week,
+          "KW" + dataEnergy[0][9].week,
+          "KW" + dataEnergy[0][8].week,
+          "KW" + dataEnergy[0][7].week,
+          "KW" + dataEnergy[0][6].week,
+          "KW" + dataEnergy[0][5].week,
+          "KW" + dataEnergy[0][4].week,
+          "KW" + dataEnergy[0][3].week,
+          "KW" + dataEnergy[0][2].week,
+          "KW" + dataEnergy[0][1].week,
+          "KW" + dataEnergy[0][0].week
         ],
         datasets: [{
           label: "Aktueller Verbrauch",
           data: [
-            dataEnergy[0][12].valueNormal, 
-            dataEnergy[0][11].valueNormal, 
-            dataEnergy[0][10].valueNormal, 
-            dataEnergy[0][9].valueNormal, 
-            dataEnergy[0][8].valueNormal, 
-            dataEnergy[0][7].valueNormal, 
-            dataEnergy[0][6].valueNormal, 
-            dataEnergy[0][5].valueNormal, 
-            dataEnergy[0][4].valueNormal, 
-            dataEnergy[0][3].valueNormal, 
-            dataEnergy[0][2].valueNormal, 
-            dataEnergy[0][1].valueNormal, 
+            dataEnergy[0][12].valueNormal,
+            dataEnergy[0][11].valueNormal,
+            dataEnergy[0][10].valueNormal,
+            dataEnergy[0][9].valueNormal,
+            dataEnergy[0][8].valueNormal,
+            dataEnergy[0][7].valueNormal,
+            dataEnergy[0][6].valueNormal,
+            dataEnergy[0][5].valueNormal,
+            dataEnergy[0][4].valueNormal,
+            dataEnergy[0][3].valueNormal,
+            dataEnergy[0][2].valueNormal,
+            dataEnergy[0][1].valueNormal,
             dataEnergy[0][0].valueNormal
           ],
           backgroundColor: 'rgba(255, 224, 102, 0.37)',
           borderColor: '#ffe066',
           borderWidth: 2
-        },{
-          label: "Verbrauch "+dataEnergy[1][0].year,
+        }, {
+          label: "Verbrauch " + dataEnergy[1][0].year,
           data: [
-            dataEnergy[1][12].valueNormal, 
-            dataEnergy[1][11].valueNormal, 
-            dataEnergy[1][10].valueNormal, 
-            dataEnergy[1][9].valueNormal, 
-            dataEnergy[1][8].valueNormal, 
-            dataEnergy[1][7].valueNormal, 
-            dataEnergy[1][6].valueNormal, 
-            dataEnergy[1][5].valueNormal, 
-            dataEnergy[1][4].valueNormal, 
-            dataEnergy[1][3].valueNormal, 
-            dataEnergy[1][2].valueNormal, 
-            dataEnergy[1][1].valueNormal, 
+            dataEnergy[1][12].valueNormal,
+            dataEnergy[1][11].valueNormal,
+            dataEnergy[1][10].valueNormal,
+            dataEnergy[1][9].valueNormal,
+            dataEnergy[1][8].valueNormal,
+            dataEnergy[1][7].valueNormal,
+            dataEnergy[1][6].valueNormal,
+            dataEnergy[1][5].valueNormal,
+            dataEnergy[1][4].valueNormal,
+            dataEnergy[1][3].valueNormal,
+            dataEnergy[1][2].valueNormal,
+            dataEnergy[1][1].valueNormal,
             dataEnergy[1][0].valueNormal
           ],
           borderColor: "#e67700",
@@ -235,55 +235,55 @@ export class Energy {
       type: 'bar',
       data: {
         labels: [
-          "KW"+dataEnergy[0][12].week,
-          "KW"+dataEnergy[0][11].week, 
-          "KW"+dataEnergy[0][10].week, 
-          "KW"+dataEnergy[0][9].week, 
-          "KW"+dataEnergy[0][8].week, 
-          "KW"+dataEnergy[0][7].week, 
-          "KW"+dataEnergy[0][6].week, 
-          "KW"+dataEnergy[0][5].week, 
-          "KW"+dataEnergy[0][4].week, 
-          "KW"+dataEnergy[0][3].week, 
-          "KW"+dataEnergy[0][2].week, 
-          "KW"+dataEnergy[0][1].week, 
-          "KW"+dataEnergy[0][0].week
+          "KW" + dataEnergy[0][12].week,
+          "KW" + dataEnergy[0][11].week,
+          "KW" + dataEnergy[0][10].week,
+          "KW" + dataEnergy[0][9].week,
+          "KW" + dataEnergy[0][8].week,
+          "KW" + dataEnergy[0][7].week,
+          "KW" + dataEnergy[0][6].week,
+          "KW" + dataEnergy[0][5].week,
+          "KW" + dataEnergy[0][4].week,
+          "KW" + dataEnergy[0][3].week,
+          "KW" + dataEnergy[0][2].week,
+          "KW" + dataEnergy[0][1].week,
+          "KW" + dataEnergy[0][0].week
         ],
         datasets: [{
           label: "Aktueller Verbrauch",
           data: [
-            dataEnergy[0][12].valueLow, 
-            dataEnergy[0][11].valueLow, 
-            dataEnergy[0][10].valueLow, 
-            dataEnergy[0][9].valueLow, 
-            dataEnergy[0][8].valueLow, 
-            dataEnergy[0][7].valueLow, 
-            dataEnergy[0][6].valueLow, 
-            dataEnergy[0][5].valueLow, 
-            dataEnergy[0][4].valueLow, 
-            dataEnergy[0][3].valueLow, 
-            dataEnergy[0][2].valueLow, 
-            dataEnergy[0][1].valueLow, 
+            dataEnergy[0][12].valueLow,
+            dataEnergy[0][11].valueLow,
+            dataEnergy[0][10].valueLow,
+            dataEnergy[0][9].valueLow,
+            dataEnergy[0][8].valueLow,
+            dataEnergy[0][7].valueLow,
+            dataEnergy[0][6].valueLow,
+            dataEnergy[0][5].valueLow,
+            dataEnergy[0][4].valueLow,
+            dataEnergy[0][3].valueLow,
+            dataEnergy[0][2].valueLow,
+            dataEnergy[0][1].valueLow,
             dataEnergy[0][0].valueLow
           ],
           backgroundColor: 'rgba(255, 224, 102, 0.37)',
           borderColor: '#ffe066',
           borderWidth: 2
-        },{
-          label: "Verbrauch "+dataEnergy[1][0].year,
+        }, {
+          label: "Verbrauch " + dataEnergy[1][0].year,
           data: [
-            dataEnergy[1][12].valueLow, 
-            dataEnergy[1][11].valueLow, 
-            dataEnergy[1][10].valueLow, 
-            dataEnergy[1][9].valueLow, 
-            dataEnergy[1][8].valueLow, 
-            dataEnergy[1][7].valueLow, 
-            dataEnergy[1][6].valueLow, 
-            dataEnergy[1][5].valueLow, 
-            dataEnergy[1][4].valueLow, 
-            dataEnergy[1][3].valueLow, 
-            dataEnergy[1][2].valueLow, 
-            dataEnergy[1][1].valueLow, 
+            dataEnergy[1][12].valueLow,
+            dataEnergy[1][11].valueLow,
+            dataEnergy[1][10].valueLow,
+            dataEnergy[1][9].valueLow,
+            dataEnergy[1][8].valueLow,
+            dataEnergy[1][7].valueLow,
+            dataEnergy[1][6].valueLow,
+            dataEnergy[1][5].valueLow,
+            dataEnergy[1][4].valueLow,
+            dataEnergy[1][3].valueLow,
+            dataEnergy[1][2].valueLow,
+            dataEnergy[1][1].valueLow,
             dataEnergy[1][0].valueLow
           ],
           borderColor: "#e67700",
@@ -320,24 +320,24 @@ export class Energy {
         }
       }
     });
-    
-    var nne_normal = Number(dataEnergy[0][0].valueNormal)*0.13;
-    var nne_low = Number(dataEnergy[0][0].valueLow)*0.042;
-    var la_normal = Number(dataEnergy[0][0].valueNormal)*0.052;
-    var la_low = Number(dataEnergy[0][0].valueLow)*0.04;
-    var abgaben = Number(dataEnergy[0][0].value)*0.011+Number(dataEnergy[0][0].value)*0.013+la_normal+la_low + ((nne_normal+nne_low+la_low+la_normal)/100*9);
-    var strom = Number(dataEnergy[0][0].valueNormal)*0.09+Number(dataEnergy[0][0].valueLow)*0.0735;
-    var netz = Number(dataEnergy[0][0].value)*0.0054+nne_normal+nne_low;
+
+    var nne_normal = Number(dataEnergy[0][0].valueNormal) * 0.13;
+    var nne_low = Number(dataEnergy[0][0].valueLow) * 0.042;
+    var la_normal = Number(dataEnergy[0][0].valueNormal) * 0.052;
+    var la_low = Number(dataEnergy[0][0].valueLow) * 0.04;
+    var abgaben = Number(dataEnergy[0][0].value) * 0.011 + Number(dataEnergy[0][0].value) * 0.013 + la_normal + la_low + ((nne_normal + nne_low + la_low + la_normal) / 100 * 9);
+    var strom = Number(dataEnergy[0][0].valueNormal) * 0.09 + Number(dataEnergy[0][0].valueLow) * 0.0735;
+    var netz = Number(dataEnergy[0][0].value) * 0.0054 + nne_normal + nne_low;
 
 
     var ctx_costs = $("#costsChart");
-    var costsChart = new Chart(ctx_costs,{
+    var costsChart = new Chart(ctx_costs, {
       type: 'pie',
       data: {
         datasets: [{
           label: ["Stromkosten", "Netzkosten", "Abgaben"],
-          data: [Math.round(strom*100)/100, Math.round(netz*100)/100, Math.round(abgaben*100)/100],
-          backgroundColor: ['#ffe066','#f59f00', '#dee2e6'],
+          data: [Math.round(strom * 100) / 100, Math.round(netz * 100) / 100, Math.round(abgaben * 100) / 100],
+          backgroundColor: ['#ffe066', '#f59f00', '#dee2e6'],
           borderColor: '#495057'
         }],
         labels: ["Stromkosten", "Netzkosten", "Abgaben"],
@@ -363,13 +363,13 @@ export class Energy {
     var solar = 432;
 
     var ctx_types = $("#typesChart");
-    var typesChart = new Chart(ctx_types,{
+    var typesChart = new Chart(ctx_types, {
       type: 'pie',
       data: {
         datasets: [{
           label: ["Aqua", "Pure", "Solar"],
           data: [aqua, pure, solar],
-          backgroundColor: ['#ffe066','#f59f00', '#dee2e6'],
+          backgroundColor: ['#ffe066', '#f59f00', '#dee2e6'],
           borderColor: '#f8f9fa'
         }],
         labels: ["Aqua", "Pure", "Solar"],
@@ -388,5 +388,9 @@ export class Energy {
         }
       }
     });
+  }
+
+  onChange(type, value) {
+    console.warn('Energy->onChange', type, value);
   }
 }

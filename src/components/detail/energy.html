@@ -1,24 +1,30 @@
 <template>
+  <require from="../common/header.js"></require>
+  <require from="./energy-nav.js"></require>
+  <header router.bind="router">
+    <energy-nav router.bind="router" on-change.bind="onChange"></energy-nav>
+  </header>
+
   <section class="au-animate energy">
     <div class="costoverview">
       <h1>Kostenübersicht</h1>
       <table class="detail-table">
-          <tr class="detail-table-row">
-            <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
-            <td class="text">Dies sind Ihre Kosten für KW${data.actualWeek}.</td>
-            <td class="zahl">${data.costsThisWeek} CHF</td>
-          </tr>
-          <tr class="detail-table-row">
-            <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
-            <td class="text">${data.comparedToLastYearText}</td>
-            <td class="zahl ${data.comparedToLastYearClass}">${data.comparedToLastYearValue} CHF</td>
-          </tr>
-          <tr class="detail-table-row">
-            <td class="icon">ø</td>
-            <td class="text">${data.comparedToSwissText}</td>
-            <td class="zahl ${data.comparedToSwissClass}">${data.comparedToSwissValue} CHF</td>
-          </tr>
-        </table>
+        <tr class="detail-table-row">
+          <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td class="text">Dies sind Ihre Kosten für KW${data.actualWeek}.</td>
+          <td class="zahl">${data.costsThisWeek} CHF</td>
+        </tr>
+        <tr class="detail-table-row">
+          <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
+          <td class="text">${data.comparedToLastYearText}</td>
+          <td class="zahl ${data.comparedToLastYearClass}">${data.comparedToLastYearValue} CHF</td>
+        </tr>
+        <tr class="detail-table-row">
+          <td class="icon">ø</td>
+          <td class="text">${data.comparedToSwissText}</td>
+          <td class="zahl ${data.comparedToSwissClass}">${data.comparedToSwissValue} CHF</td>
+        </tr>
+      </table>
     </div>
     <div class="tipps">
       <h1 class="${data.comparedToLastYearClass}">"${data.tippText}"</h1>
@@ -28,9 +34,9 @@
           <td class="title">Niedrige Waschtemperatur wählen</td>
         </tr>
         <tr class="tipp-table-row">
-          <td class="text">Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. 
-            Kochwaschprogramme bei 90 Grad sind nicht mehr notwendig. 
-            Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber zu bekommen.
+          <td class="text">Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Grad sind
+            nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber
+            zu bekommen.
           </td>
         </tr>
         <tr class="tipp-table-row">
@@ -72,14 +78,14 @@
     <div class="costsplit">
       <h1>Kostenaufteilung</h1>
       <div class="costsplit-row">
-          <canvas id="costsChart" width="320" height="220"></canvas>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        <canvas id="costsChart" width="320" height="220"></canvas>
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
       </div>
     </div>
     <div class="energytypes">
       <h1>Energieträger</h1>
       <div class="energytypes-row">
-          <span><b>Solar</b><br>
+        <span><b>Solar</b><br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
             <br><br>
             <b>Aqua</b><br>
@@ -88,13 +94,13 @@
             <b>Pure</b><br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </span>
-          <canvas id="typesChart" width="320" height="220"></canvas>
+        <canvas id="typesChart" width="320" height="220"></canvas>
       </div>
     </div>
     <div class="bill">
       <h1>Rechnung</h1>
       <span>eventuell PDF Auszug anzeigen?</span>
     </div>
-    
+
   </section>
 </template>

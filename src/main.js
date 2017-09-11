@@ -1,6 +1,9 @@
 // we want font-awesome to load as soon as possible to show the fa-spinner
 import '../styles/styles.scss';
 
+//
+import 'bootstrap';
+
 // comment out if you don't want a Promise polyfill (remove also from webpack.common.js)
 import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: false });

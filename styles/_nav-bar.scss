@@ -1,117 +1,133 @@
 nav.navbar {
-  a.navbar-brand {
-    text-align: center;
-    padding: 20px 15px !important;
-
-    a,
-    i {
-      display: block;
-      font-size: 24px;
-    }
-
-  }
-
-  display: flex;
-  flex-direction: row;
-
-  div.logo,
-  div.menu,
-  div.user,
-  div.trophy {
+  .wrapper {
     display: flex;
-    justify-content: center;
-  }
+    background-color: $oc-gray-1;
 
-  div.logo,
-  div.user,
-  div.trophy {
-    width: 10vw;
-  }
+    .item {
+      display: flex;
+      padding: 15px;
+    }
 
-  div.menu {
-    flex: 1;
-  }
+    .logo {
+      width: 240px;
+      justify-content: flex-start;
+      align-items: center;
 
-  div.user a.navbar-brand, 
-  div.trophy a.navbar-brand {
-    padding: 30px 15px !important;
+      a,
+      i {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        color: $oc-gray-5;
+      }
 
-    i {
-      font-size: 30px;
+      a {
+        text-decoration: none;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        &:hover,
+        &:hover i {
+          text-decoration: none;
+          color: $oc-gray-4;
+        }
+      }
+
+    }
+
+    .navigation {
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+
+      .paragraph {
+        margin: 0;
+
+        div {
+          display: inline-block;
+        }
+
+        .dropdown {
+          margin: auto 10px;
+        }
+
+        .dropdown > a {
+          display: inline-block;
+          color: $oc-gray-7;
+          font-size: 24px;
+          border-bottom: 3px solid $oc-gray-7;
+          text-decoration: none !important;
+
+          &.energy {
+            color: $oc-yellow-7;
+          }
+
+          &.heat {
+            color: $oc-red-7;
+          }
+
+          &.water {
+            color: $oc-blue-7;
+          }
+        }
+
+        a[role=menuitem] {
+          font-size: 22px;
+
+          i {
+            width: 20px;
+            text-align: left;
+          }
+
+          &.energy {
+            color: $oc-yellow-7;
+          }
+
+          &.heat {
+            color: $oc-red-7;
+          }
+
+          &.water {
+            color: $oc-blue-7;
+          }
+        }
+
+        span {
+          color: $oc-gray-5;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .actions {
+      width: 240px;
+      justify-content: flex-end;
+      align-items: center;
+
+      ul {
+        li {
+          a,
+          i {
+            display: block;
+            font-size: 36px;
+            text-align: center;
+            color: $oc-gray-5;
+          }
+
+          a {
+            text-decoration: none;
+            padding: 0 30px;
+
+            &:hover,
+            &:hover i {
+              text-decoration: none;
+              color: $oc-gray-4;
+            }
+          }
+
+        }
+      }
     }
   }
 
-  li.energy,
-  li.heat,
-  li.water {
-    font-size: 24px;
-
-    a {
-      border-radius: 7px;
-      padding: 10px 15px !important;
-      margin: 20px;
-    }
-  }
-
-  li.energy {
-    a {
-      color: $oc-yellow-5;
-    }
-
-    a:active,
-    a:focus,
-    a:hover {
-      color: $oc-yellow-7;
-    }
-  }
-
-  li.heat {
-    a {
-      color: $oc-red-5;
-    }
-
-    a:active,
-    a:focus,
-    a:hover {
-      color: $oc-red-7;
-    }
-  }
-
-  li.water {
-    a {
-      color: $oc-blue-5;
-    }
-
-    a:active,
-    a:focus,
-    a:hover {
-      color: $oc-blue-7;
-    }
-  }
-
-  li.active {
-    &.energy a,
-    &.energy a:hover,
-    &.energy a:active,
-    &.energy a:focus {
-      background-color: $oc-yellow-7;
-      color: white;
-    }
-
-    &.heat a,
-    &.heat a:hover,
-    &.heat a:active,
-    &.heat a:focus {
-      background-color: $oc-red-7;
-      color: white;
-    }
-
-    &.water a,
-    &.water a:hover,
-    &.water a:active,
-    &.water a:focus {
-      background-color: $oc-blue-7;
-      color: white;
-    }
-  }
 }

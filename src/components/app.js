@@ -9,8 +9,6 @@ export class App {
       { route: 'water', name: 'water', moduleId: './detail/water', nav: true, title: 'Wasser', icon: 'fa fa-tint' }
     ]);
 
-    console.log(router.navigation);
-
     this.router = router;
   }
 }

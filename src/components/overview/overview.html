@@ -1,10 +1,15 @@
 <template>
+  <require from="../common/header.js"></require>
+  <require from="./overview-nav.js"></require>
+  <header router.bind="router">
+    <overview-nav router.bind="router" on-change.bind="onChange"></overview-nav>
+  </header>
+
   <section class="au-animate overview">
 
     <div class="overview-charts-energy">
       <div class="title">
-        <i class="fa fa-bolt" aria-hidden="true"></i>
-        Strom
+        <i class="fa fa-bolt" aria-hidden="true"></i> Strom
       </div>
       <div class="${data.moodEnergy} tipp">
         ${data.trendEnergy}%
@@ -33,8 +38,7 @@
 
     <div class="overview-charts-heat">
       <div class="title">
-        <i class="fa fa-fire" aria-hidden="true"></i>
-        Wärme
+        <i class="fa fa-fire" aria-hidden="true"></i> Wärme
       </div>
       <div class="${data.moodHeat} tipp">
         ${data.trendHeat}%
@@ -43,28 +47,27 @@
       </div>
       <canvas id="heatChart" width="320" height="320"></canvas>
       <table class="overview-table">
-          <tr class="overview-table-row">
-            <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
-            <td class="text">Dein aktueller Verbrauch</td>
-            <td class="zahl">${data.actualHeat} kWh</td>
-          </tr>
-          <tr class="overview-table-row">
-            <td><i class="fa fa-history" aria-hidden="true"></i></td>
-            <td class="text">Dein Wärmeverbrauch vor einem Jahr</td>
-            <td class="zahl">${data.historyHeat} kWh</td>
-          </tr>
-          <tr class="overview-table-row">
-            <td class="icon">ø</td>
-            <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
-            <td class="zahl">${data.averageHeat} kWh</td>
-          </tr>
-        </table>
+        <tr class="overview-table-row">
+          <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td class="text">Dein aktueller Verbrauch</td>
+          <td class="zahl">${data.actualHeat} kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td><i class="fa fa-history" aria-hidden="true"></i></td>
+          <td class="text">Dein Wärmeverbrauch vor einem Jahr</td>
+          <td class="zahl">${data.historyHeat} kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">ø</td>
+          <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+          <td class="zahl">${data.averageHeat} kWh</td>
+        </tr>
+      </table>
     </div>
 
     <div class="overview-charts-water">
       <div class="title">
-        <i class="fa fa-tint" aria-hidden="true"></i>
-        Wasser
+        <i class="fa fa-tint" aria-hidden="true"></i> Wasser
       </div>
       <div class="${data.moodWater} tipp">
         ${data.trendWater}%
@@ -73,22 +76,22 @@
       </div>
       <canvas id="waterChart" width="320" height="320"></canvas>
       <table class="overview-table">
-          <tr class="overview-table-row">
-            <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
-            <td class="text">Dein aktueller Verbrauch</td>
-            <td class="zahl">${data.actualWater} l</td>
-          </tr>
-          <tr class="overview-table-row">
-            <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
-            <td class="text">Dein Wasserverbrauch vor einem Jahr</td>
-            <td class="zahl">${data.historyWater} l</td>
-          </tr>
-          <tr class="overview-table-row">
-            <td class="icon">ø</td>
-            <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
-            <td class="zahl">${data.averageWater} l</td>
-          </tr>
-        </table>
+        <tr class="overview-table-row">
+          <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
+          <td class="text">Dein aktueller Verbrauch</td>
+          <td class="zahl">${data.actualWater} l</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
+          <td class="text">Dein Wasserverbrauch vor einem Jahr</td>
+          <td class="zahl">${data.historyWater} l</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">ø</td>
+          <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+          <td class="zahl">${data.averageWater} l</td>
+        </tr>
+      </table>
     </div>
 
   </section>

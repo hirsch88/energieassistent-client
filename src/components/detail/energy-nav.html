@@ -1,0 +1,14 @@
+<template bindable="router">
+  <require from="../common/dropdown.js"></require>
+
+  <form>
+    <div class="paragraph">
+      <span>Ich möchte den</span>
+      <dropdown list.bind="navList" selected-index.bind="selectedNav"></dropdown>
+      <span>der letzten</span>
+      <dropdown list.bind="typeList" selected-index.bind="selectedType"></dropdown>
+      <dropdown list.bind="calList" selected-index.bind="selectedCal" if.bind="calList"></dropdown>
+      <span>sehen.</span>
+    </div>
+  </form>
+</template>
