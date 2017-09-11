@@ -45,6 +45,23 @@ export class EnergyService {
     return a;
   }
 
+  get GetOverviewDataMonth() {
+    var thisYear = [];
+    var lastYear = [];
+    var pointer = moment();
+    for(let i = 0; i<=3 ;i++) {
+      // get total of pointer month
+      
+      // add total to thisYear
+      //thisYear.push();
+      pointer.subtract(1,'month');
+    }
+
+    a.push(this.data.filter((_, index) => index < 4)); //a.push(thisYear);
+    a.push(this.data.filter((_,index) => index < 4+this.getISOWeeks && index >= this.getISOWeeks)); //a.push(lastYear);
+    return a;
+  }
+
   get GetDetailDataQuarter(){
     var a = [];
     a.push(this.data.filter((_, index) => index < 13));

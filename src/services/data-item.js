@@ -11,4 +11,15 @@ export class DataItem {
       this.costLow = costLow;
     }
 
+    getLabel(labelType){
+      switch (labelType){
+        case "week":
+          return "KW"+this.week;
+        case "month":
+          return this.month;
+        case "quarter":
+          return "Q"+Math.round(Number(this.month)/4+0.5);
+      }
+    }
+
   }

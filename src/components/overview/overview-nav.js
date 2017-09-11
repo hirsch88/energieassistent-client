@@ -22,9 +22,10 @@ export class OverviewNavCustomElement {
             text: 'Wochen',
             key: 'week',
             style: 'week',
-            onSelect: () => {
+            onSelect: (item, index) => {
               console.log('week');
-
+              scope.selectedType = index;
+              this.fireChangeEvent();
             }
           }, {
             text: 'Monaten',

@@ -39,6 +39,13 @@ export class HeatService {
     return a;
   }
 
+  get GetOverviewDataMonth() {
+    var a = [];
+    a.push(this.data.filter((_, index) => index < 4));
+    a.push(this.data.filter((_,index) => index < 4+this.getISOWeeks && index >= this.getISOWeeks));
+    return a;
+  }
+
 }
 
 
