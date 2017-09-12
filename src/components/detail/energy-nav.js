@@ -86,7 +86,10 @@ export class EnergyNavCustomElement {
   }
 
   fireChangeEvent(t, v) {
-    this.onChange(t, v);
+    this.onChange({
+      value: v,
+      type: t
+    });
   }
 
   changeType(item) {

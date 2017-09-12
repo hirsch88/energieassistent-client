@@ -9,7 +9,9 @@ export class Energy {
     this.data = {};
   }
 
-  attached() {
+  onChange(value, type) {
+    console.warn('Energy->onChange', value, type);
+
     var swissAverageCosts = 100;
     var swissAverageEnergy = 1250;
 
@@ -41,24 +43,26 @@ export class Energy {
       this.data.comparedToSwissClass = "red";
     }
 
+    $("#totalChart").remove();
+    $("#totalChartFrame").append('<canvas id="totalChart" width="930" height="420"></canvas>');
     var ctx_total = $("#totalChart");
     var totalChart = new Chart(ctx_total, {
       type: 'bar',
       data: {
         labels: [
-          "KW" + dataEnergy[0][12].week,
-          "KW" + dataEnergy[0][11].week,
-          "KW" + dataEnergy[0][10].week,
-          "KW" + dataEnergy[0][9].week,
-          "KW" + dataEnergy[0][8].week,
-          "KW" + dataEnergy[0][7].week,
-          "KW" + dataEnergy[0][6].week,
-          "KW" + dataEnergy[0][5].week,
-          "KW" + dataEnergy[0][4].week,
-          "KW" + dataEnergy[0][3].week,
-          "KW" + dataEnergy[0][2].week,
-          "KW" + dataEnergy[0][1].week,
-          "KW" + dataEnergy[0][0].week
+          dataEnergy[0][12].getDetailLabel(type),
+          dataEnergy[0][11].getDetailLabel(type),
+          dataEnergy[0][10].getDetailLabel(type),
+          dataEnergy[0][9].getDetailLabel(type),
+          dataEnergy[0][8].getDetailLabel(type),
+          dataEnergy[0][7].getDetailLabel(type),
+          dataEnergy[0][6].getDetailLabel(type),
+          dataEnergy[0][5].getDetailLabel(type),
+          dataEnergy[0][4].getDetailLabel(type),
+          dataEnergy[0][3].getDetailLabel(type),
+          dataEnergy[0][2].getDetailLabel(type),
+          dataEnergy[0][1].getDetailLabel(type),
+          dataEnergy[0][0].getDetailLabel(type),
         ],
         datasets: [{
           label: "Aktueller Verbrauch",
@@ -139,6 +143,8 @@ export class Energy {
       }
     });
 
+    $("#normalChart").remove();
+    $("#normalChartFrame").append('<canvas id="normalChart" width="930" height="420"></canvas>');
     var ctx_normal = $("#normalChart");
     var normalChart = new Chart(ctx_normal, {
       type: 'bar',
@@ -230,6 +236,8 @@ export class Energy {
       }
     });
 
+    $("#lowChart").remove();
+    $("#lowChartFrame").append('<canvas id="lowChart" width="930" height="420"></canvas>');
     var ctx_low = $("#lowChart");
     var lowChart = new Chart(ctx_low, {
       type: 'bar',
@@ -329,7 +337,8 @@ export class Energy {
     var strom = Number(dataEnergy[0][0].valueNormal) * 0.09 + Number(dataEnergy[0][0].valueLow) * 0.0735;
     var netz = Number(dataEnergy[0][0].value) * 0.0054 + nne_normal + nne_low;
 
-
+    $("#costsChart").remove();
+    $("#costsChartFrame").append('<canvas id="costsChart" width="320" height="220"></canvas>');
     var ctx_costs = $("#costsChart");
     var costsChart = new Chart(ctx_costs, {
       type: 'pie',
@@ -362,6 +371,8 @@ export class Energy {
     var pure = 234;
     var solar = 432;
 
+    $("#typesChart").remove();
+    $("#typesChartFrame").append('<canvas id="typesChart" width="320" height="220"></canvas>');
     var ctx_types = $("#typesChart");
     var typesChart = new Chart(ctx_types, {
       type: 'pie',
@@ -390,7 +401,7 @@ export class Energy {
     });
   }
 
-  onChange(type, value) {
-    console.warn('Energy->onChange', type, value);
+  attached() {
+    
   }
 }

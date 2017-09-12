@@ -2,7 +2,7 @@
   <require from="../common/header.js"></require>
   <require from="./energy-nav.js"></require>
   <header router.bind="router">
-    <energy-nav router.bind="router" on-change.bind="onChange"></energy-nav>
+    <energy-nav router.bind="router" on-change.call="onChange(value, type)"></energy-nav>
   </header>
 
   <section class="au-animate energy">
@@ -63,22 +63,30 @@
     </div>
     <div class="total">
       <h1>Gesamt Auswertung</h1>
-      <canvas id="totalChart" width="930" height="420"></canvas>
+      <div id="totalChartFrame">
+        <canvas id="totalChart" width="930" height="420"></canvas>
+      </div>
     </div>
     <div class="normal">
       <h1>Normaltarif Auswertung</h1>
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-      <canvas id="normalChart" width="930" height="320"></canvas>
+      <div id="normalChartFrame">
+        <canvas id="normalChart" width="930" height="320"></canvas>
+      </div>
     </div>
     <div class="low">
       <h1>Spartarif Auswertung</h1>
       <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-      <canvas id="lowChart" width="930" height="320"></canvas>
+      <div id="lowChartFrame">
+        <canvas id="lowChart" width="930" height="320"></canvas>
+      </div>
     </div>
     <div class="costsplit">
       <h1>Kostenaufteilung</h1>
       <div class="costsplit-row">
-        <canvas id="costsChart" width="320" height="220"></canvas>
+        <div id="costsChartFrame">
+          <canvas id="costsChart" width="320" height="220"></canvas>
+        </div>
         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
       </div>
     </div>
@@ -94,7 +102,9 @@
             <b>Pure</b><br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
           </span>
-        <canvas id="typesChart" width="320" height="220"></canvas>
+        <div id="typesChartFrame">
+          <canvas id="typesChart" width="320" height="220"></canvas>
+        </div>
       </div>
     </div>
     <div class="bill">

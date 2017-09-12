@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export class DataItem {
 
     constructor(year, month, week, value, valueNormal, valueLow, costNormal, costLow) {
@@ -16,9 +18,20 @@ export class DataItem {
         case "week":
           return "KW"+this.week;
         case "month":
-          return this.month;
+          var pointer = moment(new Date(this.year, this.month-1, 1));
+          return pointer.format("MMM");
         case "quarter":
-          return "Q"+Math.round(Number(this.month)/4+0.5);
+          return "Q"+Math.ceil(this.month / 3)+" ";
+      }
+    }
+
+    getDetailLabel(labelType){
+      switch (labelType){
+        case "quarter":
+          return "KW"+this.week;
+        case "year":
+          var pointer = moment(new Date(this.year, this.month-1, 1));
+          return pointer.format("MMM");
       }
     }
 
