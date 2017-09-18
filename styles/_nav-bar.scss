@@ -8,6 +8,32 @@ nav.navbar {
       padding: 15px;
     }
 
+    .back {
+      width: 240px;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
+
+      a,
+      i {
+        font-size: 24px;
+        text-align: center;
+        color: $oc-gray-5;
+      }
+
+      a {
+        text-decoration: none;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        &:hover,
+        &:hover i {
+          text-decoration: none;
+          color: $oc-gray-4;
+        }
+      }
+    }
+
     .logo {
       width: 240px;
       justify-content: flex-start;
