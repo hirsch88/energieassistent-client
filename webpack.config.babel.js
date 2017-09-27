@@ -27,7 +27,11 @@ const ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() || (proce
 
 // basic configuration:
 const title = 'Aurelia Navigation Skeleton'
-const baseUrl = '/'
+
+// Change this to '/' if you want to build a normal web-application
+// For an election app we have to use './'
+const baseUrl = './'
+
 const rootDir = path.resolve()
 const srcDir = path.resolve('src')
 const outDir = path.resolve('dist')
