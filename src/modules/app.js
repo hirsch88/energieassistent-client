@@ -2,7 +2,7 @@ import { PLATFORM } from 'aurelia-pal';
 
 export class App {
   configureRouter(config, router) {
-    config.title = 'Logo';
+    config.title = 'Energie Assistent';
     config.map([
       { route: ['', 'overview'], name: 'overview', moduleId: PLATFORM.moduleName('./overview/overview'), nav: false, title: 'Übersicht' },
       { route: ['energy'], name: 'energy', moduleId: PLATFORM.moduleName('./detail/energy'), nav: true, title: 'Strom', icon: 'fa fa-bolt' },

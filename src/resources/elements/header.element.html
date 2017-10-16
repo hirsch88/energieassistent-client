@@ -1,11 +1,44 @@
 <template bindable="router">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="wrapper">
+    <div class="row">
+      <div class="col-md-2 text-left">
+        <div class="logo">
+          <a href="#">
+            <i class="fa fa-leaf"></i>
+            <span>Energie Assisent</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="navigation">
+          <slot></slot>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="actions">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#/awards" class="award">
+                <i class="fa fa-trophy" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="wrapper">
       <div class="item logo">
         <a href="#">
-            <i class="fa fa-leaf"></i>
-            <span>${router.title}</span>
-          </a>
+          <i class="fa fa-leaf"></i>
+          <span>${router.title}</span>
+        </a>
       </div>
       <div class="item navigation">
         <slot></slot>
@@ -13,17 +46,17 @@
       <div class="item actions">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#/awards">
+            <a href="#/awards" class="award">
               <i class="fa fa-trophy" aria-hidden="true"></i>
             </a>
           </li>
           <li>
             <a href="#">
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              </a>
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </a>
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </nav>
 </template>

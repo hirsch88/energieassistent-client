@@ -100,9 +100,9 @@ export class Overview {
     this.waterOptions.actual = getActual(this.waterOptions.data)
 
     var getHistory = (d) => Math.round(Number(d[1][0].value) * 10) / 10;
-    this.energyOptions.actual = getHistory(this.energyOptions.data)
-    this.heatOptions.actual = getHistory(this.heatOptions.data)
-    this.waterOptions.actual = getHistory(this.waterOptions.data)
+    this.energyOptions.history = getHistory(this.energyOptions.data)
+    this.heatOptions.history = getHistory(this.heatOptions.data)
+    this.waterOptions.history = getHistory(this.waterOptions.data)
 
     var getStatus = (o) => {
       var data = {};
@@ -128,191 +128,18 @@ export class Overview {
     this.heatOptions.status = getStatus(this.heatOptions);
     this.waterOptions.status = getStatus(this.waterOptions);
 
-    // //timer für pulse animated
-    // var nodes = document.getElementsByClassName('smile-bad');
-    // for (let i = 0; i < nodes.length; i++) {
-    //   nodes[i].className = "smile-bad tipp";
-    // }
-    // setTimeout(() => {
-    //   var nodes = document.getElementsByClassName('smile-bad');
-    //   for (let i = 0; i < nodes.length; i++) {
-    //     nodes[i].className += " animated shake";
-    //   }
-    // }, 1000);
+    //timer für pulse animated
+    var nodes = document.getElementsByClassName('smile-bad');
+    for (let i = 0; i < nodes.length; i++) {
+      nodes[i].className = "smile-bad tipp";
+    }
+    setTimeout(() => {
+      var nodes = document.getElementsByClassName('smile-bad');
+      for (let i = 0; i < nodes.length; i++) {
+        nodes[i].className += " animated shake";
+      }
+    }, 1000);
 
-    // $("#energyChart").remove();
-    // $("#energyChartFrame").append('<canvas id="energyChart" width="250" height="320"></canvas>');
-    // var ctx_energy = $("#energyChart");
-    // var energyChart = new Chart(ctx_energy, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: [dataEnergy[0][3].getLabel(selection), dataEnergy[0][2].getLabel(selection), dataEnergy[0][1].getLabel(selection), dataEnergy[0][0].getLabel(selection)],
-    //     datasets: [{
-    //       label: "Aktueller Verbrauch",
-    //       data: [Math.round(100*dataEnergy[0][3].value)/100, Math.round(100*dataEnergy[0][2].value)/100, Math.round(100*dataEnergy[0][1].value)/100, Math.round(100*dataEnergy[0][0].value)/100],
-    //       backgroundColor: 'rgba(255, 224, 102, 0.37)',
-    //       borderColor: '#ffe066',
-    //       borderWidth: 2
-    //     }, {
-    //       label: "Verbrauch " + dataEnergy[1][0].year,
-    //       data: [Math.round(100*dataEnergy[1][3].value)/100, Math.round(100*dataEnergy[1][2].value)/100, Math.round(100*dataEnergy[1][1].value)/100, Math.round(100*dataEnergy[1][0].value)/100],
-    //       borderColor: "#e67700",
-    //       backgroundColor: "rgba(230, 119, 0, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }, {
-    //       label: "Schweizer Durchschnitt",
-    //       data: [this.data.averageEnergy, this.data.averageEnergy, this.data.averageEnergy, this.data.averageEnergy],
-    //       borderColor: "#adb5bd",
-    //       backgroundColor: "rgba(173, 181, 189, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }]
-    //   },
-    //   options: {
-    //     title: {
-    //       display: true,
-    //       fontSize: 12
-    //     },
-    //     tooltips: {
-    //       titleFontSize: 12,
-    //       titleFontFamily: 'Arial'
-    //     },
-    //     legend: {
-    //       position: 'bottom',
-    //       fullWidth: false
-    //     },
-    //     scales: {
-    //       yAxes: [{
-    //         ticks: {
-    //           min: 0
-    //         }
-    //       }],
-    //       xAxes: [{
-    //         ticks: {
-    //           fontFamily: 'Arial',
-
-    //         }
-    //       }]
-    //     }
-    //   }
-    // });
-
-    // $("#heatChart").remove();
-    // $("#heatChartFrame").append('<canvas id="heatChart" width="250" height="320"></canvas>');
-    // var ctx_heat = $("#heatChart");
-    // var heatChart = new Chart(ctx_heat, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: [dataHeat[0][3].getLabel(selection), dataHeat[0][2].getLabel(selection), dataHeat[0][1].getLabel(selection), dataHeat[0][0].getLabel(selection)],
-    //     datasets: [{
-    //       label: "Aktueller Verbrauch",
-    //       data: [Math.round(100*dataHeat[0][3].value)/100, Math.round(100*dataHeat[0][2].value)/100, Math.round(100*dataHeat[0][1].value)/100, Math.round(100*dataHeat[0][0].value)/100],
-    //       backgroundColor: 'rgba(255, 168, 168, 0.37)',
-    //       borderColor: '#ffa8a8',
-    //       borderWidth: 2
-    //     }, {
-    //       label: "Verbrauch " + dataHeat[1][0].year,
-    //       data: [Math.round(100*dataHeat[1][3].value)/100, Math.round(100*dataHeat[1][2].value)/100, Math.round(100*dataHeat[1][1].value)/100, Math.round(100*dataHeat[1][0].value)/100],
-    //       borderColor: "#c92a2a",
-    //       backgroundColor: "rgba(201, 42, 42, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }, {
-    //       label: "Schweizer Durchschnitt",
-    //       data: [this.data.averageHeat, this.data.averageHeat, this.data.averageHeat, this.data.averageHeat],
-    //       borderColor: "#adb5bd",
-    //       backgroundColor: "rgba(173, 181, 189, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }]
-    //   },
-    //   options: {
-    //     title: {
-    //       display: true,
-    //       fontSize: 12
-    //     },
-    //     tooltips: {
-    //       titleFontSize: 12,
-    //       titleFontFamily: 'Arial'
-    //     },
-    //     legend: {
-    //       position: 'bottom',
-    //       fullWidth: false
-    //     },
-    //     scales: {
-    //       yAxes: [{
-    //         ticks: {
-    //           min: 0
-    //         }
-    //       }],
-    //       xAxes: [{
-    //         ticks: {
-    //           fontFamily: 'Arial',
-
-    //         }
-    //       }]
-    //     }
-    //   }
-    // });
-
-    // $("#waterChart").remove();
-    // $("#waterChartFrame").append('<canvas id="waterChart" width="250" height="320"></canvas>');
-    // var ctx_water = $("#waterChart");
-    // var waterChart = new Chart(ctx_water, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: [dataWater[0][3].getLabel(selection), dataWater[0][2].getLabel(selection), dataWater[0][1].getLabel(selection), dataWater[0][0].getLabel(selection)],
-    //     datasets: [{
-    //       label: "Aktueller Verbrauch",
-    //       data: [Math.round(100*dataWater[0][3].value)/100, Math.round(100*dataWater[0][2].value)/100, Math.round(100*dataWater[0][1].value)/100, Math.round(100*dataWater[0][0].value)/100],
-    //       backgroundColor: 'rgba(114, 195, 252, 0.37)',
-    //       borderColor: '#72c3fc',
-    //       borderWidth: 2
-    //     }, {
-    //       label: "Verbrauch " + dataWater[1][0].year,
-    //       data: [Math.round(100*dataWater[1][3].value)/100, Math.round(100*dataWater[1][2].value)/100, Math.round(100*dataWater[1][1].value)/100, Math.round(100*dataWater[1][0].value)/100],
-    //       borderColor: "#1862ab",
-    //       backgroundColor: "rgba(24, 98, 171, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }, {
-    //       label: "Schweizer Durchschnitt",
-    //       data: [this.data.averageWater, this.data.averageWater, this.data.averageWater, this.data.averageWater],
-    //       borderColor: "#adb5bd",
-    //       backgroundColor: "rgba(173, 181, 189, 0.36)",
-    //       fill: false,
-    //       type: 'line'
-    //     }]
-    //   },
-    //   options: {
-    //     title: {
-    //       display: true,
-    //       fontSize: 12
-    //     },
-    //     tooltips: {
-    //       titleFontSize: 12,
-    //       titleFontFamily: 'Arial'
-    //     },
-    //     legend: {
-    //       position: 'bottom',
-    //       fullWidth: false
-    //     },
-    //     scales: {
-    //       yAxes: [{
-    //         ticks: {
-    //           min: 0
-    //         }
-    //       }],
-    //       xAxes: [{
-    //         ticks: {
-    //           fontFamily: 'Arial',
-
-    //         }
-    //       }]
-    //     }
-    //   }
-    // });
   }
 
   attached() {

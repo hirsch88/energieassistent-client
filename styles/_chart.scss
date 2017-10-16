@@ -27,6 +27,10 @@
   stroke-width: 2;
 }
 
+.c3-legend-item text {
+  fill: $oc-gray-5;
+}
+
 .blue .c3-bar {
   stroke-width: 2px;
   stroke: $oc-blue-3 !important;

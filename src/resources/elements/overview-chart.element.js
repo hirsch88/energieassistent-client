@@ -13,10 +13,7 @@ export class OverviewChartCustomElement {
   @bindable options;
   @bindable selection;
 
-  templateElement;
-
   isAttached = false;
-
   chartContainer;
   chart;
 
@@ -51,9 +48,6 @@ export class OverviewChartCustomElement {
         x: 'x',
         columns: [],
         types: {},
-        //   data2: 'line',
-        //   data3: 'line'
-        // },
         colors: colors[this.options.color] || {}
       }
     };
@@ -88,66 +82,5 @@ export class OverviewChartCustomElement {
 
     }
   }
-
-
-  // buildChart() {
-  //   if (this.options && this.options.data && this.selection) {
-  //     setTimeout(() => {
-  //       this.chart = new Chart($(this.chartContainer).find('canvas'), {
-  //         type: 'bar',
-  //         options: {
-  //           title: {
-  //             display: true,
-  //             fontSize: 12
-  //           },
-  //           tooltips: {
-  //             titleFontSize: 12,
-  //             titleFontFamily: 'Open Sans'
-  //           },
-  //           legend: {
-  //             position: 'bottom',
-  //             fullWidth: true
-  //           },
-  //           scales: {
-  //             yAxes: [{
-  //               ticks: {
-  //                 min: 0
-  //               }
-  //             }],
-  //             xAxes: [{
-  //               ticks: {
-  //                 fontFamily: 'Open Sans',
-  //               }
-  //             }]
-  //           }
-  //         },
-  //         data: {
-  //           labels: [this.options.data[0][3].getLabel(this.selection), this.options.data[0][2].getLabel(this.selection), this.options.data[0][1].getLabel(this.selection), this.options.data[0][0].getLabel(this.selection)],
-  //           datasets: [{
-  //             label: "Aktueller Verbrauch",
-  //             data: [Math.round(100 * this.options.data[0][3].value) / 100, Math.round(100 * this.options.data[0][2].value) / 100, Math.round(100 * this.options.data[0][1].value) / 100, Math.round(100 * this.options.data[0][0].value) / 100],
-  //             backgroundColor: 'rgba(255, 224, 102, 0.37)',
-  //             borderColor: '#ffe066',
-  //             borderWidth: 2
-  //           }, {
-  //             label: "Verbrauch " + this.options.data[1][0].year,
-  //             data: [Math.round(100 * this.options.data[1][3].value) / 100, Math.round(100 * this.options.data[1][2].value) / 100, Math.round(100 * this.options.data[1][1].value) / 100, Math.round(100 * this.options.data[1][0].value) / 100],
-  //             borderColor: "#e67700",
-  //             backgroundColor: "rgba(230, 119, 0, 0.36)",
-  //             fill: false,
-  //             type: 'line'
-  //           }, {
-  //             label: "Schweizer Durchschnitt",
-  //             data: [this.options.average, this.options.average, this.options.average, this.options.average],
-  //             borderColor: "#adb5bd",
-  //             backgroundColor: "rgba(173, 181, 189, 0.36)",
-  //             fill: false,
-  //             type: 'line'
-  //           }]
-  //         }
-  //       });
-  //     }, 500);
-  //   }
-  // }
 
 }

@@ -1,34 +1,16 @@
 section.overview {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-
-  div.wrapper {
-    display: flex;
-    flex: 1;
+  @media (min-width: 1024px) {
+    div.power-panel {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
 
-  div.item {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-  }
-
-  div.space {
-    width: 10px;
-  }
+  div.wrapper {}
   @media (min-width: 1040px) {
     div.wrapper {
-      width: 1040px;
-      align-self: center;
-    }
-
-    div.space {
-      width: 0;
-      display: none;
+      width: 1440px;
+      margin: auto;
     }
   }
 
@@ -51,6 +33,7 @@ section.overview {
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
+    margin-top: 5vh;
   }
 
   div.smile-bad,
@@ -78,9 +61,10 @@ section.overview {
     font-size: 12px;
     color: $oc-gray-5;
     border-collapse: collapse;
+    margin-top: 5vh;
 
     tr.overview-table-row {
-      border-bottom: 1px solid $oc-gray-3;
+      border-bottom: 1px solid $oc-gray-2;
 
       td {
         padding: 10px 5px;
@@ -89,6 +73,13 @@ section.overview {
       td.icon {
         text-align: center;
         font-size: 1.4em;
+        display: none;
+      }
+
+      @media (min-width: 1024px) {
+        td.icon {
+          display: table-cell;
+        }
       }
 
       td.text {
@@ -99,6 +90,7 @@ section.overview {
         white-space: nowrap;
         text-align: right;
         width: 40%;
+        min-width: 80px;
       }
     }
 

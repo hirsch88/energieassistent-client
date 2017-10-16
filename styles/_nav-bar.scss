@@ -1,157 +1,152 @@
 nav.navbar {
-  .wrapper {
-    display: flex;
-    background-color: $oc-gray-1;
+  margin-bottom: 0;
 
-    .item {
-      display: flex;
-      padding: 10px;
+  .back {
+    width: 120px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    a,
+    i {
+      font-size: 16px;
+      text-align: center;
+      color: $oc-gray-5;
     }
 
-    .back {
-      width: 120px;
-      justify-content: flex-start;
-      align-items: center;
-      cursor: pointer;
+    a {
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
 
-      a,
-      i {
-        font-size: 16px;
-        text-align: center;
-        color: $oc-gray-5;
-      }
-
-      a {
+      &:hover,
+      &:hover i {
         text-decoration: none;
-        padding-left: 10px;
-        padding-right: 10px;
-
-        &:hover,
-        &:hover i {
-          text-decoration: none;
-          color: $oc-gray-4;
-        }
+        color: $oc-gray-4;
       }
     }
+  }
 
-    .logo {
-      width: 120px;
-      justify-content: flex-start;
-      align-items: center;
+  .logo {
+    margin-top: 10px;
 
-      a,
-      i {
-        display: block;
-        font-size: 16px;
-        text-align: center;
-        color: $oc-gray-5;
-      }
+    a,
+    i {
+      display: block;
+      font-size: 16px;
+      text-align: center;
+      color: $oc-gray-5;
+    }
 
-      a {
+    a {
+      font-size: 14px;
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &:hover,
+      &:hover i {
         text-decoration: none;
-        padding-left: 10px;
-        padding-right: 10px;
+        color: $oc-gray-4;
+      }
+    }
 
-        &:hover,
-        &:hover i {
-          text-decoration: none;
-          color: $oc-gray-4;
+  }
+
+  .navigation {
+    margin-top: 17px;
+    text-align: center;
+
+    .paragraph {
+      margin: 0;
+
+      div {
+        display: inline-block;
+      }
+
+      .dropdown {
+        margin: auto 10px;
+      }
+
+      .dropdown > a {
+        display: inline-block;
+        color: $oc-gray-7;
+        font-size: 14px;
+        border-bottom: 2px solid $oc-gray-7;
+        text-decoration: none !important;
+
+        &.energy {
+          color: $oc-yellow-7;
+        }
+
+        &.heat {
+          color: $oc-red-7;
+        }
+
+        &.water {
+          color: $oc-blue-7;
         }
       }
 
+      a[role=menuitem] {
+        font-size: 14px;
+
+        i {
+          width: 20px;
+          text-align: left;
+        }
+
+        &.energy {
+          color: $oc-yellow-7;
+        }
+
+        &.heat {
+          color: $oc-red-7;
+        }
+
+        &.water {
+          color: $oc-blue-7;
+        }
+      }
+
+      span {
+        color: $oc-gray-5;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .actions {
+    margin-top: 17px;
+    margin-right: 15px;
+
+    .award {
+      i {
+        color: $oc-gold;
+      }
     }
 
-    .navigation {
-      flex: 1;
-      justify-content: center;
-      align-items: center;
-
-      .paragraph {
-        margin: 0;
-
-        div {
-          display: inline-block;
-        }
-
-        .dropdown {
-          margin: auto 10px;
-        }
-
-        .dropdown > a {
-          display: inline-block;
-          color: $oc-gray-7;
-          font-size: 14px;
-          border-bottom: 2px solid $oc-gray-7;
-          text-decoration: none !important;
-
-          &.energy {
-            color: $oc-yellow-7;
-          }
-
-          &.heat {
-            color: $oc-red-7;
-          }
-
-          &.water {
-            color: $oc-blue-7;
-          }
-        }
-
-        a[role=menuitem] {
-          font-size: 14px;
-
-          i {
-            width: 20px;
-            text-align: left;
-          }
-
-          &.energy {
-            color: $oc-yellow-7;
-          }
-
-          &.heat {
-            color: $oc-red-7;
-          }
-
-          &.water {
-            color: $oc-blue-7;
-          }
-        }
-
-        span {
+    ul {
+      li {
+        a,
+        i {
+          display: block;
+          font-size: 24px;
+          text-align: center;
           color: $oc-gray-5;
-          font-size: 14px;
         }
-      }
-    }
 
-    .actions {
-      width: 120px;
-      justify-content: flex-end;
-      align-items: center;
+        a {
+          text-decoration: none;
+          padding: 0 15px;
 
-      ul {
-        li {
-          a,
-          i {
-            display: block;
-            font-size: 24px;
-            text-align: center;
-            color: $oc-gray-5;
-          }
-
-          a {
+          &:hover,
+          &:hover i {
             text-decoration: none;
-            padding: 0 15px;
-
-            &:hover,
-            &:hover i {
-              text-decoration: none;
-              color: $oc-gray-4;
-            }
+            color: $oc-gray-4;
           }
-
         }
+
       }
     }
   }
