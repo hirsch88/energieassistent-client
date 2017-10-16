@@ -4,6 +4,22 @@
   </header>
 
   <section class="au-animate overview">
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-4">
+          <overview-chart options.bind="energyOptions" selection.bind="selection"></overview-chart>
+        </div>
+        <div class="col-sm-4">
+          <overview-chart options.bind="heatOptions" selection.bind="selection"></overview-chart>
+        </div>
+        <div class="col-sm-4">
+          <overview-chart options.bind="waterOptions" selection.bind="selection"></overview-chart>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="au-animate overview">
 
     <div class="wrapper">
 
@@ -132,7 +148,7 @@
         </table>
       </div> -->
 
-    </div>
+  </div>
 
-  </section>
+  </section> -->
 </template>

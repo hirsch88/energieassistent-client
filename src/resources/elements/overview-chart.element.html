@@ -1,5 +1,5 @@
 <template>
-  <div class="${options.color}">
+  <div ref="templateElement" class="${options.color}">
 
     <h1 class="title">
       <i class="fa ${options.icon}" aria-hidden="true"></i> ${options.title}
@@ -10,8 +10,8 @@
       <i class="${options.status.icon}" aria-hidden="true"></i>
     </div>
 
-    <div id="chart-frame">
-      <canvas ref="chartElement" width="250" height="250"></canvas>
+    <div class="chart-container">
+      <div ref="chartContainer"></div>
     </div>
 
     <table class="overview-table">

@@ -1,0 +1,46 @@
+.chart-container {
+  min-height: 300px;
+}
+
+.c3-legend-item {
+  font-family: 'Open Sans';
+
+  text {
+    fill: $oc-gray-7;
+  }
+}
+
+.c3-axis text {
+  fill: $oc-gray-5;
+}
+
+.c3-axis line {
+  stroke: $oc-gray-5;
+}
+
+.c3-axis path {
+  stroke: $oc-gray-5;
+  stroke-width: 2;
+}
+
+.c3-line {
+  stroke-width: 2;
+}
+
+.blue .c3-bar {
+  stroke-width: 2px;
+  stroke: $oc-blue-3 !important;
+  fill: rgba(114, 195, 252, 0.37) !important;
+}
+
+.red .c3-bar {
+  stroke-width: 2px;
+  stroke: $oc-red-3 !important;
+  fill: rgba(255, 168, 168, 0.37) !important;
+}
+
+.yellow .c3-bar {
+  stroke-width: 2px;
+  stroke: $oc-yellow-3 !important;
+  fill: rgba(255, 224, 102, 0.37) !important;
+}
