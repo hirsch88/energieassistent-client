@@ -7,6 +7,7 @@ export function configure(aurelia) {
       PLATFORM.moduleName('./footer.element'),
       PLATFORM.moduleName('./dropdown.element'),
       PLATFORM.moduleName('./navs/overview-nav.element'),
-      PLATFORM.moduleName('./navs/energy-nav.element')
+      PLATFORM.moduleName('./navs/energy-nav.element'),
+      PLATFORM.moduleName('./overview-chart.element')
     ]);
 }

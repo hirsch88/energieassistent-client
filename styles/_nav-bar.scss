@@ -5,26 +5,26 @@ nav.navbar {
 
     .item {
       display: flex;
-      padding: 15px;
+      padding: 10px;
     }
 
     .back {
-      width: 240px;
+      width: 120px;
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
 
       a,
       i {
-        font-size: 24px;
+        font-size: 16px;
         text-align: center;
         color: $oc-gray-5;
       }
 
       a {
         text-decoration: none;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
 
         &:hover,
         &:hover i {
@@ -35,22 +35,22 @@ nav.navbar {
     }
 
     .logo {
-      width: 240px;
+      width: 120px;
       justify-content: flex-start;
       align-items: center;
 
       a,
       i {
         display: block;
-        font-size: 24px;
+        font-size: 16px;
         text-align: center;
         color: $oc-gray-5;
       }
 
       a {
         text-decoration: none;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
 
         &:hover,
         &:hover i {
@@ -80,8 +80,8 @@ nav.navbar {
         .dropdown > a {
           display: inline-block;
           color: $oc-gray-7;
-          font-size: 24px;
-          border-bottom: 3px solid $oc-gray-7;
+          font-size: 14px;
+          border-bottom: 2px solid $oc-gray-7;
           text-decoration: none !important;
 
           &.energy {
@@ -98,7 +98,7 @@ nav.navbar {
         }
 
         a[role=menuitem] {
-          font-size: 22px;
+          font-size: 14px;
 
           i {
             width: 20px;
@@ -120,13 +120,13 @@ nav.navbar {
 
         span {
           color: $oc-gray-5;
-          font-size: 24px;
+          font-size: 14px;
         }
       }
     }
 
     .actions {
-      width: 240px;
+      width: 120px;
       justify-content: flex-end;
       align-items: center;
 
@@ -135,14 +135,14 @@ nav.navbar {
           a,
           i {
             display: block;
-            font-size: 36px;
+            font-size: 24px;
             text-align: center;
             color: $oc-gray-5;
           }
 
           a {
             text-decoration: none;
-            padding: 0 30px;
+            padding: 0 15px;
 
             &:hover,
             &:hover i {

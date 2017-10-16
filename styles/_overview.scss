@@ -1,133 +1,272 @@
 section.overview {
   display: flex;
-  justify-content: space-around;
-  
-  div.overview-charts-energy,
-  div.overview-charts-heat,
-  div.overview-charts-water{
-    margin-top:50px;
-    width: 320px; 
-    height: 320px; 
-    display:flex; 
-    flex-direction: column;
-    align-items: center;
-    float:left;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 
-    div.title,
-    div.title,
-    div.title{
-      font-family: 'Arial';
-      font-size: 36px;
-      font-weight: bold;
+  div.wrapper {
+    display: flex;
+    flex: 1;
+  }
+
+  div.item {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+
+  div.space {
+    width: 10px;
+  }
+  @media (min-width: 1040px) {
+    div.wrapper {
+      width: 1040px;
+      align-self: center;
     }
 
-    div.smile-bad,
-    div.smile-neutral,
-    div.smile-good {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    div.smile-bad {
-      color: $oc-red-7;
-    }
-
-    div.smile-neutral {
-      color: $oc-yellow-7;
-    }
-
-    div.smile-good {
-      color: $oc-green-7;
-    }
-
-    table.overview-table {
-      margin-top: 50px;
-      font-size: 20px;
-      width: 320px;
-      color: $oc-gray-5;
-      border-collapse: collapse;
-
-      tr.overview-table-row {
-        border-bottom: 1px solid;
-
-        td {
-          padding: 15px 10px;
-        }
-        td.icon {
-          text-align:center;
-        }
-        td.text {
-          font-size: 16px;
-          flex-wrap: wrap;
-          width: 50%;
-        }
-        td.zahl {
-          white-space: nowrap;
-          text-align: right;
-        }
-      }
-
-      tr.overview-table-row:last-child { 
-        border-bottom: none; 
-      }
-
-      
+    div.space {
+      width: 0;
+      display: none;
     }
   }
 
-  div.overview-charts-energy {
-    div.title,
-    table.overview-table tr.overview-table-row td.zahl {
-      color: $oc-yellow-5;
-    }
+  .blue h1 {
+    color: $oc-blue-7;
   }
 
-  div.overview-charts-heat, {
-    div.title,
-    table.overview-table tr.overview-table-row td.zahl  {
-      color: $oc-red-5;
-    }
+  .red h1 {
+    color: $oc-red-7;
   }
 
-  div.overview-charts-water {
-    div.title,
-    table.overview-table tr.overview-table-row td.zahl  {
-      color: $oc-blue-5;
-    }
+  .yellow h1 {
+    color: $oc-yellow-7;
   }
 
-  .tipp{
-    position: relative;
-    display: inline-block;
-  }
- 
-  .tipp .tooltiptext {
-    font-size:12px;
-    visibility: hidden;
-    width: 140px;
-    background-color: rgba(33, 37, 41, 0.52);
-    color: #fff;
+  h1.title,
+  h1.title,
+  h1.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 110%;
   }
 
-  .tipp .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent rgba(33, 37, 41, 0.52) transparent transparent;
+  div.smile-bad,
+  div.smile-good,
+  div.smile-neutral {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
   }
 
-  .tipp:hover .tooltiptext {
-    visibility: visible;
+  div.smile-bad {
+    color: $oc-red-7;
   }
+
+  div.smile-neutral {
+    color: $oc-yellow-7;
+  }
+
+  div.smile-good {
+    color: $oc-green-7;
+  }
+
+  table.overview-table {
+    font-size: 12px;
+    color: $oc-gray-5;
+    border-collapse: collapse;
+
+    tr.overview-table-row {
+      border-bottom: 1px solid $oc-gray-3;
+
+      td {
+        padding: 10px 5px;
+      }
+
+      td.icon {
+        text-align: center;
+        font-size: 1.4em;
+      }
+
+      td.text {
+        flex-wrap: wrap;
+      }
+
+      td.zahl {
+        white-space: nowrap;
+        text-align: right;
+        width: 40%;
+      }
+    }
+
+    tr.overview-table-row:last-child {
+      border-bottom: none;
+    }
+
+  }
+
+  // div.overview-charts-energy,
+  // div.overview-charts-heat,
+  // div.overview-charts-water {
+  //   margin-top: 25px;
+  //   width: 120px;
+  //   height: 120px;
+  // }
+
 }
+//   @media (min-width: 768px) {
+//     div.overview-charts-energy,
+//     div.overview-charts-heat,
+//     div.overview-charts-water {
+//       margin-top: 50px;
+//       width: 250px;
+//     }
+//     table.overview-table {
+//       width: 250px;
+//     }
+//   }
+
+//   @media (min-width: 1025px) {
+//     div.overview-charts-energy,
+//     div.overview-charts-heat,
+//     div.overview-charts-water {
+//       margin-top: 50px;
+//       width: 320px;
+//     }
+//     table.overview-table {
+//       width: 320px;
+//     }
+//   }
+
+//   div.overview-charts-energy,
+//   div.overview-charts-heat,
+//   div.overview-charts-water {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     float: left;
+
+//     div.title,
+//     div.title,
+//     div.title {
+//       font-size: 24px;
+//       font-weight: bold;
+//       margin-bottom: 10px;
+//     }
+
+//     div.smile-bad,
+//     div.smile-good,
+//     div.smile-neutral {
+//       font-size: 18px;
+//       font-weight: bold;
+//       margin-bottom: 10px;
+//     }
+
+//     div.smile-bad {
+//       color: $oc-red-7;
+//     }
+
+//     div.smile-neutral {
+//       color: $oc-yellow-7;
+//     }
+
+//     div.smile-good {
+//       color: $oc-green-7;
+//     }
+
+//     table.overview-table {
+//       margin-top: 80px;
+//       font-size: 16px;
+//       // width: 320px;
+//       color: $oc-gray-5;
+//       border-collapse: collapse;
+
+//       tr.overview-table-row {
+//         border-bottom: 1px solid $oc-gray-3;
+
+//         td {
+//           padding: 15px 10px;
+//         }
+
+//         td.icon {
+//           text-align: center;
+//         }
+
+//         td.text {
+//           font-size: 14px;
+//           flex-wrap: wrap;
+//           width: 50%;
+//         }
+
+//         td.zahl {
+//           white-space: nowrap;
+//           text-align: right;
+//         }
+//       }
+
+//       tr.overview-table-row:last-child {
+//         border-bottom: none;
+//       }
+
+//     }
+//   }
+
+//   div.overview-charts-energy {
+//     div.title,
+//     table.overview-table tr.overview-table-row td.zahl {
+//       color: $oc-yellow-5;
+//     }
+//   }
+
+//   div.overview-charts-heat {
+//     div.title,
+//     table.overview-table tr.overview-table-row td.zahl {
+//       color: $oc-red-5;
+//     }
+//   }
+
+//   div.overview-charts-water {
+//     div.title,
+//     table.overview-table tr.overview-table-row td.zahl {
+//       color: $oc-blue-5;
+//     }
+//   }
+
+//   .tipp {
+//     position: relative;
+//     display: inline-block;
+//   }
+
+//   .tipp .tooltiptext {
+//     font-size: 14px;
+//     visibility: hidden;
+//     width: 140px;
+//     background-color: rgba(33, 37, 41, 0.52);
+//     color: #fff;
+//     text-align: center;
+//     border-radius: 6px;
+//     padding: 5px 0;
+//     position: absolute;
+//     z-index: 1;
+//     top: -5px;
+//     left: 110%;
+//   }
+
+//   .tipp .tooltiptext::after {
+//     content: "";
+//     position: absolute;
+//     top: 50%;
+//     right: 100%;
+//     margin-top: -5px;
+//     border-width: 5px;
+//     border-style: solid;
+//     border-color: transparent rgba(33, 37, 41, 0.52) transparent transparent;
+//   }
+
+//   .tipp:hover .tooltiptext {
+//     visibility: visible;
+//   }
+// }
