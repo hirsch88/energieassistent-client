@@ -1,0 +1,40 @@
+<template>
+  <div class="${options.color}">
+
+      <h1 class="title text-center">
+        <i class="fa ${options.icon}" aria-hidden="true"></i> ${options.title}
+      </h1>
+
+      <h3 class="${options.status.mood} tipp text-center" tooltip data-toggle="tooltip" data-placement="bottom" data-title="${options.status.tooltip}">
+        ${options.trend} %
+        <i class="${options.status.icon}" aria-hidden="true"></i>
+      </h3>
+
+      <div class="chart-container">
+        <div ref="chartContainer"></div>
+      </div>
+
+      <table class="overview-table" style="margin-top: 15px;">
+        <tr class="overview-table-row">
+          <td class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </td>
+          <td class="text">Dein aktueller Verbrauch</td>
+          <td class="zahl">${options.actual} kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">
+            <i class="fa fa-history" aria-hidden="true"></i>
+          </td>
+          <td class="text">Dein Stromverbrauch vor einem Jahr</td>
+          <td class="zahl">${options.history} kWh</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">ø</td>
+          <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+          <td class="zahl">${options.average} kWh</td>
+        </tr>
+      </table>
+
+  </div>
+</template>

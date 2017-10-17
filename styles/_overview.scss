@@ -7,7 +7,7 @@ section.overview {
   }
 
   div.wrapper {}
-  @media (min-width: 1040px) {
+  @media (min-width: 1440px) {
     div.wrapper {
       width: 1440px;
       margin: auto;
@@ -26,42 +26,27 @@ section.overview {
     color: $oc-yellow-7;
   }
 
-  h1.title,
-  h1.title,
-  h1.title {
-    font-size: 24px;
+  .smile-bad,
+  .smile-good,
+  .smile-neutral {
     font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-    margin-top: 5vh;
   }
 
-  div.smile-bad,
-  div.smile-good,
-  div.smile-neutral {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  div.smile-bad {
+  .smile-bad {
     color: $oc-red-7;
   }
 
-  div.smile-neutral {
+  .smile-neutral {
     color: $oc-yellow-7;
   }
 
-  div.smile-good {
+  .smile-good {
     color: $oc-green-7;
   }
 
   table.overview-table {
-    font-size: 12px;
     color: $oc-gray-5;
     border-collapse: collapse;
-    margin-top: 5vh;
 
     tr.overview-table-row {
       border-bottom: 1px solid $oc-gray-2;
@@ -73,14 +58,14 @@ section.overview {
       td.icon {
         text-align: center;
         font-size: 1.4em;
-        display: none;
+        // display: none;
       }
 
-      @media (min-width: 1024px) {
-        td.icon {
-          display: table-cell;
-        }
-      }
+      // @media (min-width: 1024px) {
+      //   td.icon {
+      //     display: table-cell;
+      //   }
+      // }
 
       td.text {
         flex-wrap: wrap;
@@ -99,166 +84,4 @@ section.overview {
     }
 
   }
-
-  // div.overview-charts-energy,
-  // div.overview-charts-heat,
-  // div.overview-charts-water {
-  //   margin-top: 25px;
-  //   width: 120px;
-  //   height: 120px;
-  // }
-
 }
-//   @media (min-width: 768px) {
-//     div.overview-charts-energy,
-//     div.overview-charts-heat,
-//     div.overview-charts-water {
-//       margin-top: 50px;
-//       width: 250px;
-//     }
-//     table.overview-table {
-//       width: 250px;
-//     }
-//   }
-
-//   @media (min-width: 1025px) {
-//     div.overview-charts-energy,
-//     div.overview-charts-heat,
-//     div.overview-charts-water {
-//       margin-top: 50px;
-//       width: 320px;
-//     }
-//     table.overview-table {
-//       width: 320px;
-//     }
-//   }
-
-//   div.overview-charts-energy,
-//   div.overview-charts-heat,
-//   div.overview-charts-water {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     float: left;
-
-//     div.title,
-//     div.title,
-//     div.title {
-//       font-size: 24px;
-//       font-weight: bold;
-//       margin-bottom: 10px;
-//     }
-
-//     div.smile-bad,
-//     div.smile-good,
-//     div.smile-neutral {
-//       font-size: 18px;
-//       font-weight: bold;
-//       margin-bottom: 10px;
-//     }
-
-//     div.smile-bad {
-//       color: $oc-red-7;
-//     }
-
-//     div.smile-neutral {
-//       color: $oc-yellow-7;
-//     }
-
-//     div.smile-good {
-//       color: $oc-green-7;
-//     }
-
-//     table.overview-table {
-//       margin-top: 80px;
-//       font-size: 16px;
-//       // width: 320px;
-//       color: $oc-gray-5;
-//       border-collapse: collapse;
-
-//       tr.overview-table-row {
-//         border-bottom: 1px solid $oc-gray-3;
-
-//         td {
-//           padding: 15px 10px;
-//         }
-
-//         td.icon {
-//           text-align: center;
-//         }
-
-//         td.text {
-//           font-size: 14px;
-//           flex-wrap: wrap;
-//           width: 50%;
-//         }
-
-//         td.zahl {
-//           white-space: nowrap;
-//           text-align: right;
-//         }
-//       }
-
-//       tr.overview-table-row:last-child {
-//         border-bottom: none;
-//       }
-
-//     }
-//   }
-
-//   div.overview-charts-energy {
-//     div.title,
-//     table.overview-table tr.overview-table-row td.zahl {
-//       color: $oc-yellow-5;
-//     }
-//   }
-
-//   div.overview-charts-heat {
-//     div.title,
-//     table.overview-table tr.overview-table-row td.zahl {
-//       color: $oc-red-5;
-//     }
-//   }
-
-//   div.overview-charts-water {
-//     div.title,
-//     table.overview-table tr.overview-table-row td.zahl {
-//       color: $oc-blue-5;
-//     }
-//   }
-
-//   .tipp {
-//     position: relative;
-//     display: inline-block;
-//   }
-
-//   .tipp .tooltiptext {
-//     font-size: 14px;
-//     visibility: hidden;
-//     width: 140px;
-//     background-color: rgba(33, 37, 41, 0.52);
-//     color: #fff;
-//     text-align: center;
-//     border-radius: 6px;
-//     padding: 5px 0;
-//     position: absolute;
-//     z-index: 1;
-//     top: -5px;
-//     left: 110%;
-//   }
-
-//   .tipp .tooltiptext::after {
-//     content: "";
-//     position: absolute;
-//     top: 50%;
-//     right: 100%;
-//     margin-top: -5px;
-//     border-width: 5px;
-//     border-style: solid;
-//     border-color: transparent rgba(33, 37, 41, 0.52) transparent transparent;
-//   }
-
-//   .tipp:hover .tooltiptext {
-//     visibility: visible;
-//   }
-// }

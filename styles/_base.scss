@@ -1,19 +1,42 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  margin: 0;
+  margin-bottom: 60px !important;
+}
+
+body > router-view > .container {
+  padding: 60px 15px 0;
+}
+
+section {
+  margin: 0 !important;
 }
 
 .clickable {
   cursor: pointer;
 }
 
-.bg-yellow{
+.bg-yellow {
   background: yellow;
 }
 
-.bg-red{
+.bg-red {
   background: red;
 }
 
-.bg-blue{
+.bg-blue {
   background: blue;
+}
+@media (orientation: landscape) {
+  .only-portrait {
+    display: none;
+  }
+}
+@media (orientation: portrait) {
+  .only-landscape {
+    display: none;
+  }
 }

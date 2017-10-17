@@ -3,8 +3,8 @@ import $ from 'jquery';
 import d3 from 'd3';
 import c3 from 'c3';
 
-@useView('./overview-chart.element.html')
-export class OverviewChartCustomElement {
+@useView('./overview-chart-portrait.element.html')
+export class OverviewChartPortraitCustomElement {
 
   LABEL_CH = () => `Schweizer Durchschnitt`;
   LABEL_NOW = () => `Aktueller Verbrauch`;
