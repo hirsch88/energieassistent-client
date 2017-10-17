@@ -29,7 +29,6 @@ export class Overview {
   }
 
   onChange(selection) {
-    console.info('Overview->onChange', selection, this);
     this.selection = selection;
 
     this.energyOptions = {

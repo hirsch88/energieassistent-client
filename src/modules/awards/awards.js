@@ -9,10 +9,6 @@ export class Awards {
     this.router = router;
   }
 
-  attached() {
-    console.log(this.router)
-  }
-
   goBack() {
     this.router.navigateBack()
   }

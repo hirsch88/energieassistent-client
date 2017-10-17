@@ -7,7 +7,6 @@ export class DropdownCustomElement {
   @bindable selectedIndex;
 
   attached() {
-    console.log('DropdownCustomElement', this.selectedIndex, this.list);
     this.selectedIndex = this.selectedIndex || 0;
   }
 

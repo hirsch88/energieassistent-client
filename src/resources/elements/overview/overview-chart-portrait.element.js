@@ -64,7 +64,6 @@ export class OverviewChartPortraitCustomElement {
         this.build();
       }
 
-      console.info('optionsChanged', value.data);
       var x = ['x'];
       var d1 = ['Aktueller Verbrauch'];
       var d2 = [`Verbrauch ${this.options.data[1][0].year}`];
