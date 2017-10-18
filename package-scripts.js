@@ -94,6 +94,7 @@ module.exports = {
         hmr: `webpack-dev-server -d --inline --hot --env.server`
       },
     },
-    serve: 'http-server dist --cors',
+    // serve: 'http-server dist --cors',
+    serve: './node_modules/.bin/electron ./dist',
   },
 }

@@ -15,7 +15,8 @@ const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
-const baseUrl = '/';
+// const baseUrl = '/';
+const baseUrl = '';
 
 const cssRules = [
   { loader: 'css-loader' },
@@ -33,7 +34,7 @@ module.exports = ({ production, server, extractCss, coverage } = {}) => ({
   devtool: production ? 'source-map' : 'cheap-module-eval-source-map',
   entry: {
     app: ['aurelia-bootstrapper'],
-    vendor: ['bluebird', 'jquery', 'bootstrap'],
+    vendor: ['bluebird', 'jquery', 'bootstrap', 'd3', 'c3'],
   },
   output: {
     path: outDir,
@@ -95,6 +96,14 @@ module.exports = ({ production, server, extractCss, coverage } = {}) => ({
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([{
+      from: './main.js',
+      to: ''
+    }]),
+    new CopyWebpackPlugin([{
+      from: './package.json',
+      to: ''
+    }]),
     new AureliaPlugin(),
     new ProvidePlugin({
       'Promise': 'bluebird',
