@@ -83,7 +83,13 @@ export class OverviewChartPortraitCustomElement {
   }
 
   detached() {
-    this.chart.destroy();
+    if (this.chart) {
+      try {
+        this.chart.destroy();
+      } catch (e) {
+        console.error('Could not destroy the chart', e);
+      }
+    }
   }
 
 }

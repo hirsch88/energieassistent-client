@@ -16,7 +16,13 @@ export class TooltipCustomAttribute {
   }
 
   unbind() {
-    $(this.element).tooltip('destroy');
+    if (this.element) {
+      try {
+        $(this.element).tooltip('destroy');
+      } catch (e) {
+        console.error('Could not destroy the tooltip', e);
+      }
+    }
   }
 
 }

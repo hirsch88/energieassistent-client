@@ -14,8 +14,4 @@ export class DropdownCustomAttribute {
     }, 0);
   }
 
-  // unbind() {
-  //   $(this.element).dropdown('destroy');
-  // }
-
 }
