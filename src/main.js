@@ -2,11 +2,9 @@
 import '../styles/styles.scss';
 
 import '../static/styles.css';
-// import 'font-awesome/css/font-awesome.css';
 
 
 // we want font-awesome to load as soon as possible to show the fa-spinner
-// import 'bootstrap/dist/css/bootstrap.css';
 import 'babel-polyfill';
 import * as Bluebird from 'bluebird';
 
