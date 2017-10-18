@@ -11,7 +11,7 @@ npm install # or: yarn install
 ```
 
 This will install all required dependencies, including a local version of Webpack that is going to
-build and bundle the app. There is no need to install Webpack globally. 
+build and bundle the app. There is no need to install Webpack globally.
 
 To run the app execute the following command:
 
@@ -44,7 +44,7 @@ To build an optimized, minified production bundle (output to /dist) execute:
 npm start -- build
 ```
 
-To build 
+To build
 
 To test either the development or production build execute:
 
@@ -131,4 +131,13 @@ To run all the unit test suites and the E2E tests, you may simply run:
 
 ```shell
 npm start -- test.all
+```
+
+## Packaging (electron)
+
+To create a electron app use those following commands.
+
+```shell
+npm start pack mac
+npm start pack win
 ```
