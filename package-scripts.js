@@ -96,5 +96,10 @@ module.exports = {
     },
     // serve: 'http-server dist --cors',
     serve: './node_modules/.bin/electron ./dist',
+    pack: {
+      default: 'nps pack.mac',
+      mac: './node_modules/.bin/electron-packager ./dist --platform=darwin --arch=all --overwrite',
+      win: './node_modules/.bin/electron-packager ./dist --platform=win32 --arch=all --overwrite'
+    }
   },
 }
