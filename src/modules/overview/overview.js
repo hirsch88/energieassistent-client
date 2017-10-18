@@ -1,5 +1,4 @@
 //import {computedFrom} from 'aurelia-framework';
-import Chart from 'chart.js';
 import { inject, observable } from 'aurelia-framework';
 import { EnergyService } from '../../services/energy.service';
 import { HeatService } from '../../services/heat.service';
@@ -30,6 +29,10 @@ export class Overview {
 
   onChange(selection) {
     this.selection = selection;
+
+    if (!selection) {
+      return;
+    }
 
     this.energyOptions = {
       title: 'Strom',
@@ -141,6 +144,4 @@ export class Overview {
 
   }
 
-  attached() {
-  }
 }

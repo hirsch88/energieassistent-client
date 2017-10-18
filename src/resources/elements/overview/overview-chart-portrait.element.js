@@ -59,7 +59,7 @@ export class OverviewChartPortraitCustomElement {
   }
 
   optionsChanged(value) {
-    if (value) {
+    if (value && this.selection) {
       if (!this.isAttached) {
         this.build();
       }
@@ -80,6 +80,10 @@ export class OverviewChartPortraitCustomElement {
       })
 
     }
+  }
+
+  detached() {
+    this.chart.destroy();
   }
 
 }

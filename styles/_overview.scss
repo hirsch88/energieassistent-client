@@ -6,14 +6,6 @@ section.overview {
     }
   }
 
-  div.wrapper {}
-  @media (min-width: 1440px) {
-    div.wrapper {
-      width: 1440px;
-      margin: auto;
-    }
-  }
-
   .blue h1, .blue .zahl {
     color: $oc-blue-7;
   }
