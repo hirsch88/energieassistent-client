@@ -3,26 +3,187 @@
     <energy-nav router.bind="router" on-change.call="onChange(value, type)"></energy-nav>
   </header>
 
-  <section class="au-animate energy">
-    <div class="costoverview">
+  <!-- <div class="container"> -->
+  <section class="au-animate detail-section energy">
+
+    <!-- Costs Table -->
+    <div class="box costs">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Kostenübersicht</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <costs-table options.bind="dataEnergy"></costs-table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tipp -->
+    <div class="box box-gray-light tipp">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Tipps</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Compare -->
+    <div class="box box-gray-dark compare">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Vergleiche</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="box total">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Gesamt Auswertung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="box box-gray-light total">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Normaltarif Auswertung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="box box-gray-light total">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Spartarif Auswertung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- pie-left -->
+    <div class="box box-gray-dark pie-left">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Spartarif Auswertung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- pie-right -->
+    <div class="box box-gray-light pie-right">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Energieträger</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Documents -->
+    <div class="box documents">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Dokumente</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            body
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- </div> -->
+  <!-- <div class="costoverview">
       <h1>Kostenübersicht</h1>
-      <table class="detail-table">
-        <tr class="detail-table-row">
-          <td class="icon"><i class="fa fa-user" aria-hidden="true"></i></td>
-          <td class="text">Dies sind Ihre Kosten für KW${data.actualWeek}.</td>
-          <td class="zahl">${data.costsThisWeek} CHF</td>
-        </tr>
-        <tr class="detail-table-row">
-          <td class="icon"><i class="fa fa-history" aria-hidden="true"></i></td>
-          <td class="text">${data.comparedToLastYearText}</td>
-          <td class="zahl ${data.comparedToLastYearClass}">${data.comparedToLastYearValue} CHF</td>
-        </tr>
-        <tr class="detail-table-row">
-          <td class="icon">ø</td>
-          <td class="text">${data.comparedToSwissText}</td>
-          <td class="zahl ${data.comparedToSwissClass}">${data.comparedToSwissValue} CHF</td>
-        </tr>
-      </table>
+
     </div>
     <div class="tipps">
       <h1 class="${data.comparedToLastYearClass}">"${data.tippText}"</h1>
@@ -108,7 +269,5 @@
     <div class="bill">
       <h1>Rechnung</h1>
       <span>eventuell PDF Auszug anzeigen?</span>
-    </div>
-
-  </section>
+    </div> -->
 </template>

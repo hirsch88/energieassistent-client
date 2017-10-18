@@ -1,196 +1,240 @@
-section.energy,
-section.heat,
-section.water {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+section.detail-section {
+  padding-top: 60px;
+}
 
-  div.costoverview,
-  div.tipps,
-  div.comparison,
-  div.total,
-  div.normal,
-  div.low,
-  div.costsplit,
-  div.energytypes,
-  div.bill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom:40px;
-    width: 100%;
-    color: $oc-gray-7;
+div.box {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
 
-    h1 {
-      font-size: 48px;
-      margin: 40px auto;
-    }
-  }
+div.box-gray-light {
+  background-color: $oc-gray-3;
+}
 
-  div.costoverview {
-    table.detail-table {
-      font-size: 30px;
-      width: 930px;
-      color: $oc-gray-7;
-      font-weight: bold;
-      border-collapse: collapse;
+div.box-gray-dark {
+  background-color: $oc-gray-7;
+  color: $oc-gray-1;
+}
 
-      tr.detail-table-row {
-        border-bottom: 1px solid;
+div.box-title {
+  padding-bottom: 25px;
+}
 
-        td {
-          padding: 15px 10px;
-        }
-        td.icon {
-          text-align:center;
-          font-size: 48px;
-        }
-        td.text {
-          flex-wrap: wrap;
-          width: 60%;
-        }
-        td.zahl {
-          white-space: nowrap;
-          text-align: right;
-          font-size: 36px;
-        }
-        td.green {
-          color: $oc-green-7;
-        }
-        td.red {
-          color: $oc-red-7;
-        }
-      }
-    }
-  }
-
-  div.tipps,
-  div.normal,
-  div.low,
-  div.energytypes {
-    background-color: $oc-gray-0;
-  }
-
-  div.tipps {
-    padding-bottom:50px;
-
-    h1 {
-      font-size: 40px;
-    }
-    h1.green {
-      color: $oc-green-7;
-    }
-    h1.red {
-      color: $oc-red-7;
-    }
-    table.tipp-table {
-      width: 930px;
-      tr.tipp-table-row {
-        padding:0;
-
-        td.icon {
-          font-size:120px;
-          padding: 0 20px;
-        }
-        td.title{
-          font-size:36px;
-          font-weight: bold;
-          padding-bottom: 10px;
-        }
-        td.text {
-          font-size: 20px;
-          padding-bottom: 10px;
-        }
-        td.button {
-          padding-top:10px;
-
-          a {
-            color:white;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 20px;
-            padding: 5px 15px !important;
-            background-color: $oc-gray-7;
-          }
-
-        }
-      }
-    }
-  }
-
-  div.comparison,
-  div.costsplit,
-  div.energytypes {
-    
-    div.comparison-row,
-    div.costsplit-row,
-    div.energytypes-row {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      span{
-        font-size: 20px;
-        text-align: justify;
-      }
-    }
-  }
-
-  div.comparison,
-  div.costsplit {
-    background-color: $oc-gray-7;
-    color: $oc-gray-0;
-    h1 {
-      color:white;
+div.costs {
+  table {
+    .text,
+    .zahl {
+      font-size: 1.2em;
+      line-height: 2.2em;
     }
 
-    div.comparison-row,
-    div.costsplit-row {
-      span{
-        color: $oc-gray-5;
-      }
+    .zahl {
+      text-align: right;
     }
-  }
 
-  div.comparison {
-    div.comparison-row {
-      div.compare{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 410px;
-        color: white;
-        padding: 0 40px;
-
-        i {
-          font-size:72px;
-        }
-        h2{
-          font-size:40px;
-          margin:20px auto;
-        }
-        
-      }
+    .icon {
+      font-size: 1.8em;
     }
-  }
 
-  div.normal,
-  div.low {
-    span {
-      width: 930px;
-      font-size: 20px;
-    }
-  }
-
-  div.costsplit,
-  div.energytypes {
-    div.costsplit-row,
-    div.energytypes-row {
-      span {
-        width: 470px;
-        padding: 0 40px;
-      }
+    tr:first-child td {
+      border-top: none;
     }
   }
 }
+
+// section.energy,
+// section.heat,
+// section.water {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+
+//   div.costoverview,
+//   div.tipps,
+//   div.comparison,
+//   div.total,
+//   div.normal,
+//   div.low,
+//   div.costsplit,
+//   div.energytypes,
+//   div.bill {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     padding-bottom:40px;
+//     width: 100%;
+//     color: $oc-gray-7;
+
+//     h1 {
+//       font-size: 48px;
+//       margin: 40px auto;
+//     }
+//   }
+
+//   div.costoverview {
+//     table.detail-table {
+//       font-size: 30px;
+//       width: 930px;
+//       color: $oc-gray-7;
+//       font-weight: bold;
+//       border-collapse: collapse;
+
+//       tr.detail-table-row {
+//         border-bottom: 1px solid;
+
+//         td {
+//           padding: 15px 10px;
+//         }
+//         td.icon {
+//           text-align:center;
+//           font-size: 48px;
+//         }
+//         td.text {
+//           flex-wrap: wrap;
+//           width: 60%;
+//         }
+//         td.zahl {
+//           white-space: nowrap;
+//           text-align: right;
+//           font-size: 36px;
+//         }
+//         td.green {
+//           color: $oc-green-7;
+//         }
+//         td.red {
+//           color: $oc-red-7;
+//         }
+//       }
+//     }
+//   }
+
+//   div.tipps,
+//   div.normal,
+//   div.low,
+//   div.energytypes {
+//     background-color: $oc-gray-0;
+//   }
+
+//   div.tipps {
+//     padding-bottom:50px;
+
+//     h1 {
+//       font-size: 40px;
+//     }
+//     h1.green {
+//       color: $oc-green-7;
+//     }
+//     h1.red {
+//       color: $oc-red-7;
+//     }
+//     table.tipp-table {
+//       width: 930px;
+//       tr.tipp-table-row {
+//         padding:0;
+
+//         td.icon {
+//           font-size:120px;
+//           padding: 0 20px;
+//         }
+//         td.title{
+//           font-size:36px;
+//           font-weight: bold;
+//           padding-bottom: 10px;
+//         }
+//         td.text {
+//           font-size: 20px;
+//           padding-bottom: 10px;
+//         }
+//         td.button {
+//           padding-top:10px;
+
+//           a {
+//             color:white;
+//             text-decoration: none;
+//             font-size: 20px;
+//             border-radius: 20px;
+//             padding: 5px 15px !important;
+//             background-color: $oc-gray-7;
+//           }
+
+//         }
+//       }
+//     }
+//   }
+
+//   div.comparison,
+//   div.costsplit,
+//   div.energytypes {
+
+//     div.comparison-row,
+//     div.costsplit-row,
+//     div.energytypes-row {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: center;
+//       align-items: center;
+
+//       span{
+//         font-size: 20px;
+//         text-align: justify;
+//       }
+//     }
+//   }
+
+//   div.comparison,
+//   div.costsplit {
+//     background-color: $oc-gray-7;
+//     color: $oc-gray-0;
+//     h1 {
+//       color:white;
+//     }
+
+//     div.comparison-row,
+//     div.costsplit-row {
+//       span{
+//         color: $oc-gray-5;
+//       }
+//     }
+//   }
+
+//   div.comparison {
+//     div.comparison-row {
+//       div.compare{
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         width: 410px;
+//         color: white;
+//         padding: 0 40px;
+
+//         i {
+//           font-size:72px;
+//         }
+//         h2{
+//           font-size:40px;
+//           margin:20px auto;
+//         }
+
+//       }
+//     }
+//   }
+
+//   div.normal,
+//   div.low {
+//     span {
+//       width: 930px;
+//       font-size: 20px;
+//     }
+//   }
+
+//   div.costsplit,
+//   div.energytypes {
+//     div.costsplit-row,
+//     div.energytypes-row {
+//       span {
+//         width: 470px;
+//         padding: 0 40px;
+//       }
+//     }
+//   }
+// }
