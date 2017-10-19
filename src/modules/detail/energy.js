@@ -1,5 +1,6 @@
-import Chart from 'chart.js';
-import { inject } from 'aurelia-framework';
+import * as moment from 'moment';
+
+import { inject, observable } from 'aurelia-framework';
 import { EnergyService } from '../../services/energy.service';
 
 @inject(EnergyService)
@@ -7,8 +8,35 @@ export class Energy {
 
   static SwissAverageCosts = 100;
   static SwissAverageEnergy = 100;
+  static Months = [
+    'Jan',
+    'Feb',
+    'Mär',
+    'Apr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Dez'
+  ];
 
-  dataEnergy;
+  static Quarters = {
+    1: [1, 2, 3],
+    2: [4, 5, 6],
+    3: [7, 8, 9],
+    4: [10, 11, 12]
+  };
+
+  @observable dataEnergy;
+
+  @observable chatOptionsTotal;
+  @observable chatOptionsNormal;
+  @observable chatOptionsLow;
+
+  @observable selection;
 
   constructor(energyService) {
     this.energyService = energyService;
@@ -16,296 +44,117 @@ export class Energy {
   }
 
   onChange(value, type) {
-    this.dataEnergy = this.energyService.GetDetailDataQuarter;
+    this.selection = { value, type };
 
+    if (!value || !type) {
+      return;
+    }
+
+    this.setTotalChartOptions();
   }
 
+  getDataForAnYear(key) {
+    this.dataEnergy = this.energyService.GetDetailDataYear;
+    let data = this.energyService.GetData;
+    let now = data.filter(d => {
+      return `${d.year}` === this.selection.value
+    });
+    let past = data.filter(d => {
+      return `${(parseInt(d.year) + 1)}` === this.selection.value
+    });
 
-  //   $("#totalChart").remove();
-  //   $("#totalChartFrame").append('<canvas id="totalChart" width="930" height="420"></canvas>');
-  //   var ctx_total = $("#totalChart");
-  //   var totalChart = new Chart(ctx_total, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: [
-  //         dataEnergy[0][12].getDetailLabel(type),
-  //         dataEnergy[0][11].getDetailLabel(type),
-  //         dataEnergy[0][10].getDetailLabel(type),
-  //         dataEnergy[0][9].getDetailLabel(type),
-  //         dataEnergy[0][8].getDetailLabel(type),
-  //         dataEnergy[0][7].getDetailLabel(type),
-  //         dataEnergy[0][6].getDetailLabel(type),
-  //         dataEnergy[0][5].getDetailLabel(type),
-  //         dataEnergy[0][4].getDetailLabel(type),
-  //         dataEnergy[0][3].getDetailLabel(type),
-  //         dataEnergy[0][2].getDetailLabel(type),
-  //         dataEnergy[0][1].getDetailLabel(type),
-  //         dataEnergy[0][0].getDetailLabel(type),
-  //       ],
-  //       datasets: [{
-  //         label: "Aktueller Verbrauch",
-  //         data: [
-  //           dataEnergy[0][12].value,
-  //           dataEnergy[0][11].value,
-  //           dataEnergy[0][10].value,
-  //           dataEnergy[0][9].value,
-  //           dataEnergy[0][8].value,
-  //           dataEnergy[0][7].value,
-  //           dataEnergy[0][6].value,
-  //           dataEnergy[0][5].value,
-  //           dataEnergy[0][4].value,
-  //           dataEnergy[0][3].value,
-  //           dataEnergy[0][2].value,
-  //           dataEnergy[0][1].value,
-  //           dataEnergy[0][0].value
-  //         ],
-  //         backgroundColor: 'rgba(255, 224, 102, 0.37)',
-  //         borderColor: '#ffe066',
-  //         borderWidth: 2
-  //       }, {
-  //         label: "Verbrauch " + dataEnergy[1][0].year,
-  //         data: [
-  //           dataEnergy[1][12].value,
-  //           dataEnergy[1][11].value,
-  //           dataEnergy[1][10].value,
-  //           dataEnergy[1][9].value,
-  //           dataEnergy[1][8].value,
-  //           dataEnergy[1][7].value,
-  //           dataEnergy[1][6].value,
-  //           dataEnergy[1][5].value,
-  //           dataEnergy[1][4].value,
-  //           dataEnergy[1][3].value,
-  //           dataEnergy[1][2].value,
-  //           dataEnergy[1][1].value,
-  //           dataEnergy[1][0].value
-  //         ],
-  //         borderColor: "#e67700",
-  //         backgroundColor: "rgba(230, 119, 0, 0.36)",
-  //         fill: false,
-  //         type: 'line'
-  //       }, {
-  //         label: "Schweizer Durchschnitt",
-  //         data: [swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy, swissAverageEnergy],
-  //         borderColor: "#adb5bd",
-  //         backgroundColor: "rgba(173, 181, 189, 0.36)",
-  //         fill: false,
-  //         type: 'line'
-  //       }]
-  //     },
-  //     options: {
-  //       responsive: false,
-  //       title: {
-  //         display: true,
-  //         fontSize: 12
-  //       },
-  //       tooltips: {
-  //         titleFontSize: 12,
-  //         titleFontFamily: 'Arial'
-  //       },
-  //       legend: {
-  //         position: 'bottom'
-  //       },
-  //       scales: {
-  //         yAxes: [{
-  //           ticks: {
-  //             min: 0
-  //           }
-  //         }],
-  //         xAxes: [{
-  //           ticks: {
-  //             fontFamily: 'Arial',
+    let d1 = ['now'];
+    let d2 = ['past'];
+    let x = ['x'];
+    for (let i = 1; i < 13; i++) {
+      d1[i] = 0;
+      d2[i] = 0;
+      x[i] = Energy.Months[i - 1];
+    }
 
-  //           }
-  //         }]
-  //       }
-  //     }
-  //   });
+    d1 = now.reduce((accumulator, currentValue) => {
+      accumulator[currentValue.month] = (accumulator[currentValue.month] || 0) + parseInt(currentValue[key], 10);
+      return accumulator;
+    }, d1);
 
-  //   $("#normalChart").remove();
-  //   $("#normalChartFrame").append('<canvas id="normalChart" width="930" height="420"></canvas>');
-  //   var ctx_normal = $("#normalChart");
-  //   var normalChart = new Chart(ctx_normal, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: [
-  //         "KW" + dataEnergy[0][12].week,
-  //         "KW" + dataEnergy[0][11].week,
-  //         "KW" + dataEnergy[0][10].week,
-  //         "KW" + dataEnergy[0][9].week,
-  //         "KW" + dataEnergy[0][8].week,
-  //         "KW" + dataEnergy[0][7].week,
-  //         "KW" + dataEnergy[0][6].week,
-  //         "KW" + dataEnergy[0][5].week,
-  //         "KW" + dataEnergy[0][4].week,
-  //         "KW" + dataEnergy[0][3].week,
-  //         "KW" + dataEnergy[0][2].week,
-  //         "KW" + dataEnergy[0][1].week,
-  //         "KW" + dataEnergy[0][0].week
-  //       ],
-  //       datasets: [{
-  //         label: "Aktueller Verbrauch",
-  //         data: [
-  //           dataEnergy[0][12].valueNormal,
-  //           dataEnergy[0][11].valueNormal,
-  //           dataEnergy[0][10].valueNormal,
-  //           dataEnergy[0][9].valueNormal,
-  //           dataEnergy[0][8].valueNormal,
-  //           dataEnergy[0][7].valueNormal,
-  //           dataEnergy[0][6].valueNormal,
-  //           dataEnergy[0][5].valueNormal,
-  //           dataEnergy[0][4].valueNormal,
-  //           dataEnergy[0][3].valueNormal,
-  //           dataEnergy[0][2].valueNormal,
-  //           dataEnergy[0][1].valueNormal,
-  //           dataEnergy[0][0].valueNormal
-  //         ],
-  //         backgroundColor: 'rgba(255, 224, 102, 0.37)',
-  //         borderColor: '#ffe066',
-  //         borderWidth: 2
-  //       }, {
-  //         label: "Verbrauch " + dataEnergy[1][0].year,
-  //         data: [
-  //           dataEnergy[1][12].valueNormal,
-  //           dataEnergy[1][11].valueNormal,
-  //           dataEnergy[1][10].valueNormal,
-  //           dataEnergy[1][9].valueNormal,
-  //           dataEnergy[1][8].valueNormal,
-  //           dataEnergy[1][7].valueNormal,
-  //           dataEnergy[1][6].valueNormal,
-  //           dataEnergy[1][5].valueNormal,
-  //           dataEnergy[1][4].valueNormal,
-  //           dataEnergy[1][3].valueNormal,
-  //           dataEnergy[1][2].valueNormal,
-  //           dataEnergy[1][1].valueNormal,
-  //           dataEnergy[1][0].valueNormal
-  //         ],
-  //         borderColor: "#e67700",
-  //         backgroundColor: "rgba(230, 119, 0, 0.36)",
-  //         fill: false,
-  //         type: 'line'
-  //       }]
-  //     },
-  //     options: {
-  //       responsive: false,
-  //       title: {
-  //         display: true,
-  //         fontSize: 12
-  //       },
-  //       tooltips: {
-  //         titleFontSize: 12,
-  //         titleFontFamily: 'Arial'
-  //       },
-  //       legend: {
-  //         position: 'bottom'
-  //       },
-  //       scales: {
-  //         yAxes: [{
-  //           ticks: {
-  //             min: 0
-  //           }
-  //         }],
-  //         xAxes: [{
-  //           ticks: {
-  //             fontFamily: 'Arial',
+    d2 = past.reduce((accumulator, currentValue) => {
+      accumulator[currentValue.month] = (accumulator[currentValue.month] || 0) + parseInt(currentValue[key], 10);
+      return accumulator;
+    }, d2);
 
-  //           }
-  //         }]
-  //       }
-  //     }
-  //   });
+    return [d1, d2, x];
+  }
 
-  //   $("#lowChart").remove();
-  //   $("#lowChartFrame").append('<canvas id="lowChart" width="930" height="420"></canvas>');
-  //   var ctx_low = $("#lowChart");
-  //   var lowChart = new Chart(ctx_low, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: [
-  //         "KW" + dataEnergy[0][12].week,
-  //         "KW" + dataEnergy[0][11].week,
-  //         "KW" + dataEnergy[0][10].week,
-  //         "KW" + dataEnergy[0][9].week,
-  //         "KW" + dataEnergy[0][8].week,
-  //         "KW" + dataEnergy[0][7].week,
-  //         "KW" + dataEnergy[0][6].week,
-  //         "KW" + dataEnergy[0][5].week,
-  //         "KW" + dataEnergy[0][4].week,
-  //         "KW" + dataEnergy[0][3].week,
-  //         "KW" + dataEnergy[0][2].week,
-  //         "KW" + dataEnergy[0][1].week,
-  //         "KW" + dataEnergy[0][0].week
-  //       ],
-  //       datasets: [{
-  //         label: "Aktueller Verbrauch",
-  //         data: [
-  //           dataEnergy[0][12].valueLow,
-  //           dataEnergy[0][11].valueLow,
-  //           dataEnergy[0][10].valueLow,
-  //           dataEnergy[0][9].valueLow,
-  //           dataEnergy[0][8].valueLow,
-  //           dataEnergy[0][7].valueLow,
-  //           dataEnergy[0][6].valueLow,
-  //           dataEnergy[0][5].valueLow,
-  //           dataEnergy[0][4].valueLow,
-  //           dataEnergy[0][3].valueLow,
-  //           dataEnergy[0][2].valueLow,
-  //           dataEnergy[0][1].valueLow,
-  //           dataEnergy[0][0].valueLow
-  //         ],
-  //         backgroundColor: 'rgba(255, 224, 102, 0.37)',
-  //         borderColor: '#ffe066',
-  //         borderWidth: 2
-  //       }, {
-  //         label: "Verbrauch " + dataEnergy[1][0].year,
-  //         data: [
-  //           dataEnergy[1][12].valueLow,
-  //           dataEnergy[1][11].valueLow,
-  //           dataEnergy[1][10].valueLow,
-  //           dataEnergy[1][9].valueLow,
-  //           dataEnergy[1][8].valueLow,
-  //           dataEnergy[1][7].valueLow,
-  //           dataEnergy[1][6].valueLow,
-  //           dataEnergy[1][5].valueLow,
-  //           dataEnergy[1][4].valueLow,
-  //           dataEnergy[1][3].valueLow,
-  //           dataEnergy[1][2].valueLow,
-  //           dataEnergy[1][1].valueLow,
-  //           dataEnergy[1][0].valueLow
-  //         ],
-  //         borderColor: "#e67700",
-  //         backgroundColor: "rgba(230, 119, 0, 0.36)",
-  //         fill: false,
-  //         type: 'line'
-  //       }]
-  //     },
-  //     options: {
-  //       responsive: false,
-  //       title: {
-  //         display: true,
-  //         fontSize: 12
-  //       },
-  //       tooltips: {
-  //         titleFontSize: 12,
-  //         titleFontFamily: 'Arial'
-  //       },
-  //       legend: {
-  //         position: 'bottom'
-  //       },
-  //       scales: {
-  //         yAxes: [{
-  //           ticks: {
-  //             min: 0
-  //           }
-  //         }],
-  //         xAxes: [{
-  //           ticks: {
-  //             fontFamily: 'Arial',
+  getDataForAnQuarter(key) {
+    this.dataEnergy = this.energyService.GetDetailDataQuarter;
+    let data = this.energyService.GetData;
 
-  //           }
-  //         }]
-  //       }
-  //     }
-  //   });
+    let y = parseInt(this.selection.value.split('-')[1], 10);
+    let q = parseInt(this.selection.value.split('Q')[1].split('-')[0], 10);
+    let ms = Energy.Quarters[q];
+
+    let qs = data.filter(d => {
+      return ms.indexOf(d.month) >= 0;
+    });
+
+    let now = qs.filter(d => d.year === y)
+    let past = qs.filter(d => (d.year + 1) === y);
+
+    let d1 = ['now'];
+    let d2 = ['past'];
+    let x = ['x'];
+    let max = (past.length > now.length) ? past.length : now.length;
+    for (let i = 1; i < max; i++) {
+      d1[i] = 0;
+      d2[i] = 0;
+      x[i] = past[i].week;
+    }
+
+    for (let n = 0; n < now.length; n++) {
+      d1[n + 1] = now[n][key]
+      x[n + 1] = now[n].week;
+    }
+
+    for (let n = 0; n < past.length; n++) {
+      d2[n + 1] = past[n][key]
+      x[n + 1] = past[n].week;
+    }
+
+    return [d1, d2, x];
+  }
+
+  setTotalChartOptions() {
+    let data, dataLow, dataNormal;
+    switch (this.selection.type) {
+      case 'quarter':
+        data = this.getDataForAnQuarter('value');
+        dataLow = this.getDataForAnQuarter('valueLow');
+        dataNormal = this.getDataForAnQuarter('valueNormal');
+        break;
+      case 'year':
+        data = this.getDataForAnYear('value');
+        dataLow = this.getDataForAnYear('valueLow');
+        dataNormal = this.getDataForAnYear('valueNormal');
+        break;
+    }
+
+    this.chartOptionsTotal = {
+      color: 'yellow',
+      data
+    };
+
+    this.chartOptionsLow = {
+      color: 'yellow',
+      data: dataLow
+    };
+
+    this.chartOptionsNormal = {
+      color: 'yellow',
+      data: dataNormal
+    };
+  }
+}
+
 
   //   var nne_normal = Number(dataEnergy[0][0].valueNormal) * 0.13;
   //   var nne_low = Number(dataEnergy[0][0].valueLow) * 0.042;
@@ -378,5 +227,3 @@ export class Energy {
   //     }
   //   });
   // }
-
-}

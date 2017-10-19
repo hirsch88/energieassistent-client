@@ -82,7 +82,6 @@ export class EnergyNavCustomElement {
 
   attached() {
     this.navList[1].onSelect(this.navList[1]);
-    // this.fireChangeEvent();
   }
 
   fireChangeEvent(t, v) {
@@ -110,7 +109,6 @@ export class EnergyNavCustomElement {
         onSelect: (item, index) => {
           scope.selectedCal = index;
           scope.fireChangeEvent('quarter', item.key);
-          // this.router.navigateToRoute(route, { type: 'quarter', value: item.key });
         }
       });
       pointer.quarter(pointer.quarter() - 1);
@@ -127,8 +125,7 @@ export class EnergyNavCustomElement {
         key: `${pointer.year()}`,
         onSelect: (item, index) => {
           scope.selectedCal = index;
-          scope.fireChangeEvent('quarter', item.key);
-          // this.router.navigateToRoute(route, { type: 'quarter', value: item.key });
+          scope.fireChangeEvent('year', item.key);
         }
       });
       pointer.year(pointer.year() - 1);

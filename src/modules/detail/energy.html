@@ -7,42 +7,10 @@
   <section class="au-animate detail-section energy">
 
     <!-- Costs Table -->
-    <div class="box costs">
-      <div class="container">
-
-        <div class="row box-title">
-          <div class="col-sm-12 text-center">
-            <h1>Kostenübersicht</h1>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <costs-table options.bind="dataEnergy"></costs-table>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <costs-table options.bind="dataEnergy"></costs-table>
 
     <!-- Tipp -->
-    <div class="box box-gray-light tipp">
-      <div class="container">
-
-        <div class="row box-title">
-          <div class="col-sm-12 text-center">
-            <h1>Tipps</h1>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            body
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <tipp options.bind="dataEnergy"></tipp>
 
     <!-- Compare -->
     <div class="box box-gray-dark compare">
@@ -55,8 +23,19 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-12">
-            body
+          <div class="col-sm-6 text-center">
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <h2>200 für 24h</h2>
+            <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.</p>
+          </div>
+          <div class="col-sm-6 text-center">
+            <i class="fa fa-car" aria-hidden="true"></i>
+            <h2>100 km</h2>
+            <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.</p>
           </div>
         </div>
 
@@ -75,7 +54,7 @@
 
         <div class="row">
           <div class="col-sm-12">
-            body
+            <bar-line-chart options.bind="chartOptionsTotal" selection.bind="selection"></bar-line-chart>
           </div>
         </div>
 
@@ -94,7 +73,15 @@
 
         <div class="row">
           <div class="col-sm-12">
-            body
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <bar-line-chart options.bind="chartOptionsNormal" selection.bind="selection"></bar-line-chart>
           </div>
         </div>
 
@@ -113,7 +100,15 @@
 
         <div class="row">
           <div class="col-sm-12">
-            body
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <bar-line-chart options.bind="chartOptionsLow" selection.bind="selection"></bar-line-chart>
           </div>
         </div>
 
@@ -126,7 +121,7 @@
 
         <div class="row box-title">
           <div class="col-sm-12 text-center">
-            <h1>Spartarif Auswertung</h1>
+            <h1>Kostenaufteilung</h1>
           </div>
         </div>
 
@@ -169,42 +164,43 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-12">
-            body
+          <div class="col-sm-4 col-md-2">
+            <div class="doc">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2017</span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-2">
+            <div class="doc">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2016</span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-2">
+            <div class="doc">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2015</span>
+            </div>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-sm-4 col-md-2">
+            <div class="doc">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Preise & Tarife</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
 
   </section>
 
-  <!-- </div> -->
-  <!-- <div class="costoverview">
-      <h1>Kostenübersicht</h1>
-
-    </div>
-    <div class="tipps">
-      <h1 class="${data.comparedToLastYearClass}">"${data.tippText}"</h1>
-      <table class="tipp-table">
-        <tr class="tipp-table-row">
-          <td class="icon" rowspan="3"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
-          <td class="title">Niedrige Waschtemperatur wählen</td>
-        </tr>
-        <tr class="tipp-table-row">
-          <td class="text">Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Grad sind
-            nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber
-            zu bekommen.
-          </td>
-        </tr>
-        <tr class="tipp-table-row">
-          <td class="button">
-            <a href="#">Nächster Tipp</a>
-          </td>
-        </tr>
-      </table>
-    </div>
+  <!--
     <div class="comparison">
       <h1>Vergleiche</h1>
       <div class="comparison-row">

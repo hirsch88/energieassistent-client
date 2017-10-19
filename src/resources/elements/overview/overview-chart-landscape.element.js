@@ -77,7 +77,7 @@ export class OverviewChartLandscapeCustomElement {
         columns: [
           d1, d2, d3, x
         ]
-      })
+      });
 
     }
   }

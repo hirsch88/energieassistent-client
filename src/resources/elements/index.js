@@ -10,6 +10,8 @@ export function configure(aurelia) {
       PLATFORM.moduleName('./navs/energy-nav.element'),
       PLATFORM.moduleName('./overview/overview-chart-landscape.element'),
       PLATFORM.moduleName('./overview/overview-chart-portrait.element'),
-      PLATFORM.moduleName('./detail/costs-table.element')
+      PLATFORM.moduleName('./detail/costs-table.element'),
+      PLATFORM.moduleName('./detail/tipp.element'),
+      PLATFORM.moduleName('./detail/bar-line-chart.element')
     ]);
 }
