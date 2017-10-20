@@ -12,6 +12,7 @@ export function configure(aurelia) {
       PLATFORM.moduleName('./overview/overview-chart-portrait.element'),
       PLATFORM.moduleName('./detail/costs-table.element'),
       PLATFORM.moduleName('./detail/tipp.element'),
-      PLATFORM.moduleName('./detail/bar-line-chart.element')
+      PLATFORM.moduleName('./detail/bar-line-chart.element'),
+      PLATFORM.moduleName('./detail/pie-chart.element')
     ]);
 }

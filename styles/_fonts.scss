@@ -35,13 +35,27 @@ h4 {
 body {
   font-size: 12px;
 }
+
+.tooltip-inner {
+  font-size: 12px;
+}
 @media (min-width: 769px) {
   body {
     font-size: 14px;
   }
+
+  .tooltip-inner {
+    font-size: 14px;
+  }
+
 }
 @media (min-width: 1025px) {
   body {
     font-size: 16px;
   }
+
+  .tooltip-inner {
+    font-size: 16px;
+  }
+
 }

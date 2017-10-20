@@ -39,6 +39,9 @@ export class BarLineChartCustomElement {
           type: 'category'
         }
       },
+      point: {
+        show: false
+      },
       data: {
         type: 'bar',
         x: 'x',
@@ -51,6 +54,7 @@ export class BarLineChartCustomElement {
     config.data.types[this.LABEL_HISTORY(this.selection.value)] = 'line';
 
     this.chart = c3.generate(config);
+    this.isAttached = true;
   }
 
   selectionChanged(value) {

@@ -1,20 +1,28 @@
 section.overview {
-  @media (min-width: 1024px) {
-    div.power-panel {
-      padding-left: 30px;
-      padding-right: 30px;
+  margin-top: 15px;
+  @media (min-height: 1024px) {
+    .chart-container,
+    div.wrapper {
+      padding-top: 45px;
+    }
+
+    .overview-table {
+      margin-top: 60px;
     }
   }
 
-  .blue h1, .blue .zahl {
+  .blue .zahl,
+  .blue h1 {
     color: $oc-blue-7;
   }
 
-  .red h1, .red .zahl {
+  .red .zahl,
+  .red h1 {
     color: $oc-red-7;
   }
 
-  .yellow h1, .yellow .zahl {
+  .yellow .zahl,
+  .yellow h1 {
     color: $oc-yellow-7;
   }
 

@@ -38,10 +38,20 @@ export class OverviewChartPortraitCustomElement {
 
     var config = {
       bindto: this.chartContainer,
+      padding: {
+        bottom: 5,
+        top: 15
+      },
       axis: {
         x: {
           type: 'category'
         }
+      },
+      padding: {
+        bottom: 5
+      },
+      point: {
+        show: false
       },
       data: {
         type: 'bar',

@@ -7,11 +7,13 @@
 
   text {
     fill: $oc-gray-7;
+    font-size: 14px;
   }
 }
 
 .c3-axis text {
   fill: $oc-gray-5;
+  font-size: 14px;
 }
 
 .c3-axis line {
@@ -47,4 +49,53 @@
   stroke-width: 2px;
   stroke: $oc-yellow-3 !important;
   fill: rgba(255, 224, 102, 0.37) !important;
+}
+
+.c3-tooltip-container {
+  border-radius: 4px;
+  background-color: $oc-gray-9;
+  padding: 3px 8px;
+  -webkit-box-shadow: 7px 7px 12px -9px $oc-gray-5;
+  -moz-box-shadow: 7px 7px 12px -9px $oc-gray-5;
+  box-shadow: 7px 7px 12px -9px $oc-gray-5;
+  // opacity: .9;
+
+  .c3-tooltip {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    background-color: $oc-gray-9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .c3-tooltip tr {
+    border: none;
+    border-top: 1px solid $oc-gray-5;
+    background-color: transparent;
+  }
+
+  .c3-tooltip tr:first-child {
+    border: none;
+  }
+
+  .c3-tooltip th {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+    color: #FFF;
+    background-color: transparent;
+  }
+
+  .c3-tooltip td {
+    font-size: 13px;
+    padding: 3px 6px;
+    color: #FFF;
+    // border-left: 1px dotted #999;
+    border: none;
+    background-color: transparent;
+  }
 }

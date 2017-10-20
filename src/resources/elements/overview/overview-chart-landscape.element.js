@@ -43,6 +43,12 @@ export class OverviewChartLandscapeCustomElement {
           type: 'category'
         }
       },
+      padding: {
+        bottom: 5
+      },
+      point: {
+        show: false
+      },
       data: {
         type: 'bar',
         x: 'x',
