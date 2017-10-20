@@ -6,8 +6,8 @@ import c3 from 'c3';
 @useView('./bar-line-chart.element.html')
 export class BarLineChartCustomElement {
 
-  LABEL_NOW = () => `Aktueller Verbrauch`;
-  LABEL_HISTORY = (y) => `Verbrauch ${y}`;
+  LABEL_NOW = () => `Ausgewählter Verbrauch`;
+  LABEL_HISTORY = (y) => `Verbrauch des Vorjahres`;
 
   @bindable options;
   @bindable selection;

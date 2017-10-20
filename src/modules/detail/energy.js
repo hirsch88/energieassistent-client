@@ -159,17 +159,19 @@ export class Energy {
     for (let i = 1; i < max; i++) {
       d1[i] = 0;
       d2[i] = 0;
-      x[i] = past[i].week;
-    }
-
-    for (let n = 0; n < now.length; n++) {
-      d1[n + 1] = now[n][key]
-      x[n + 1] = now[n].week;
     }
 
     for (let n = 0; n < past.length; n++) {
       d2[n + 1] = past[n][key]
-      x[n + 1] = past[n].week;
+    }
+
+    for (let n = 0; n < now.length; n++) {
+      d1[n + 1] = now[n][key]
+    }
+
+    x[1] = now[1].week;
+    for (let n = 2; n < max; n++) {
+      x[n] = x[n - 1] + 1;
     }
 
     for (let n = 1; n < d1.length; n++) {
