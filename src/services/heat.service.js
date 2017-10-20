@@ -11,7 +11,7 @@ export class HeatService {
     while (!(pointer.year() === start.year() && pointer.week() === start.week())) {
       this.data.push(new DataItem(
         pointer.year(),
-        pointer.month()+1,
+        pointer.month() + 1,
         pointer.week(),
         (Math.random() * (5000 - 500) + 0.05).toFixed(2)
       ));
@@ -20,9 +20,9 @@ export class HeatService {
   }
 
   get getISOWeeks() {
-    var y = new Date().getFullYear()-1;
+    var y = new Date().getFullYear() - 1;
     var d,
-        isLeap;
+      isLeap;
 
     d = new Date(y, 0, 1);
     isLeap = new Date(y, 1, 29).getMonth() === 1;
@@ -33,13 +33,31 @@ export class HeatService {
   }
 
   getSumTotal(total, ele) {
-    return total +  Number(ele.value);
+    return total + Number(ele.value);
   }
 
   get GetOverviewDataWeeks() {
     var a = [];
     a.push(this.data.filter((_, index) => index < 4));
-    a.push(this.data.filter((_,index) => index < 4+this.getISOWeeks && index >= this.getISOWeeks));
+    a.push(this.data.filter((_, index) => index < 4 + this.getISOWeeks && index >= this.getISOWeeks));
+    return a;
+  }
+
+  get GetData() {
+    return this.data.reverse();
+  }
+
+  get GetDetailDataYear() {
+    var a = [];
+    a.push(this.data.filter((_, index) => index < 52));
+    a.push(this.data.filter((_, index) => index < 52 + this.getISOWeeks && index >= this.getISOWeeks));
+    return a;
+  }
+
+  get GetDetailDataQuarter() {
+    var a = [];
+    a.push(this.data.filter((_, index) => index < 13));
+    a.push(this.data.filter((_, index) => index < 13 + this.getISOWeeks && index >= this.getISOWeeks));
     return a;
   }
 
@@ -51,15 +69,15 @@ export class HeatService {
     var firstDay = new Date(y, m, 1);
     var pointer1 = moment(firstDay);
     var pointer2 = moment(firstDay);
-    pointer2.subtract(1,'year');
-    for(let i = 0; i<=3 ;i++) {
+    pointer2.subtract(1, 'year');
+    for (let i = 0; i <= 3; i++) {
       var dataMonthThisYear = this.data.filter((e, i) => {
         var d = new Date(e.year, e.month, 1);
         return d.getTime() == pointer1.valueOf();
       });
       thisYear.push(new DataItem(
         pointer1.year(),
-        pointer1.month()+1,
+        pointer1.month() + 1,
         pointer1.week(),
         dataMonthThisYear.reduce(this.getSumTotal, 0)
       ));
@@ -69,33 +87,33 @@ export class HeatService {
       });
       lastYear.push(new DataItem(
         pointer2.year(),
-        pointer2.month()+1,
+        pointer2.month() + 1,
         pointer2.week(),
         dataMonthLastYear.reduce(this.getSumTotal, 0)
       ));
-      pointer1.subtract(1,'month');
-      pointer2.subtract(1,'month');
+      pointer1.subtract(1, 'month');
+      pointer2.subtract(1, 'month');
     }
     a.push(thisYear);
     a.push(lastYear);
     return a;
   }
 
-  get GetOverviewDataQuarter(){
+  get GetOverviewDataQuarter() {
     var a = [];
     var thisYear = [];
     var lastYear = [];
     var pointer1 = moment();
     var pointer2 = moment();
-    pointer2.subtract(1,'year');
-    for(let i = 0; i<=3 ;i++) {
+    pointer2.subtract(1, 'year');
+    for (let i = 0; i <= 3; i++) {
       var dataThisYear = this.data.filter((e, i) => {
         var d = new Date(e.year, e.month, 1);
         return d.getTime() >= pointer1.startOf('quarter').valueOf() && d.getTime() <= pointer1.endOf('quarter').valueOf();
       });
       thisYear.push(new DataItem(
         pointer1.year(),
-        pointer1.month()+1,
+        pointer1.month() + 1,
         pointer1.week(),
         dataThisYear.reduce(this.getSumTotal, 0)
       ));
@@ -105,12 +123,12 @@ export class HeatService {
       });
       lastYear.push(new DataItem(
         pointer2.year(),
-        pointer2.month()+1,
+        pointer2.month() + 1,
         pointer2.week(),
         dataLastYear.reduce(this.getSumTotal, 0)
       ));
-      pointer1.subtract(1,'quarter');
-      pointer2.subtract(1,'quarter');
+      pointer1.subtract(1, 'quarter');
+      pointer2.subtract(1, 'quarter');
     }
     a.push(thisYear);
     a.push(lastYear);
