@@ -106,39 +106,39 @@ export class Overview {
     this.heatOptions.history = getHistory(this.heatOptions.data)
     this.waterOptions.history = getHistory(this.waterOptions.data)
 
-    var getStatus = (o) => {
+    var getStatus = (o, name) => {
       var data = {};
       if (o.trend < 0) {
         //green
-        data.mood = "smile-good";
-        data.icon = "fa fa-smile-o";
-        data.tooltip = "Sie haben " + Math.abs(o.trend) + "% weniger Strom verbraucht";
+        data.mood = `smile-good`;
+        data.icon = `fa fa-smile-o`;
+        data.tooltip = `Sie haben ` + Math.abs(o.trend) + `% weniger ${name} verbraucht`;
       } else if (o.trend < moodWarningThreshold) {
         //orange
-        data.mood = "smile-neutral";
-        data.icon = "fa fa-meh-o";
-        data.tooltip = "Sie haben " + o.trend + "% mehr Strom verbraucht";
+        data.mood = `smile-neutral`;
+        data.icon = `fa fa-meh-o`;
+        data.tooltip = `Sie haben ` + o.trend + `% mehr ${name} verbraucht`;
       } else {
         //red
-        data.mood = "smile-bad";
-        data.icon = "fa fa-frown-o";
-        data.tooltip = "Sie haben " + o.trend + "% mehr Strom verbraucht";
+        data.mood = `smile-bad`;
+        data.icon = `fa fa-frown-o`;
+        data.tooltip = `Sie haben ` + o.trend + `% mehr ${name} verbraucht`;
       }
       return data;
     };
-    this.energyOptions.status = getStatus(this.energyOptions);
-    this.heatOptions.status = getStatus(this.heatOptions);
-    this.waterOptions.status = getStatus(this.waterOptions);
+    this.energyOptions.status = getStatus(this.energyOptions, 'Strom');
+    this.heatOptions.status = getStatus(this.heatOptions, 'Wärme');
+    this.waterOptions.status = getStatus(this.waterOptions, 'Wasser');
 
     //timer für pulse animated
     var nodes = document.getElementsByClassName('smile-bad');
     for (let i = 0; i < nodes.length; i++) {
-      nodes[i].className = "smile-bad tipp";
+      nodes[i].className = 'smile-bad tipp';
     }
     setTimeout(() => {
       var nodes = document.getElementsByClassName('smile-bad');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i].className += " animated shake";
+        nodes[i].className += ' animated shake';
       }
     }, 1000);
 

@@ -20,17 +20,17 @@ export class OverviewChartLandscapeCustomElement {
   build() {
     var colors = {
       blue: {
-        [this.LABEL_NOW()]: 'rgba(114, 195, 252, 0.37)',
+        [this.LABEL_NOW()]: '#72c3fc', //rgba(114, 195, 252, 0.37)',
         [this.LABEL_HISTORY(this.options.data[1][0].year)]: '#1862ab',
         [this.LABEL_CH()]: '#adb5bd'
       },
       red: {
-        [this.LABEL_NOW()]: 'rgba(255, 168, 168, 0.37)',
+        [this.LABEL_NOW()]: '#ffa8a8', //rgba(255, 168, 168, 0.37)',
         [this.LABEL_HISTORY(this.options.data[1][0].year)]: '#c92a2a',
         [this.LABEL_CH()]: '#adb5bd'
       },
       yellow: {
-        [this.LABEL_NOW()]: 'rgba(255, 224, 102, 0.37)',
+        [this.LABEL_NOW()]: '#ffe066', //rgba(255, 224, 102, 0.37)',
         [this.LABEL_HISTORY(this.options.data[1][0].year)]: '#e67700',
         [this.LABEL_CH()]: '#adb5bd'
       }

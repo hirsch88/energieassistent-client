@@ -36,6 +36,7 @@ body {
   font-size: 12px;
 }
 
+.dropdown-menu,
 .tooltip-inner {
   font-size: 12px;
 }
@@ -44,8 +45,12 @@ body {
     font-size: 14px;
   }
 
-  .tooltip-inner {
+  .dropdown-menu {
     font-size: 14px;
+  }
+
+  .tooltip-inner {
+    font-size: 12px;
   }
 
 }
@@ -54,8 +59,12 @@ body {
     font-size: 16px;
   }
 
-  .tooltip-inner {
+  .dropdown-menu {
     font-size: 16px;
+  }
+
+  .tooltip-inner {
+    font-size: 14px;
   }
 
 }

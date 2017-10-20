@@ -12,43 +12,16 @@ export class PieChartCustomElement {
   chartContainer;
   chart;
 
-  attached() {
-    this.optionsChanged({
-      color: 'yellow',
-      data: [
-        {
-          color: '#f59f00',
-          value: 50,
-          text: 'One'
-        },
-        {
-          color: '#ffe066',
-          value: 30,
-          text: 'Two'
-        },
-        {
-          color: '#dee2e6',
-          value: 20,
-          text: 'Three'
-        }
-      ]
-    });
-
-  }
-
   optionsChanged(value) {
-    this.options = value;
     if (value) {
       this.render();
     }
   }
 
   render() {
-    if (!this.isAttached) {
+    if (!this.isAttached && this.options) {
       this.build();
     }
-
-    // this.chart.load();
   }
 
   build() {

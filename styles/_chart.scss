@@ -7,13 +7,13 @@
 
   text {
     fill: $oc-gray-7;
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 .c3-axis text {
   fill: $oc-gray-5;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .c3-axis line {
@@ -26,7 +26,7 @@
 }
 
 .c3-line {
-  stroke-width: 2;
+  stroke-width: 3;
 }
 
 .c3-legend-item text {
@@ -34,19 +34,19 @@
 }
 
 .blue .c3-bar {
-  stroke-width: 2px;
+  stroke-width: 3;
   stroke: $oc-blue-3 !important;
   fill: rgba(114, 195, 252, 0.37) !important;
 }
 
 .red .c3-bar {
-  stroke-width: 2px;
+  stroke-width: 3;
   stroke: $oc-red-3 !important;
   fill: rgba(255, 168, 168, 0.37) !important;
 }
 
 .yellow .c3-bar {
-  stroke-width: 2px;
+  stroke-width: 3;
   stroke: $oc-yellow-3 !important;
   fill: rgba(255, 224, 102, 0.37) !important;
 }
@@ -97,5 +97,65 @@
     // border-left: 1px dotted #999;
     border: none;
     background-color: transparent;
+  }
+}
+
+.c3-chart-arcs {
+  path.c3-shape {
+    stroke-width: 5;
+  }
+}
+
+.light {
+  .c3-chart-arcs {
+    path.c3-shape {
+      stroke: $oc-gray-0;
+    }
+  }
+
+  .c3-legend-item text {
+    fill: $oc-gray-7;
+  }
+}
+
+.dark {
+  .c3-chart-arcs {
+    path.c3-shape {
+      stroke: $oc-gray-7;
+    }
+  }
+
+  .c3-legend-item text {
+    fill: $oc-gray-0;
+  }
+}
+// @media (min-width: 769px) {
+//   .c3-legend-item {
+//     text {
+//       font-size: 14px;
+//     }
+//   }
+
+//   .c3-axis text {
+//     font-size: 14px;
+//   }
+
+// }
+@media (min-width: 1025px) {
+  .c3-legend-item {
+    text {
+      font-size: 14px;
+    }
+  }
+
+  .c3-axis text {
+    font-size: 14px;
+  }
+
+}
+
+.no-target-label {
+  .c3-chart-arc text {
+    display: none;
   }
 }

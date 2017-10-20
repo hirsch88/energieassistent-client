@@ -39,6 +39,9 @@ export class BarLineChartCustomElement {
           type: 'category'
         }
       },
+      padding: {
+        bottom: 5
+      },
       point: {
         show: false
       },

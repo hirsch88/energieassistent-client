@@ -1,5 +1,9 @@
 section.overview {
   margin-top: 15px;
+
+  .overview-table {
+    margin-top: 10px;
+  }
   @media (min-height: 1024px) {
     .chart-container,
     div.wrapper {
@@ -45,11 +49,11 @@ section.overview {
   }
 
   table.overview-table {
-    color: $oc-gray-5;
+    // color: $oc-gray-7;
     border-collapse: collapse;
 
     tr.overview-table-row {
-      border-bottom: 1px solid $oc-gray-2;
+      border-bottom: 1px solid $oc-gray-5;
 
       td {
         padding: 10px 5px;
@@ -58,14 +62,7 @@ section.overview {
       td.icon {
         text-align: center;
         font-size: 1.4em;
-        // display: none;
       }
-
-      // @media (min-width: 1024px) {
-      //   td.icon {
-      //     display: table-cell;
-      //   }
-      // }
 
       td.text {
         flex-wrap: wrap;

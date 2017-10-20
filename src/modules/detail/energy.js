@@ -36,11 +36,58 @@ export class Energy {
   @observable chatOptionsNormal;
   @observable chatOptionsLow;
 
+  @observable pieCostsOptions;
+  @observable pieMediumOptions;
+
   @observable selection;
 
   constructor(energyService) {
     this.energyService = energyService;
     this.data = {};
+  }
+
+  attached() {
+    this.pieCostsOptions = {
+      color: 'yellow',
+      data: [
+        {
+          color: '#f59f00',
+          value: 50,
+          text: 'Strom'
+        },
+        {
+          color: '#ffe066',
+          value: 30,
+          text: 'Netz'
+        },
+        {
+          color: '#adb5bd',
+          value: 20,
+          text: 'Abgaben'
+        }
+      ]
+    };
+
+    this.pieMediumOptions = {
+      color: 'yellow',
+      data: [
+        {
+          color: '#f59f00',
+          value: 50,
+          text: 'Solar'
+        },
+        {
+          color: '#ffe066',
+          value: 40,
+          text: 'Aqua'
+        },
+        {
+          color: '#adb5bd',
+          value: 10,
+          text: 'Pure'
+        }
+      ]
+    };
   }
 
   onChange(value, type) {
@@ -82,6 +129,11 @@ export class Energy {
       return accumulator;
     }, d2);
 
+    for (let n = 1; n < d1.length; n++) {
+      d1[n] = parseFloat(d1[n], 10).toFixed(2);
+      d2[n] = parseFloat(d2[n], 10).toFixed(2);
+    }
+
     return [d1, d2, x];
   }
 
@@ -120,6 +172,11 @@ export class Energy {
       x[n + 1] = past[n].week;
     }
 
+    for (let n = 1; n < d1.length; n++) {
+      d1[n] = parseFloat(d1[n], 10).toFixed(2);
+      d2[n] = parseFloat(d2[n], 10).toFixed(2);
+    }
+
     return [d1, d2, x];
   }
 
@@ -154,76 +211,3 @@ export class Energy {
     };
   }
 }
-
-
-  //   var nne_normal = Number(dataEnergy[0][0].valueNormal) * 0.13;
-  //   var nne_low = Number(dataEnergy[0][0].valueLow) * 0.042;
-  //   var la_normal = Number(dataEnergy[0][0].valueNormal) * 0.052;
-  //   var la_low = Number(dataEnergy[0][0].valueLow) * 0.04;
-  //   var abgaben = Number(dataEnergy[0][0].value) * 0.011 + Number(dataEnergy[0][0].value) * 0.013 + la_normal + la_low + ((nne_normal + nne_low + la_low + la_normal) / 100 * 9);
-  //   var strom = Number(dataEnergy[0][0].valueNormal) * 0.09 + Number(dataEnergy[0][0].valueLow) * 0.0735;
-  //   var netz = Number(dataEnergy[0][0].value) * 0.0054 + nne_normal + nne_low;
-
-  //   $("#costsChart").remove();
-  //   $("#costsChartFrame").append('<canvas id="costsChart" width="320" height="220"></canvas>');
-  //   var ctx_costs = $("#costsChart");
-  //   var costsChart = new Chart(ctx_costs, {
-  //     type: 'pie',
-  //     data: {
-  //       datasets: [{
-  //         label: ["Stromkosten", "Netzkosten", "Abgaben"],
-  //         data: [Math.round(strom * 100) / 100, Math.round(netz * 100) / 100, Math.round(abgaben * 100) / 100],
-  //         backgroundColor: ['#ffe066', '#f59f00', '#dee2e6'],
-  //         borderColor: '#495057'
-  //       }],
-  //       labels: ["Stromkosten", "Netzkosten", "Abgaben"],
-  //     },
-  //     options: {
-  //       responsive: false,
-  //       tooltips: {
-  //         titleFontSize: 12,
-  //         titleFontFamily: 'Arial'
-  //       },
-  //       legend: {
-  //         position: 'bottom',
-  //         labels: {
-  //           fontColor: '#adb5bd'
-  //         }
-  //       }
-  //     }
-  //   });
-
-
-  //   var aqua = 123;
-  //   var pure = 234;
-  //   var solar = 432;
-
-  //   $("#typesChart").remove();
-  //   $("#typesChartFrame").append('<canvas id="typesChart" width="320" height="220"></canvas>');
-  //   var ctx_types = $("#typesChart");
-  //   var typesChart = new Chart(ctx_types, {
-  //     type: 'pie',
-  //     data: {
-  //       datasets: [{
-  //         label: ["Aqua", "Pure", "Solar"],
-  //         data: [aqua, pure, solar],
-  //         backgroundColor: ['#ffe066', '#f59f00', '#dee2e6'],
-  //         borderColor: '#f8f9fa'
-  //       }],
-  //       labels: ["Aqua", "Pure", "Solar"],
-  //     },
-  //     options: {
-  //       responsive: false,
-  //       tooltips: {
-  //         titleFontSize: 12,
-  //         titleFontFamily: 'Arial'
-  //       },
-  //       legend: {
-  //         position: 'bottom',
-  //         labels: {
-  //           fontColor: '#495057'
-  //         }
-  //       }
-  //     }
-  //   });
-  // }

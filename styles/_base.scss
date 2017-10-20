@@ -40,3 +40,7 @@ section {
     display: none;
   }
 }
+
+[data-toggle=tooltip] {
+  cursor: pointer;
+}

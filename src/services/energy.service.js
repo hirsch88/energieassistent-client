@@ -18,8 +18,8 @@ export class EnergyService {
         Number(valueNormal) + Number(valueLow),
         valueNormal,
         valueLow,
-        valueNormal * 0.09,
-        valueLow * 0.0735
+        (valueNormal * 0.09).toFixed(2),
+        (valueLow * 0.0735).toFixed(2)
       ));
       pointer.subtract(1, 'week');
     }
