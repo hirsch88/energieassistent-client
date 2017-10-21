@@ -1,8 +1,10 @@
-import { bindable, useView } from 'aurelia-framework';
+import { bindable, useView, inject } from 'aurelia-framework';
+import { NumberValueConverter } from '../../converters/number.converter';
 import $ from 'jquery';
 import d3 from 'd3';
 import c3 from 'c3';
 
+@inject(NumberValueConverter)
 @useView('./overview-chart-portrait.element.html')
 export class OverviewChartPortraitCustomElement {
 
@@ -16,6 +18,11 @@ export class OverviewChartPortraitCustomElement {
   isAttached = false;
   chartContainer;
   chart;
+  numberValueConverter;
+
+  constructor(numberValueConverter) {
+    this.numberValueConverter = numberValueConverter;
+  }
 
   build() {
     var colors = {
@@ -45,7 +52,18 @@ export class OverviewChartPortraitCustomElement {
       axis: {
         x: {
           type: 'category'
+        },
+        y: {
+          tick: {
+            format: (d) => this.numberValueConverter.toChart(d)
+          }
         }
+        // y: {
+        //   label: {
+        //     text: this.extension,
+        //     position: 'outer-top'
+        //   }
+        // }
       },
       padding: {
         bottom: 5
@@ -59,6 +77,13 @@ export class OverviewChartPortraitCustomElement {
         columns: [],
         types: {},
         colors: colors[this.options.color] || {}
+      },
+      tooltip: {
+        format: {
+          value: (value, ratio, id) => {
+            return this.numberValueConverter.toView(value) + ' ' + this.extension;
+          }
+        }
       }
     };
 
@@ -79,8 +104,8 @@ export class OverviewChartPortraitCustomElement {
       var d2 = [`Verbrauch ${this.options.data[1][0].year}`];
       var d3 = ['Schweizer Durchschnitt', this.options.average, this.options.average, this.options.average, this.options.average];
 
-      value.data[0].forEach(e => d1.push(e.value));
-      value.data[1].forEach(e => d2.push(e.value));
+      value.data[0].reverse().forEach(e => d1.push(e.value));
+      value.data[1].reverse().forEach(e => d2.push(e.value));
       value.data[0].forEach((e) => x.push(e.getLabel(this.selection)));
 
       this.chart.load({

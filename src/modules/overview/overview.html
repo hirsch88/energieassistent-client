@@ -9,13 +9,13 @@
       <div class="wrapper only-landscape">
         <div class="row">
           <div class="col-sm-4 power-panel">
-            <overview-chart-landscape options.bind="energyOptions" selection.bind="selection"></overview-chart-landscape>
+            <overview-chart-landscape options.bind="energyOptions" selection.bind="selection" extension.bind="energyExtension"></overview-chart-landscape>
           </div>
           <div class="col-sm-4 power-panel">
-            <overview-chart-landscape options.bind="heatOptions" selection.bind="selection"></overview-chart-landscape>
+            <overview-chart-landscape options.bind="heatOptions" selection.bind="selection" extension.bind="heatExtension"></overview-chart-landscape>
           </div>
           <div class="col-sm-4 power-panel">
-            <overview-chart-landscape options.bind="waterOptions" selection.bind="selection"></overview-chart-landscape>
+            <overview-chart-landscape options.bind="waterOptions" selection.bind="selection" extension.bind="waterExtension"></overview-chart-landscape>
           </div>
         </div>
       </div>
@@ -23,13 +23,13 @@
       <div class="wrapper only-portrait">
         <div class="row">
           <div class="col-sm-12 power-panel">
-            <overview-chart-portrait options.bind="energyOptions" selection.bind="selection"></overview-chart-portrait>
+            <overview-chart-portrait options.bind="energyOptions" selection.bind="selection" extension.bind="energyExtension"></overview-chart-portrait>
           </div>
           <div class="col-sm-12 power-panel">
-            <overview-chart-portrait options.bind="heatOptions" selection.bind="selection"></overview-chart-portrait>
+            <overview-chart-portrait options.bind="heatOptions" selection.bind="selection" extension.bind="heatExtension"></overview-chart-portrait>
           </div>
           <div class="col-sm-12 power-panel">
-            <overview-chart-portrait options.bind="waterOptions" selection.bind="selection"></overview-chart-portrait>
+            <overview-chart-portrait options.bind="waterOptions" selection.bind="selection" extension.bind="waterExtension"></overview-chart-portrait>
           </div>
         </div>
       </div>

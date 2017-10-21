@@ -20,19 +20,19 @@
             <i class="fa fa-user" aria-hidden="true"></i>
           </td>
           <td class="text">Dein aktueller Verbrauch</td>
-          <td class="zahl">${options.actual} kWh</td>
+          <td class="zahl">${options.actual | number} ${options.extension}</td>
         </tr>
         <tr class="overview-table-row">
           <td class="icon">
             <i class="fa fa-history" aria-hidden="true"></i>
           </td>
           <td class="text">Dein Stromverbrauch vor einem Jahr</td>
-          <td class="zahl">${options.history} kWh</td>
+          <td class="zahl">${options.history | number} ${options.extension}</td>
         </tr>
         <tr class="overview-table-row">
           <td class="icon">ø</td>
           <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
-          <td class="zahl">${options.average} kWh</td>
+          <td class="zahl">${options.average | number} ${options.extension}</td>
         </tr>
       </table>
 

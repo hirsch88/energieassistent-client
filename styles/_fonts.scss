@@ -37,7 +37,8 @@ body {
 }
 
 .dropdown-menu,
-.tooltip-inner {
+.tooltip-inner,
+.c3-legend-item text {
   font-size: 12px;
 }
 @media (min-width: 769px) {
@@ -45,7 +46,7 @@ body {
     font-size: 14px;
   }
 
-  .dropdown-menu {
+  .dropdown-menu, .c3-legend-item text {
     font-size: 14px;
   }
 
@@ -59,7 +60,7 @@ body {
     font-size: 16px;
   }
 
-  .dropdown-menu {
+  .dropdown-menu,.c3-legend-item text {
     font-size: 16px;
   }
 

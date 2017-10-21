@@ -16,19 +16,19 @@
                 <i class="fa fa-user" aria-hidden="true"></i>
               </td>
               <td class="text">Dies sind Ihre Kosten für KW${data.actualWeek}.</td>
-              <td class="zahl">${data.costsThisWeek | currency} CHF</td>
+              <td class="zahl">${costNow | currency} CHF</td>
             </tr>
             <tr class="detail-table-row">
               <td class="icon">
                 <i class="fa fa-history" aria-hidden="true"></i>
               </td>
-              <td class="text">${data.comparedToLastYearText}</td>
-              <td class="zahl ${data.comparedToLastYearClass}">${data.comparedToLastYearValue | currency} CHF</td>
+              <td class="text">${comparePastAndNowText}</td>
+              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency} CHF</td>
             </tr>
             <tr class="detail-table-row">
               <td class="icon">ø</td>
-              <td class="text">${data.comparedToSwissText}</td>
-              <td class="zahl ${data.comparedToSwissClass}">${data.comparedToSwissValue | currency} CHF</td>
+              <td class="text">${compareSwissAndNowText}</td>
+              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency} CHF</td>
             </tr>
           </table>
         </div>

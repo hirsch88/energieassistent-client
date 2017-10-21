@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+import * as moment from 'moment';
 import { bindable, useView } from 'aurelia-framework';
 import { Energy } from '../../../modules/detail/energy';
 
@@ -5,36 +7,35 @@ import { Energy } from '../../../modules/detail/energy';
 export class CostsTableCustomElement {
 
   @bindable options;
-
-  data = {};
+  @bindable average = 0;
 
   optionsChanged(value) {
     if (value) {
-      this.data.costsThisWeek = Math.round((Number(value[0][0].costNormal) + Number(value[0][0].costLow)) * 100) / 100;
-      this.data.costsHistoryWeek = Math.round((Number(value[1][0].costNormal) + Number(value[1][0].costLow)) * 100) / 100;
-      this.data.actualWeek = value[0][0].week;
 
-      if (this.data.costsThisWeek < this.data.costsHistoryWeek) {
-        this.data.comparedToLastYearText = "Sie haben zum Vorjahr gespart.";
-        this.data.comparedToLastYearValue = Math.round((this.data.costsHistoryWeek - this.data.costsThisWeek) * 100) / 100;
-        this.data.comparedToLastYearClass = "green";
-        this.data.tippText = "Bravo, Sie haben zum Vorjahr gespart!";
-      } else {
-        this.data.comparedToLastYearText = "Sie haben zum Vorjahr mehr benötigt.";
-        this.data.comparedToLastYearValue = Math.round((this.data.costsThisWeek - this.data.costsHistoryWeek) * 100) / 100;
-        this.data.comparedToLastYearClass = "red";
-        this.data.tippText = "Hier einige Tipps um Energie zu sparen."
-      }
+      let now = this.options[0][0];
+      this.costNow = now.cost;
+      this.weekNow = now.week;
 
-      if (this.data.costsThisWeek < Energy.SwissAverageCosts) {
-        this.data.comparedToSwissText = "Sie sind unter dem Durchschnitt der schweizer Haushalte.";
-        this.data.comparedToSwissValue = Math.round((Energy.SwissAverageCosts - this.data.costsThisWeek) * 100) / 100;
-        this.data.comparedToSwissClass = "green";
-      } else {
-        this.data.comparedToSwissText = "Sie sind über dem Durchschnitt der schweizer Haushalte.";
-        this.data.comparedToSwissValue = Math.round((this.data.costsThisWeek - Energy.SwissAverageCosts) * 100) / 100;
-        this.data.comparedToSwissClass = "red";
-      }
+      let past = _.find(this.options[1], (o) => o.week === now.week)
+      this.costPast = past.cost;
+      this.weekPast = past.week;
+
+      this.comparePastAndNowValue = this.costNow - this.costPast;
+      this.comparePastAndNowText = (this.comparePastAndNowValue < 0)
+        ? 'Sie haben zum Vorjahr gespart.'
+        : 'Sie haben zum Vorjahr mehr benötigt.';
+      this.comparePastAndNowClass = (this.comparePastAndNowValue < 0)
+        ? 'green'
+        : 'red';
+
+      this.compareSwissAndNowValue = this.costNow - this.average;
+      this.compareSwissAndNowText = (this.comparePastAndNowValue < 0)
+        ? 'Sie sind über dem Durchschnitt der schweizer Haushalte.'
+        : 'Sie sind unter dem Durchschnitt der schweizer Haushalte.';
+      this.compareSwissAndNowClass = (this.compareSwissAndNowValue < 0)
+        ? 'green'
+        : 'red';
+
     }
   }
 

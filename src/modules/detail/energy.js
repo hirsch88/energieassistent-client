@@ -41,6 +41,9 @@ export class Energy {
 
   @observable selection;
 
+  //TODO: enter correct value
+  swissAverage = 100;
+
   constructor(energyService) {
     this.energyService = energyService;
     this.data = {};
@@ -172,6 +175,11 @@ export class Energy {
     x[1] = now[1].week;
     for (let n = 2; n < max; n++) {
       x[n] = x[n - 1] + 1;
+    }
+
+
+    for (let n = 1; n < x.length; n++) {
+      x[n] = `KW${x[n]}`;
     }
 
     for (let n = 1; n < d1.length; n++) {

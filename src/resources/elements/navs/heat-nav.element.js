@@ -12,7 +12,7 @@ export class HeatNavCustomElement {
 
   constructor() {
     var scope = this;
-    this.selectedNav = 2;
+    this.selectedNav = 1;
     this.selectedType = 0;
     this.selectedCal = 0;
     this.calList = [];
@@ -26,15 +26,15 @@ export class HeatNavCustomElement {
           this.router.navigateToRoute('overview');
         }
       }, {
-        text: 'Stromverbrauch',
-        icon: 'fa fa-bolt',
-        key: 'energy',
-        style: 'energy',
+        text: 'Wärmeverbrauch',
+        icon: 'fa fa-fire',
+        key: 'heat',
+        style: 'heat',
         actions: [
           {
             text: 'des Quartals',
             key: 'quarter',
-            actions: this.getQuarterList('energy', scope),
+            actions: this.getQuarterList('heat', scope),
             onSelect: (item, index) => {
               scope.selectedType = index;
               scope.selectedCal = 0;
@@ -45,7 +45,7 @@ export class HeatNavCustomElement {
           {
             text: 'des Jahres',
             key: 'year',
-            actions: this.getYearList('energy', scope),
+            actions: this.getYearList('heat', scope),
             onSelect: (item, index) => {
               scope.selectedType = index;
               scope.selectedCal = 0;
@@ -58,13 +58,13 @@ export class HeatNavCustomElement {
           item.actions[0].onSelect(item.actions[0], scope.selectedCal);
         }
       }, {
-        text: 'Wärmeverbrauch',
-        icon: 'fa fa-fire',
-        key: 'heat',
-        style: 'heat',
+        text: 'Stromverbrauch',
+        icon: 'fa fa-bolt',
+        key: 'energy',
+        style: 'energy',
         actions: [],
         onSelect: (item) => {
-          this.router.navigateToRoute('heat');
+          this.router.navigateToRoute('energy');
         }
       }, {
         text: 'Wasserverbrauch',

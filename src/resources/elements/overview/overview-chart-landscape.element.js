@@ -1,8 +1,10 @@
-import { bindable, useView } from 'aurelia-framework';
+import { bindable, useView, inject } from 'aurelia-framework';
+import { NumberValueConverter } from '../../converters/number.converter';
 import $ from 'jquery';
 import d3 from 'd3';
 import c3 from 'c3';
 
+@inject(NumberValueConverter)
 @useView('./overview-chart-landscape.element.html')
 export class OverviewChartLandscapeCustomElement {
 
@@ -12,10 +14,16 @@ export class OverviewChartLandscapeCustomElement {
 
   @bindable options;
   @bindable selection;
+  @bindable extension;
 
   isAttached = false;
   chartContainer;
   chart;
+  numberValueConverter;
+
+  constructor(numberValueConverter) {
+    this.numberValueConverter = numberValueConverter;
+  }
 
   build() {
     var colors = {
@@ -41,7 +49,18 @@ export class OverviewChartLandscapeCustomElement {
       axis: {
         x: {
           type: 'category'
+        },
+        y: {
+          tick: {
+            format: (d) => this.numberValueConverter.toChart(d)
+          }
         }
+        // y: {
+        //   label: {
+        //     text: this.extension,
+        //     position: 'outer-top'
+        //   }
+        // }
       },
       padding: {
         bottom: 5
@@ -55,6 +74,13 @@ export class OverviewChartLandscapeCustomElement {
         columns: [],
         types: {},
         colors: colors[this.options.color] || {}
+      },
+      tooltip: {
+        format: {
+          value: (value, ratio, id) => {
+            return this.numberValueConverter.toView(value) + ' ' + this.extension;
+          }
+        }
       }
     };
 
