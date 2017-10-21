@@ -31,18 +31,12 @@ export class Heat {
   };
 
   @observable dataHeat;
-
   @observable chatOptionsTotal;
-  @observable chatOptionsNormal;
-  @observable chatOptionsLow;
-
   @observable pieCostsOptions;
   @observable pieMediumOptions;
-
   @observable selection;
 
-  //TODO: enter correct value
-  swissAverage = 100;
+  swissAverage = HeatService.Average;
 
   constructor(heatService) {
     this.heatService = heatService;
@@ -83,7 +77,7 @@ export class Heat {
   }
 
   getDataForAnYear(key) {
-    this.dataHeat = this.heatService.GetDetailDataYear;
+    this.dataHeat = this.heatService.detail.GetDataYear;
     let data = this.heatService.GetData;
     let now = data.filter(d => {
       return `${d.year}` === this.selection.value
@@ -120,7 +114,7 @@ export class Heat {
   }
 
   getDataForAnQuarter(key) {
-    this.dataHeat = this.heatService.GetDetailDataQuarter;
+    this.dataHeat = this.heatService.detail.GetDataQuarter;
     let data = this.heatService.GetData;
 
     let y = parseInt(this.selection.value.split('-')[1], 10);
@@ -188,14 +182,6 @@ export class Heat {
       data
     };
 
-    this.chartOptionsLow = {
-      color: 'red',
-      data: dataLow
-    };
 
-    this.chartOptionsNormal = {
-      color: 'red',
-      data: dataNormal
-    };
   }
 }

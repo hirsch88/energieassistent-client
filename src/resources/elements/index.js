@@ -9,6 +9,7 @@ export function configure(aurelia) {
       PLATFORM.moduleName('./navs/overview-nav.element'),
       PLATFORM.moduleName('./navs/energy-nav.element'),
       PLATFORM.moduleName('./navs/heat-nav.element'),
+      PLATFORM.moduleName('./navs/water-nav.element'),
       PLATFORM.moduleName('./overview/overview-chart-landscape.element'),
       PLATFORM.moduleName('./overview/overview-chart-portrait.element'),
       PLATFORM.moduleName('./detail/costs-table.element'),

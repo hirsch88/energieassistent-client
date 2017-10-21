@@ -19,14 +19,14 @@ export class DetailCalc {
     return d.getDay() === 4 || isLeap && d.getDay() === 3 ? 53 : 52
   }
 
-  get GetDetailDataQuarter() {
+  get GetDataQuarter() {
     var a = [];
     a.push(this.data.filter((_, index) => index < 13));
     a.push(this.data.filter((_, index) => index < 13 + this.getISOWeeks && index >= this.getISOWeeks));
     return a;
   }
 
-  get GetDetailDataYear() {
+  get GetDataYear() {
     var a = [];
     a.push(this.data.filter((_, index) => index < 52));
     a.push(this.data.filter((_, index) => index < 52 + this.getISOWeeks && index >= this.getISOWeeks));

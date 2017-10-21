@@ -31,18 +31,14 @@ export class Energy {
   };
 
   @observable dataEnergy;
-
   @observable chatOptionsTotal;
   @observable chatOptionsNormal;
   @observable chatOptionsLow;
-
   @observable pieCostsOptions;
   @observable pieMediumOptions;
-
   @observable selection;
 
-  //TODO: enter correct value
-  swissAverage = 100;
+  swissAverage = EnergyService.Average;
 
   constructor(energyService) {
     this.energyService = energyService;
@@ -104,7 +100,7 @@ export class Energy {
   }
 
   getDataForAnYear(key) {
-    this.dataEnergy = this.energyService.GetDetailDataYear;
+    this.dataEnergy = this.energyService.detail.GetDataYear;
     let data = this.energyService.GetData;
     let now = data.filter(d => {
       return `${d.year}` === this.selection.value
@@ -141,7 +137,7 @@ export class Energy {
   }
 
   getDataForAnQuarter(key) {
-    this.dataEnergy = this.energyService.GetDetailDataQuarter;
+    this.dataEnergy = this.energyService.detail.GetDataQuarter;
     let data = this.energyService.GetData;
 
     let y = parseInt(this.selection.value.split('-')[1], 10);
