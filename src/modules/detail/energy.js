@@ -59,17 +59,17 @@ export class Energy {
       data: [
         {
           color: '#f59f00',
-          value: 50,
-          text: 'Strom'
+          value: 35,
+          text: 'Netznutzung (IWB)'
         },
         {
           color: '#ffe066',
           value: 30,
-          text: 'Netz'
+          text: 'Energie (IWB)'
         },
         {
           color: '#adb5bd',
-          value: 20,
+          value: 35,
           text: 'Abgaben'
         }
       ]
@@ -81,17 +81,17 @@ export class Energy {
         {
           color: '#f59f00',
           value: 50,
-          text: 'Solar'
+          text: 'IWB Strom'
         },
         {
           color: '#ffe066',
           value: 40,
-          text: 'Aqua'
+          text: 'IWB Strom Regio'
         },
         {
           color: '#adb5bd',
           value: 10,
-          text: 'Pure'
+          text: 'IWB Storm Solar'
         }
       ]
     };
