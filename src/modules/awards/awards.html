@@ -2,8 +2,8 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header back">
-        <a class="navbar-brand" click.delegate="goBack()">
-          <i class="fa fa-arrow-left"></i>
+        <a click.delegate="goBack()">
+          <i class="fa fa-arrow-circle-left"></i>
           <span>Zurück</span>
         </a>
       </div>
@@ -33,9 +33,9 @@
     <div class="box box-gray-light board">
       <div class="container">
 
-        <div class="row box-title">
+        <div class="row box-title trophy-icon">
           <div class="col-sm-6 text-center">
-            <i class="fa fa-tropy"></i>
+            <i class="fa fa-trophy" aria-hidden="true"></i>
           </div>
           <div class="col-sm-6 text-center">
             <h1>40 %</h1>
@@ -54,26 +54,52 @@
         <!-- Award Activity -->
         <div class="row box-title">
           <div class="col-sm-12 text-left">
-            <h3>Title</h3>
+            <h3>Aktivitäts Medallie</h3>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             Badge
           </div>
-          <div class="col-sm-8">
-            Text + Progress
+          <div class="col-sm-10">
+            Bei jeder Anmeldung wird der Fortschritt um eins erhöht, wobei pro Tag maximal um eines erhöht wird. 
+            An einem Tag mehrere Male Anmelden gilt also als insgesamt einmal angemeldet.
+            <br><br>
+            "Noch 25 Anmeldungen bis zur nächsten Auszeichnung"
+            <div class="arrow-icon">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <div class="award-progress">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"style="width: 75%;">
+                  75 von 100
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Spar-Fuchs Award -->
         <div class="row box-title">
           <div class="col-sm-12 text-left">
-            <h3>Title</h3>
+            <h3>Spar-Fuchs Medallie</h3>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             Badge
           </div>
-          <div class="col-sm-8">
-            Text + Progress
+          <div class="col-sm-10">
+            Wann immer Sie in einer Woche gegenüber der gleichen Woche im Vorjahr sparen, wird der Fortschritt um eins erhöht.
+            Das heisst wenn Sie in der Kalenderwoche 15 im Jahr 2017 weniger verbrauchen als in der Kalenderwoche 15 im Jahr 2016 wird um eins erhöht.
+            <br><br>
+            "Noch 20 weitere Wochen weniger verbrauchen als im Vorjahr bis zur nächsten Auszeichnung"
+            <div class="arrow-icon">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <div class="award-progress">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 15%;">
+                </div>
+                &ensp;noch 20 Wochen
+              </div>
+            </div>
           </div>
         </div>
 

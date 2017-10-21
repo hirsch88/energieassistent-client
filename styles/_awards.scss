@@ -1,0 +1,38 @@
+section.awards {
+  .trophy-icon {
+    padding: 0px;
+    i{
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size:78px;
+      color: #b59e33;
+    }
+  }
+
+  .arrow-icon {
+    position: absolute;
+    color: #337ab7;
+    font-size:40px;
+    z-index:10;
+  }
+
+  .award-progress {
+    padding-top: 20px;
+    color: #337ab7;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 30px;
+    
+    .progress{
+      border-radius: 2px
+    }
+
+    .progress-bar{
+      text-align: right;
+      padding-right: 5px;
+    }
+  }
+
+  
+}
