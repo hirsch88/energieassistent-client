@@ -38,6 +38,14 @@ export class Heat {
 
   swissAverage = HeatService.Average;
 
+  tipps = [{
+    title: 'Kleine Änderungen, große Wirkung',
+    text: 'Allein beim Heizen werden 60 bis 70 Prozent der Energie im Haushalt verbraucht. Wo viel verbraucht wird, lässt sich auch viel sparen: Wer die Raumtemperatur um nur 1 Grad Celsius senkt, spart rund 6 Prozent der Heizkosten.'
+  }, {
+    title: 'Heizung entlüften',
+    text: 'Wenn’s gluckert oder die Wärmeverteilung am Heizkörper sehr ungleichmäßig ist, zirkuliert das Wasser nicht mehr richtig und der Heizkörper kann die Wärme nicht optimal abgeben.'
+  }];
+
   constructor(heatService) {
     this.heatService = heatService;
     this.data = {};

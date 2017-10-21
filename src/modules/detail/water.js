@@ -36,6 +36,14 @@ export class Water {
 
   swissAverage = WaterService.Average;
 
+  tipps = [{
+    title: 'Zähneputzen und Händewaschen',
+    text: 'Immer wenn du gerade die Hände einseifst oder die Zähne schrubbst, sollte kein Wasser laufen. Sicher, es ist nicht leicht alte Angewohnheiten zu ändern. In diesem Fall lohnt es sich aber, immerhin kannst du bis zu 50% Wasser sparen.'
+  }, {
+    title: 'Duschen statt Baden',
+    text: 'Bei einem Vollbad verbrauchst du etwas 150-200 Liter Wasser, beim Duschen dagegen kommst du mit 60-80 Litern aus. Wie beim Händewaschen solltest du auch hier das Wasser abstellen, wenn du dich einseifst. Ein Duschkopf mit Wassersparfunktion bringt Extraersparnis, da zum Wasserstrahl Luft gemischt wird und weniger Wasser durchläuft.'
+  }];
+
   constructor(waterService) {
     this.waterService = waterService;
     this.data = {};

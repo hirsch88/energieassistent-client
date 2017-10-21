@@ -4,7 +4,7 @@
 
       <div class="row box-title">
         <div class="col-sm-12 text-center">
-          <h1 class="${data.comparedToLastYearClass}">"${data.tippText}"</h1>
+          <h1 class="${cssClass}">"${text}"</h1>
         </div>
       </div>
 
@@ -15,17 +15,14 @@
               <td class="icon" rowspan="3">
                 <i class="fa fa-info-circle" aria-hidden="true"></i>
               </td>
-              <td class="title">Niedrige Waschtemperatur wählen</td>
+              <td class="title">${tipps[index].title}</td>
             </tr>
             <tr class="tipp-table-row">
-              <td class="text">Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Grad
-                sind nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch
-                sauber zu bekommen.
-              </td>
+              <td class="text">${tipps[index].text}</td>
             </tr>
             <tr class="tipp-table-row">
               <td class="button">
-                <button class="btn btn-default">
+                <button class="btn btn-default" click.delegate="onNext()">
                   Nächster Tipp
                 </button>
               </td>
