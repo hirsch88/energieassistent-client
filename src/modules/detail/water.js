@@ -35,6 +35,7 @@ export class Water {
   @observable selection;
 
   swissAverage = WaterService.Average;
+  extension = WaterService.Extension;
 
   tipps = [{
     title: 'Zähneputzen und Händewaschen',

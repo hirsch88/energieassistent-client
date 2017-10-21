@@ -39,6 +39,7 @@ export class Energy {
   @observable selection;
 
   swissAverage = EnergyService.Average;
+  extension = EnergyService.Extension;
 
   tipps = [{
     title: 'Niedrige Waschtemperatur wählen',

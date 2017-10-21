@@ -1,8 +1,10 @@
-import { bindable, useView } from 'aurelia-framework';
+import { bindable, useView, inject } from 'aurelia-framework';
+import { NumberValueConverter } from '../../converters/number.converter';
 import $ from 'jquery';
 import d3 from 'd3';
 import c3 from 'c3';
 
+@inject(NumberValueConverter)
 @useView('./bar-line-chart.element.html')
 export class BarLineChartCustomElement {
 
@@ -11,10 +13,15 @@ export class BarLineChartCustomElement {
 
   @bindable options;
   @bindable selection;
+  @bindable extension;
 
   isAttached = false;
   chartContainer;
   chart;
+
+  constructor(numberValueConverter) {
+    this.numberValueConverter = numberValueConverter;
+  }
 
   build() {
     let colors = {
@@ -37,6 +44,11 @@ export class BarLineChartCustomElement {
       axis: {
         x: {
           type: 'category'
+        },
+        y: {
+          tick: {
+            format: (d) => this.numberValueConverter.toChart(d)
+          }
         }
       },
       padding: {
@@ -51,6 +63,13 @@ export class BarLineChartCustomElement {
         columns: [],
         types: {},
         colors: colors[this.options.color] || {}
+      },
+      tooltip: {
+        format: {
+          value: (value, ratio, id) => {
+            return this.numberValueConverter.toView(value) + ' ' + this.extension;
+          }
+        }
       }
     };
 

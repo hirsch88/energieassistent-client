@@ -37,6 +37,7 @@ export class Heat {
   @observable selection;
 
   swissAverage = HeatService.Average;
+  extension = HeatService.Extension;
 
   tipps = [{
     title: 'Kleine Änderungen, große Wirkung',
