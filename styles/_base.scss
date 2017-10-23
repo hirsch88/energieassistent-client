@@ -44,3 +44,30 @@ section {
 [data-toggle=tooltip] {
   cursor: pointer;
 }
+
+.not-supported-content {
+  display: block;
+  margin-top: 45px;
+}
+
+.main-content {
+  display: none;
+}
+@media (min-width: 992px) and (orientation: landscape) {
+  .main-content {
+    display: block;
+  }
+
+  .not-supported-content {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (orientation: portrait) {
+  .main-content {
+    display: block;
+  }
+
+  .not-supported-content {
+    display: none;
+  }
+}

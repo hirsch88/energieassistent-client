@@ -1,6 +1,17 @@
 <template>
 
-  <router-view></router-view>
+  <router-view class="main-content"></router-view>
+
+  <div class="not-supported-content text-center">
+    <div class="container">
+      <i class="fa fa-mobile fa-5x fa-border" aria-hidden="true"></i>
+      <h1>Nicht erlaubt Auflösung</h1>
+      <p>
+        Diese Web-Applikation ist nicht für Smart-Phones optimiert.
+        <br>Bitte verwenden Sie einen Computer oder ein Tablet.
+      </p>
+    </div>
+  </div>
 
   <footer class="footer" router.bind="router"></footer>
 </template>
