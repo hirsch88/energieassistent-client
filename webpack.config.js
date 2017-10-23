@@ -97,6 +97,10 @@ module.exports = ({ production, server, extractCss, coverage } = {}) => ({
   },
   plugins: [
     new CopyWebpackPlugin([{
+      from: './Staticfile',
+      to: ''
+    }]),
+    new CopyWebpackPlugin([{
       from: './main.js',
       to: ''
     }]),
