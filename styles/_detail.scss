@@ -29,6 +29,13 @@ div.box-title {
 }
 
 div.costs {
+  h1.green {
+    color: $oc-green-7;
+  }
+
+  h1.red {
+    color: $oc-red-7;
+  }
   table {
     .text,
     .zahl,
@@ -65,14 +72,6 @@ div.costs {
 }
 
 div.tipps {
-  h1.green {
-    color: $oc-green-7;
-  }
-
-  h1.red {
-    color: $oc-red-7;
-  }
-
   table.tipp-table {
     tr.tipp-table-row {
       padding: 0;

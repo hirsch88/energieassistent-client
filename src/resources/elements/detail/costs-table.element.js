@@ -15,6 +15,7 @@ export class CostsTableCustomElement {
       let now = this.options[0][0];
       this.costNow = now.cost;
       this.weekNow = now.week;
+      this.yearNow = now.year;
 
       let past = _.find(this.options[1], (o) => o.week === now.week)
       this.costPast = past.cost;
@@ -36,6 +37,12 @@ export class CostsTableCustomElement {
         ? 'green'
         : 'red';
 
+      this.feedbackText = (this.comparePastAndNowValue < 0)
+        ? 'Bravo, Sie haben zum Vorjahr gespart!'
+        : 'Hier einige Tipps um Energie zu sparen.';
+      this.feedbackClass = (this.comparePastAndNowValue < 0)
+        ? 'green'
+        : 'red';
     }
   }
 
