@@ -91,4 +91,12 @@ section.overview {
     }
 
   }
+
+  .wrapper.only-portrait {
+    margin-top: 60px;
+
+    .text-right h3 {
+      text-align: right !important;
+    }
+  }
 }
