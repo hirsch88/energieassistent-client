@@ -1,6 +1,13 @@
 import { PLATFORM } from 'aurelia-pal';
 
 export class App {
+
+  classToDisableNotSupported = '';
+
+  goOn() {
+    this.classToDisableNotSupported = 'disable-not-support-page';
+  }
+
   configureRouter(config, router) {
     config.title = 'Energie Assistent';
     config.map([
