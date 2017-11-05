@@ -49,6 +49,9 @@ export class OverviewChartPortraitCustomElement {
         bottom: 5,
         top: 15
       },
+      legend: {
+        show: false
+      },
       axis: {
         x: {
           type: 'category'

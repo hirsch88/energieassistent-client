@@ -46,6 +46,9 @@ export class OverviewChartLandscapeCustomElement {
 
     var config = {
       bindto: this.chartContainer,
+      legend: {
+        show: false
+      },
       axis: {
         x: {
           type: 'category'
