@@ -38,7 +38,7 @@ export class Water {
   extension = WaterService.Extension;
 
   tipps = [{
-    title: 'Zähneputzen und Händewaschen',
+    title: 'Achte auf dein Wasserverbrauch',
     text: 'Immer wenn du gerade die Hände einseifst oder die Zähne schrubbst, sollte kein Wasser laufen. Sicher, es ist nicht leicht alte Angewohnheiten zu ändern. In diesem Fall lohnt es sich aber, immerhin kannst du bis zu 50% Wasser sparen.'
   }, {
     title: 'Duschen statt Baden',
