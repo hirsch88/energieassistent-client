@@ -52,67 +52,59 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12 light">
-            <bar-line-chart options.bind="chartOptionsTotal" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#total" aria-controls="total" role="tab" data-toggle="tab">Gesamtverbrauch</a>
+          </li>
+          <li role="presentation">
+            <a href="#normal" aria-controls="normal" role="tab" data-toggle="tab">Normaltarif</a>
+          </li>
+          <li role="presentation">
+            <a href="#low" aria-controls="low" role="tab" data-toggle="tab">Spartarif</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="total">
+            <div class="row">
+              <div class="col-sm-12 light">
+                <bar-line-chart options.bind="chartOptionsTotal" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+              </div>
+            </div>
           </div>
-        </div>
+          <div role="tabpanel" class="tab-pane fade" id="normal">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
 
-      </div>
-    </div>
-
-    <!-- Normal -->
-    <div class="box box-gray-light total">
-      <div class="container">
-
-        <div class="row box-title">
-          <div class="col-sm-12 text-center">
-            <h1>Normaltarif Auswertung</h1>
+            <div class="row">
+              <div class="col-sm-12 light">
+                <bar-line-chart options.bind="chartOptionsNormal" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+              </div>
+            </div>
           </div>
-        </div>
+          <div role="tabpanel" class="tab-pane fade" id="low">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12 light">
-            <bar-line-chart options.bind="chartOptionsNormal" selection.bind="selection" extension.bind="extension"></bar-line-chart>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Low -->
-    <div class="box box-gray-light low">
-      <div class="container">
-
-        <div class="row box-title">
-          <div class="col-sm-12 text-center">
-            <h1>Spartarif Auswertung</h1>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12 light">
-            <bar-line-chart options.bind="chartOptionsLow" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+            <div class="row">
+              <div class="col-sm-12 light">
+                <bar-line-chart options.bind="chartOptionsLow" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -140,7 +132,8 @@
               die Systemdienstleistungen sowie die Mehrwertsteuer. Abgaben auf kantonaler Ebene werden erhoben für die öffentliche
               Beleuchtung, Solarstrombörse sowie Förder- und Lenkungsabgabe. Die Einnahmen aus der Lenkungsabgabe werden
               unabhängig vom jeweiligen Stromverbrauch über den Stromspar-Fonds Basel an alle Haushalte und Betriebe ausbezahlt.
-              <br><br> Die Darstellung zeigt das ungefähre Verhältnis der einzelnen Komponenten des Stromtarifs. Je nach Tarifstufe
+              <br>
+              <br> Die Darstellung zeigt das ungefähre Verhältnis der einzelnen Komponenten des Stromtarifs. Je nach Tarifstufe
               und Netzebene gibt es leichte Unterschiede in der Gewichtung.
             </p>
           </div>

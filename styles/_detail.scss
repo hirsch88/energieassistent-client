@@ -5,6 +5,33 @@ section.detail-section {
 div.box {
   padding-top: 90px;
   padding-bottom: 120px;
+
+  .nav {
+    margin-bottom: 25px;
+    text-align: center;
+    border-color: $oc-gray-3;
+
+    li {
+      width: 30%;
+      display: inline-block;
+      text-align: center;
+      float: none;
+
+      a {
+        font-weight: 600;
+        color: $oc-gray-7;
+        background: $oc-gray-3;
+      }
+
+      &.active a {
+        color: $oc-yellow-7;
+        background: white;
+        border-top-color: $oc-gray-3;
+        border-left-color: $oc-gray-3;
+        border-right-color: $oc-gray-3;
+      }
+    }
+  }
 }
 
 div.box-gray-light {
@@ -36,10 +63,11 @@ div.costs {
   h1.red {
     color: $oc-red-7;
   }
+
   table {
+    .icon,
     .text,
-    .zahl,
-    .icon {
+    .zahl {
       line-height: 2.2em;
       vertical-align: middle;
     }
@@ -75,13 +103,14 @@ div.tipps {
   table.tipp-table {
     tr.tipp-table-row {
       .icon,
-      td.title,
-      td.text {
+      td.text,
+      td.title {
         padding: 8px;
       }
+
       .icon {
         width: 15%;
-        text-align:center;
+        text-align: center;
         font-size: 60px;
         color: $oc-gray-7;
         vertical-align: top;
@@ -118,7 +147,7 @@ div.compare {
 
 }
 
-p.description{
+p.description {
   margin-bottom: 40px;
 }
 
