@@ -4,6 +4,7 @@ import $ from 'jquery';
 import d3 from 'd3';
 import c3 from 'c3';
 
+
 @inject(NumberValueConverter)
 @useView('./overview-chart-landscape.element.html')
 export class OverviewChartLandscapeCustomElement {
@@ -20,6 +21,7 @@ export class OverviewChartLandscapeCustomElement {
   chartContainer;
   chart;
   numberValueConverter;
+  tooltipElement;
 
   constructor(numberValueConverter) {
     this.numberValueConverter = numberValueConverter;
@@ -95,6 +97,7 @@ export class OverviewChartLandscapeCustomElement {
 
   optionsChanged(value) {
     if (value && this.selection) {
+
       if (!this.isAttached) {
         this.build();
       }
@@ -113,6 +116,11 @@ export class OverviewChartLandscapeCustomElement {
           d1, d2, d3, x
         ]
       });
+
+      $(this.tooltipElement)
+        .tooltip({ placement: 'bottom' })
+        .attr('data-original-title', this.options.status.tooltip)
+        .tooltip('fixTitle');
 
     }
   }

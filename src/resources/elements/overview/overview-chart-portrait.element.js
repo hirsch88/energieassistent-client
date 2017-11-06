@@ -19,6 +19,7 @@ export class OverviewChartPortraitCustomElement {
   chartContainer;
   chart;
   numberValueConverter;
+  tooltipElement;
 
   constructor(numberValueConverter) {
     this.numberValueConverter = numberValueConverter;
@@ -115,7 +116,12 @@ export class OverviewChartPortraitCustomElement {
         columns: [
           d1, d2, d3, x
         ]
-      })
+      });
+
+      $(this.tooltipElement)
+        .tooltip({ placement: 'right' })
+        .attr('data-original-title', this.options.status.tooltip)
+        .tooltip('fixTitle');
 
     }
   }
