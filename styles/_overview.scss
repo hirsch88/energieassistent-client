@@ -4,10 +4,14 @@ section.overview {
   .overview-table {
     margin-top: 10px;
   }
+
+  div.wrapper {
+    padding-top: 45px;
+  }
   @media (min-height: 1024px) and (orientation: landscape) {
     .chart-container,
     div.wrapper {
-      padding-top: 45px;
+      padding-top: 65px;
     }
 
     .overview-table {
@@ -17,7 +21,7 @@ section.overview {
   @media (min-height: 1366px) {
     .chart-container,
     div.wrapper {
-      padding-top: 45px;
+      padding-top: 65px;
     }
 
     .overview-table {
