@@ -1,0 +1,106 @@
+section.overview {
+  margin-top: 15px;
+
+  .overview-table {
+    margin-top: 10px;
+  }
+
+  div.wrapper {
+    padding-top: 45px;
+  }
+  @media (min-height: 1024px) and (orientation: landscape) {
+    .chart-container,
+    div.wrapper {
+      padding-top: 65px;
+    }
+
+    .overview-table {
+      margin-top: 60px;
+    }
+  }
+  @media (min-height: 1366px) {
+    .chart-container,
+    div.wrapper {
+      padding-top: 65px;
+    }
+
+    .overview-table {
+      margin-top: 60px;
+    }
+  }
+
+  .blue .zahl,
+  .blue h1 {
+    color: $oc-blue-7;
+  }
+
+  .red .zahl,
+  .red h1 {
+    color: $oc-red-7;
+  }
+
+  .yellow .zahl,
+  .yellow h1 {
+    color: $oc-yellow-7;
+  }
+
+  .smile-bad,
+  .smile-good,
+  .smile-neutral {
+    font-weight: bold;
+  }
+
+  .smile-bad {
+    color: $oc-red-7;
+  }
+
+  .smile-neutral {
+    color: $oc-yellow-7;
+  }
+
+  .smile-good {
+    color: $oc-green-7;
+  }
+
+  table.overview-table {
+    // color: $oc-gray-7;
+    border-collapse: collapse;
+
+    tr.overview-table-row {
+      border-bottom: 1px solid $oc-gray-5;
+
+      td {
+        padding: 10px 5px;
+      }
+
+      td.icon {
+        text-align: center;
+        font-size: 1.4em;
+      }
+
+      td.text {
+        flex-wrap: wrap;
+      }
+
+      td.zahl {
+        white-space: nowrap;
+        text-align: right;
+        width: 40%;
+        min-width: 80px;
+      }
+    }
+
+    tr.overview-table-row:last-child {
+      border-bottom: none;
+    }
+
+  }
+
+  .wrapper.only-portrait {
+    margin-top: 60px;
+
+    .text-right h3 {
+      text-align: right !important;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<template bindable="router">
+  <form>
+    <div class="paragraph">
+      <span>Ich möchte den</span>
+      <dropdown list.bind="navList" selected-index.bind="selectedNav"></dropdown>
+      <span>der letzten</span>
+      <dropdown list.bind="typeList" selected-index.bind="selectedType"></dropdown>
+      <span>sehen.</span>
+    </div>
+  </form>
+</template>

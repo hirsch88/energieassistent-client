@@ -1,0 +1,11 @@
+---
+applications:
+- name: energie-assistent
+  memory: 64MB
+  instances: 1
+  buildpack: staticfile_buildpack
+  path: ./dist/
+
+  env:
+      FORCE_HTTPS: true
+

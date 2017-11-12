@@ -1,0 +1,36 @@
+<template>
+  <div class="box box-gray-light tipps">
+    <div class="container">
+
+      <div class="row box-title">
+        <div class="col-sm-12 text-center">
+          <h1>Tipps und Tricks</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="tipp-table">
+            <tr class="tipp-table-row">
+              <td class="icon" rowspan="3">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+              </td>
+              <td class="title">${tipps[index].title}</td>
+            </tr>
+            <tr class="tipp-table-row">
+              <td class="text">${tipps[index].text}</td>
+            </tr>
+            <tr class="tipp-table-row">
+              <td class="button">
+                <button class="btn btn-default" click.delegate="onNext()">
+                  Nächster Tipp
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

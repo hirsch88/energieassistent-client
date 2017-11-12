@@ -1,0 +1,39 @@
+<template>
+  <div class="box costs">
+    <div class="container">
+
+      <div class="row box-title">
+        <div class="col-sm-12 text-center">
+          <h1 class="${feedbackClass}">"${feedbackText}"</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table detail-table">
+            <tr class="detail-table-row">
+              <td class="icon">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </td>
+              <td class="text">Dies sind Ihre Kosten für Kalenderwoche ${weekNow} im Jahr ${yearNow}.</td>
+              <td class="zahl">${costNow | currency} CHF</td>
+            </tr>
+            <tr class="detail-table-row">
+              <td class="icon">
+                <i class="fa fa-history" aria-hidden="true"></i>
+              </td>
+              <td class="text">${comparePastAndNowText}</td>
+              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency} CHF</td>
+            </tr>
+            <tr class="detail-table-row">
+              <td class="icon">ø</td>
+              <td class="text">${compareSwissAndNowText}</td>
+              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency} CHF</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

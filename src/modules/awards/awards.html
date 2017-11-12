@@ -1,0 +1,165 @@
+<template>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header back">
+        <a click.delegate="goBack()">
+          <i class="fa fa-arrow-circle-left"></i>
+          <span>Zurück</span>
+        </a>
+      </div>
+      <div id="navbar">
+        <div class="nav navbar-nav navbar-center">
+          <h3>Auszeichnungen</h3>
+        </div>
+        <ul class="nav navbar-nav navbar-right actions">
+          <li>
+            <a href="#/awards" class="award">
+              <i class="fa fa-trophy" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="au-animate detail-section awards">
+
+    <!-- Board -->
+    <div class="box box-gray-light board">
+      <div class="container">
+
+        <div class="row box-title trophy-icon">
+          <div class="col-sm-6 text-center">
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+          </div>
+          <div class="col-sm-6 text-center">
+            <h1>40 %</h1>
+            8 von 20 Auszeichnungen
+            <br> freigeschaltet
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Awards -->
+    <div class="box awards">
+      <div class="container">
+
+        <!-- Award Activity -->
+        <div class="row box-title">
+          <div class="col-sm-12 text-left">
+            <h3>Aktivitäts Medallie</h3>
+          </div>
+          <div class="col-sm-2">
+            <div class="award-badge">
+
+              <svg width="120px" height="180px" viewBox="0 0 161 214" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Badge-1" transform="translate(5.000000, 7.000000)">
+                    <g id="Badge">
+                      <g id="Award">
+                        <polygon id="Polygon" stroke="#A76421" stroke-width="10" fill="#C57627" points="75.5 0 150.157937 54.2421659 121.641142 142.007834 29.3588577 142.007834 0.842063471 54.2421659"></polygon>
+                        <text id="hand-o-up---FontAwesome" font-family="FontAwesome" font-size="78" font-weight="normal" fill="#FFFFFF">
+                          <tspan x="42.0714286" y="103"></tspan>
+                        </text>
+                      </g>
+                      <g id="Level" transform="translate(41.000000, 113.000000)" font-weight="normal">
+                        <text id="bookmark---FontAwesome" font-family="FontAwesome" font-size="100" fill="#D0021B">
+                          <tspan x="0" y="88"></tspan>
+                        </text>
+                        <text id="1" font-family="OpenSans-Regular, Open Sans" font-size="52" fill="#FFFFFF">
+                          <tspan x="21.1337891" y="56">1</tspan>
+                        </text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            Bei jeder Anmeldung wird der Fortschritt um eins erhöht, wobei pro Tag maximal um eines erhöht wird. An einem Tag mehrere
+            Male Anmelden gilt also als insgesamt einmal angemeldet.
+            <br>
+            <br> "Noch 25 Anmeldungen bis zur nächsten Auszeichnung"
+            <div class="arrow-icon">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <div class="award-progress">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 75%;">
+                  75 von 100
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spar-Fuchs Award -->
+        <div class="row box-title">
+          <div class="col-sm-12 text-left">
+            <h3>Spar-Fuchs Medallie</h3>
+          </div>
+          <div class="col-sm-2">
+            <div class="award-badge">
+
+              <svg width="120px" height="180px" viewBox="0 0 161 214" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Badge-2" transform="translate(5.000000, 7.000000)">
+                    <g id="Badge">
+                      <g id="Award">
+                        <polygon id="Polygon" stroke="#ABABAB" stroke-width="10" fill="#C0C0C0" points="75.5 0 150.157937 54.2421659 121.641142 142.007834 29.3588577 142.007834 0.842063471 54.2421659"></polygon>
+                        <text id="money---FontAwesome" font-family="FontAwesome" font-size="78" font-weight="normal" fill="#FFFFFF">
+                          <tspan x="32.7142857" y="103"></tspan>
+                        </text>
+                      </g>
+                      <g id="Level" transform="translate(41.000000, 113.000000)" font-weight="normal">
+                        <text id="bookmark---FontAwesome" font-family="FontAwesome" font-size="100" fill="#D0021B">
+                          <tspan x="0" y="88"></tspan>
+                        </text>
+                        <text id="7" font-family="OpenSans-Regular, Open Sans" font-size="52" fill="#FFFFFF">
+                          <tspan x="21.1337891" y="56">7</tspan>
+                        </text>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="col-sm-10">
+            Wann immer Sie in einer Woche gegenüber der gleichen Woche im Vorjahr sparen, wird der Fortschritt um eins erhöht. Das heisst
+            wenn Sie in der Kalenderwoche 15 im Jahr 2017 weniger verbrauchen als in der Kalenderwoche 15 im Jahr 2016 wird
+            um eins erhöht.
+            <br>
+            <br> "Noch 20 weitere Wochen weniger verbrauchen als im Vorjahr bis zur nächsten Auszeichnung"
+            <div class="arrow-icon">
+              <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+            </div>
+            <div class="award-progress">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 15%;">
+                </div>
+                &ensp;noch 20 Wochen
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+</template>

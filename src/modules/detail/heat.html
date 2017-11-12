@@ -1,0 +1,141 @@
+<template>
+  <header router.bind="router">
+    <heat-nav router.bind="router" on-change.call="onChange(value, type)"></heat-nav>
+  </header>
+
+  <!-- <div class="container"> -->
+  <section class="au-animate detail-section heat">
+
+    <!-- Costs Table -->
+    <costs-table options.bind="dataHeat" average.bind="swissAverage"></costs-table>
+
+    <!-- Tipp -->
+    <tipp options.bind="dataHeat" tipps.bind="tipps"></tipp>
+
+    <!-- Compare -->
+    <div class="box box-gray-dark compare">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Vergleiche</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+            <h2>200 für 24h</h2>
+            <p class="text-left">Mit ihrem ausgewählten Stromverbrauch können sie ca. 200 Glühbirnen 24h in Betrieb nehmen.</p>
+          </div>
+          <div class="col-sm-6 text-center">
+            <i class="fa fa-car" aria-hidden="true"></i>
+            <h2>100 km</h2>
+            <p class="text-left">Ein elektrisches Auto könnte mit ihrem ausgewählten Stromverbrauch bis zu ca 100km weit fahren.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="box total">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Gesamt Auswertung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 light">
+            <bar-line-chart options.bind="chartOptionsTotal" selection.bind="selection" extension.bind="extension"></bar-line-chart>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- pie-left -->
+    <div class="box box-gray-dark pie-left">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Kostenaufteilung</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-5 dark">
+            <pie-chart options.bind="pieCostsOptions"></pie-chart>
+          </div>
+          <div class="col-sm-7">
+            <p>
+              Die Fernwärmeproduktion von IWB besteht bereits heute zu rund 63 Prozent aus CO2-neutralen Quellen. Als Fernwärmekunde haben
+              Sie die Wahl zwischen zwei verschiedenen Produkten: IWB Fernwärme und IWB Fernwärme Mix.
+              <br>
+              <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+              <br>
+              <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Documents -->
+    <div class="box documents">
+      <div class="container">
+
+        <div class="row box-title">
+          <div class="col-sm-12 text-center">
+            <h1>Dokumente</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4 col-md-2">
+            <div class="doc clickable">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2017</span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-2">
+            <div class="doc clickable">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2016</span>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-2">
+            <div class="doc clickable">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Rechnung 2015</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-md-2">
+            <div class="doc clickable">
+              <i class="fa fa-file-pdf-o"></i>
+              <br>
+              <span>Preise & Tarife</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </section>
+
+</template>

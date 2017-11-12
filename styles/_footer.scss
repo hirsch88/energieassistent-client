@@ -1,0 +1,32 @@
+footer {
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  line-height: 40px;
+  padding: 10px 15px;
+  background-color: $oc-gray-2;
+  color: $oc-gray-5;
+
+  a {
+    color: $oc-gray-7;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:active,
+  a:focus,
+  a:hover {
+    color: $oc-gray-5;
+  }
+
+  .social {
+    font-size: 20px;
+    a {
+      i {
+        padding-left: 20px;
+      }
+    }
+  }
+}

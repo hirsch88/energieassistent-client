@@ -1,0 +1,154 @@
+.chart-container {
+  min-height: 300px;
+}
+
+.c3-axis text {
+  fill: $oc-gray-5;
+  font-size: 12px;
+}
+
+.c3-axis line {
+  stroke: $oc-gray-5;
+}
+
+.c3-axis path {
+  stroke: $oc-gray-5;
+  stroke-width: 2;
+}
+
+.c3-line {
+  stroke-width: 3;
+}
+
+.c3-legend-item text {
+  fill: $oc-gray-5;
+}
+
+.blue .c3-bar {
+  stroke-width: 3;
+  stroke: $oc-blue-3 !important;
+  fill: rgba(114, 195, 252, 0.37) !important;
+}
+
+.red .c3-bar {
+  stroke-width: 3;
+  stroke: $oc-red-3 !important;
+  fill: rgba(255, 168, 168, 0.37) !important;
+}
+
+.yellow .c3-bar {
+  stroke-width: 3;
+  stroke: $oc-yellow-3 !important;
+  fill: rgba(255, 224, 102, 0.37) !important;
+}
+
+.c3-tooltip-container {
+  border-radius: 4px;
+  background-color: $oc-gray-9;
+  opacity: .9;
+  padding: 3px 8px;
+  -webkit-box-shadow: 7px 7px 12px -9px $oc-gray-5;
+  -moz-box-shadow: 7px 7px 12px -9px $oc-gray-5;
+  box-shadow: 7px 7px 12px -9px $oc-gray-5;
+
+  .c3-tooltip {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    background-color: $oc-gray-9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .c3-tooltip tr {
+    border: none;
+    border-top: 1px solid $oc-gray-5;
+    background-color: transparent;
+  }
+
+  .c3-tooltip tr:first-child {
+    border: none;
+  }
+
+  .c3-tooltip th {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+    color: #FFF;
+    background-color: transparent;
+  }
+
+  .c3-tooltip td {
+    font-size: 13px;
+    padding: 3px 6px;
+    color: #FFF;
+    // border-left: 1px dotted #999;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.c3-chart-arcs {
+  path.c3-shape {
+    stroke-width: 5;
+  }
+}
+
+.light {
+  .c3-chart-arcs {
+    path.c3-shape {
+      stroke: $oc-gray-0;
+    }
+  }
+
+  .c3-legend-item text {
+    fill: $oc-gray-7;
+  }
+}
+
+.dark {
+  .c3-chart-arcs {
+    path.c3-shape {
+      stroke: $oc-gray-7;
+    }
+  }
+
+  .c3-legend-item text {
+    fill: $oc-gray-0;
+  }
+}
+// @media (min-width: 769px) {
+//   .c3-legend-item {
+//     text {
+//       font-size: 14px;
+//     }
+//   }
+
+//   .c3-axis text {
+//     font-size: 14px;
+//   }
+
+// }
+
+.c3-legend-item {
+  font-family: 'Open Sans';
+
+  text {
+    fill: $oc-gray-7;
+  }
+}
+@media (min-width: 1025px) {
+  .c3-axis text {
+    font-size: 14px;
+  }
+
+}
+
+.no-target-label {
+  .c3-chart-arc text {
+    display: none;
+  }
+}

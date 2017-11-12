@@ -1,0 +1,57 @@
+<template>
+  <div class="${options.color}">
+
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <h1 class="title">
+              <i class="fa ${options.icon}" aria-hidden="true"></i> ${options.title}
+            </h1>
+          </div>
+          <div class="col-sm-6 text-right">
+            <h3 ref="tooltipElement" class="${options.status.mood} h1-margin tipp">
+              ${options.trend} %
+              <i class="${options.status.icon}" aria-hidden="true"></i>
+            </h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="overview-table" style="margin-top: 15px;">
+              <tr class="overview-table-row">
+                <td class="icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+                <td class="text">Dein aktueller Verbrauch</td>
+                <td class="zahl">${options.actual | number} ${options.extension}</td>
+              </tr>
+              <tr class="overview-table-row">
+                <td class="icon">
+                  <i class="fa fa-history" aria-hidden="true"></i>
+                </td>
+                <td class="text">Dein Verbrauch vor einem Jahr</td>
+                <td class="zahl">${options.history | number} ${options.extension}</td>
+              </tr>
+              <tr class="overview-table-row">
+                <td class="icon">ø</td>
+                <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+                <td class="zahl">${options.average | number} ${options.extension}</td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-6">
+        <div class="chart-container">
+          <div ref="chartContainer"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>

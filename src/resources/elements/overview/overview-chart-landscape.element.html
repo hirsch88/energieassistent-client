@@ -1,0 +1,40 @@
+<template>
+  <div class="${options.color}">
+
+      <h1 class="title text-center">
+        <i class="fa ${options.icon}" aria-hidden="true"></i> ${options.title}
+      </h1>
+
+      <h3 ref="tooltipElement" class="${options.status.mood} tipp text-center">
+        ${options.trend} %
+        <i class="${options.status.icon}" aria-hidden="true"></i>
+      </h3>
+
+      <div class="chart-container">
+        <div ref="chartContainer"></div>
+      </div>
+
+      <table class="overview-table">
+        <tr class="overview-table-row">
+          <td class="icon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </td>
+          <td class="text">Dein aktueller Verbrauch</td>
+          <td class="zahl">${options.actual | number} ${options.extension}</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">
+            <i class="fa fa-history" aria-hidden="true"></i>
+          </td>
+          <td class="text">Dein Verbrauch vor einem Jahr</td>
+          <td class="zahl">${options.history | number} ${options.extension}</td>
+        </tr>
+        <tr class="overview-table-row">
+          <td class="icon">ø</td>
+          <td class="text">Durchschnittsverbrauch im schweizer Haushalt</td>
+          <td class="zahl">${options.average | number} ${options.extension}</td>
+        </tr>
+      </table>
+
+  </div>
+</template>
