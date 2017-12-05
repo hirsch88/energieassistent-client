@@ -23,12 +23,12 @@
                 <i class="fa fa-history" aria-hidden="true"></i>
               </td>
               <td class="text">${comparePastAndNowText}</td>
-              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency} CHF</td>
+              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency | numberPrefix} CHF</td>
             </tr>
             <tr class="detail-table-row">
               <td class="icon">ø</td>
               <td class="text">${compareSwissAndNowText}</td>
-              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency} CHF</td>
+              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency | numberPrefix} CHF</td>
             </tr>
           </table>
         </div>

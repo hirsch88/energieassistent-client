@@ -43,9 +43,9 @@ export class Energy {
 
   tipps = [{
     title: 'Niedrige Waschtemperatur wählen',
-    text: 'Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Gradsind nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienischsauber zu bekommen.'
+    text: 'Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Gradsind nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber zu bekommen.'
   }, {
-    title: 'Achten Sie auf die Füllmenge des Wasserkochersn',
+    title: 'Achten Sie auf die Füllmenge des Wasserkochers',
     text: 'Ein Wasserkocher ist für das Erhitzen von Wasser effizienter als der Elektroherd. Kochen Sie jedoch mehr Wasser als nötig, steigen nicht nur der Energiebedarf, sondern auch Ihr CO2-Ausstoß unnötig. Bei einem nicht verwendeten Liter Wasser pro Tag summiert sich das auf 25 kg CO2 im Jahr. Über zehn Franken können Sie im Jahr einsparen, wenn Sie nur so viel Wasser kochen, wie Sie benötigen.'
   }];
 
