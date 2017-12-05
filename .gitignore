@@ -7,3 +7,5 @@ yarn-error.log
 /test/coverage*
 /.chrome
 energie-assistant-client-darwin-x64
+energie-assistant-client-win32-x64
+energie-assistant-client-win32-ia32

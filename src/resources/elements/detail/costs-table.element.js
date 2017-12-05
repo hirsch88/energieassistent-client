@@ -13,13 +13,22 @@ export class CostsTableCustomElement {
     if (value) {
 
       let now = this.options[0][0];
-      this.costNow = now.cost;
-      this.weekNow = now.week;
-      this.yearNow = now.year;
+      this.costNow = 0;
+      this.options[0].forEach((item) => {
+        this.costNow = this.costNow += item.cost;
+        this.weekNow = item.week;
+        this.yearNow = item.year;
+      });
+
 
       let past = _.find(this.options[1], (o) => o.week === now.week)
-      this.costPast = past.cost;
-      this.weekPast = past.week;
+      this.costPast = 0;
+      this.options[1].forEach((item) => {
+        this.costPast = this.costPast += item.cost;
+        this.weekPast = item.week;
+        this.yearPast = item.year;
+      });
+
 
       this.comparePastAndNowValue = this.costNow - this.costPast;
       this.comparePastAndNowText = (this.comparePastAndNowValue < 0)

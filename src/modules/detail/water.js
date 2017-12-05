@@ -61,7 +61,6 @@ export class Water {
   }
 
   getDataForAnYear(key) {
-    this.dataWater = this.waterService.detail.GetDataYear;
     let data = this.waterService.GetData;
     let now = data.filter(d => {
       return `${d.year}` === this.selection.value
@@ -98,7 +97,6 @@ export class Water {
   }
 
   getDataForAnQuarter(key) {
-    this.dataWater = this.waterService.detail.GetDataQuarter;
     let data = this.waterService.GetData;
 
     let y = parseInt(this.selection.value.split('-')[1], 10);
@@ -150,11 +148,13 @@ export class Water {
     let data, dataLow, dataNormal;
     switch (this.selection.type) {
       case 'quarter':
+      this.dataWater = this.waterService.detail.getDataQuarter(this.selection);;
         data = this.getDataForAnQuarter('value');
         dataLow = this.getDataForAnQuarter('valueLow');
         dataNormal = this.getDataForAnQuarter('valueNormal');
         break;
       case 'year':
+      this.dataWater = this.waterService.detail.getDataYear(this.selection);;
         data = this.getDataForAnYear('value');
         dataLow = this.getDataForAnYear('valueLow');
         dataNormal = this.getDataForAnYear('valueNormal');

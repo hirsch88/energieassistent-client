@@ -138,6 +138,6 @@ npm start -- test.all
 To create a electron app use those following commands.
 
 ```shell
-npm start pack mac
-npm start pack win
+./node_modules/.bin/electron-packager ./dist --platform=darwin --arch=all --overwrite
+./node_modules/.bin/electron-packager ./dist --platform=win32 --arch=all --overwrite
 ```

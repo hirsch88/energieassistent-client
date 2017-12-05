@@ -86,7 +86,6 @@ export class Heat {
   }
 
   getDataForAnYear(key) {
-    this.dataHeat = this.heatService.detail.GetDataYear;
     let data = this.heatService.GetData;
     let now = data.filter(d => {
       return `${d.year}` === this.selection.value
@@ -123,9 +122,7 @@ export class Heat {
   }
 
   getDataForAnQuarter(key) {
-    this.dataHeat = this.heatService.detail.GetDataQuarter;
     let data = this.heatService.GetData;
-
     let y = parseInt(this.selection.value.split('-')[1], 10);
     let q = parseInt(this.selection.value.split('Q')[1].split('-')[0], 10);
     let ms = Heat.Quarters[q];
@@ -175,11 +172,13 @@ export class Heat {
     let data, dataLow, dataNormal;
     switch (this.selection.type) {
       case 'quarter':
+      this.dataHeat = this.heatService.detail.getDataQuarter(this.selection);;
         data = this.getDataForAnQuarter('value');
         dataLow = this.getDataForAnQuarter('valueLow');
         dataNormal = this.getDataForAnQuarter('valueNormal');
         break;
       case 'year':
+      this.dataHeat = this.heatService.detail.getDataYear(this.selection);;
         data = this.getDataForAnYear('value');
         dataLow = this.getDataForAnYear('valueLow');
         dataNormal = this.getDataForAnYear('valueNormal');
