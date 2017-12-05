@@ -40,8 +40,8 @@ export class CostsTableCustomElement {
 
       this.compareSwissAndNowValue = this.costNow - this.average;
       this.compareSwissAndNowText = (this.compareSwissAndNowValue < 0)
-        ? 'Sie sind über dem Durchschnitt der schweizer Haushalte'
-        : 'Sie sind unter dem Durchschnitt der schweizer Haushalte';
+        ? 'Sie sind unter dem Durchschnitt der schweizer Haushalte'
+        : 'Sie sind über dem Durchschnitt der schweizer Haushalte';
       this.compareSwissAndNowClass = (this.compareSwissAndNowValue < 0)
         ? 'green'
         : 'red';
