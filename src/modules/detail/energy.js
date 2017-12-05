@@ -109,7 +109,6 @@ export class Energy {
   }
 
   getDataForAnYear(key) {
-    this.dataEnergy = this.energyService.detail.GetDataYear;
     let data = this.energyService.GetData;
     let now = data.filter(d => {
       return `${d.year}` === this.selection.value
@@ -146,7 +145,6 @@ export class Energy {
   }
 
   getDataForAnQuarter(key) {
-    this.dataEnergy = this.energyService.detail.GetDataQuarter;
     let data = this.energyService.GetData;
 
     let y = parseInt(this.selection.value.split('-')[1], 10);
@@ -199,11 +197,13 @@ export class Energy {
     let data, dataLow, dataNormal;
     switch (this.selection.type) {
       case 'quarter':
+        this.dataEnergy = this.energyService.detail.getDataQuarter(this.selection);
         data = this.getDataForAnQuarter('value');
         dataLow = this.getDataForAnQuarter('valueLow');
         dataNormal = this.getDataForAnQuarter('valueNormal');
         break;
       case 'year':
+        this.dataEnergy = this.energyService.detail.getDataYear(this.selection);
         data = this.getDataForAnYear('value');
         dataLow = this.getDataForAnYear('valueLow');
         dataNormal = this.getDataForAnYear('valueNormal');
@@ -225,4 +225,5 @@ export class Energy {
       data: dataNormal
     };
   }
+
 }
