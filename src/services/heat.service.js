@@ -25,7 +25,7 @@ export class HeatService {
   }
 
   get GetData() {
-    return this.data.reverse();
+    return this.data;
   }
 
   fakeData() {

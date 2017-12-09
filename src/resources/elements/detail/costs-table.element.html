@@ -15,7 +15,7 @@
               <td class="icon">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </td>
-              <td class="text">Dies sind Ihre Kosten für Kalenderwoche ${weekNow} im Jahr ${yearNow}.</td>
+              <td class="text">Ihre Kosten für den ausgewählten Bereich sind</td>
               <td class="zahl">${costNow | currency} CHF</td>
             </tr>
             <tr class="detail-table-row">
@@ -23,12 +23,12 @@
                 <i class="fa fa-history" aria-hidden="true"></i>
               </td>
               <td class="text">${comparePastAndNowText}</td>
-              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency} CHF</td>
+              <td class="zahl ${comparePastAndNowClass}">${comparePastAndNowValue | currency | numberPrefix} CHF</td>
             </tr>
             <tr class="detail-table-row">
               <td class="icon">ø</td>
               <td class="text">${compareSwissAndNowText}</td>
-              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency} CHF</td>
+              <td class="zahl ${compareSwissAndNowClass}">${compareSwissAndNowValue | currency | numberPrefix} CHF</td>
             </tr>
           </table>
         </div>

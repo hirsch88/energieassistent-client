@@ -4,6 +4,7 @@ export function configure(aurelia) {
   aurelia
 		.globalResources([
       PLATFORM.moduleName('./currency.converter'),
-      PLATFORM.moduleName('./number.converter')
+      PLATFORM.moduleName('./number.converter'),
+      PLATFORM.moduleName('./numberPrefix.converter')
     ]);
 }

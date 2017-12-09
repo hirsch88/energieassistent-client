@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 import { inject, observable } from 'aurelia-framework';
 import { EnergyService } from '../../services/energy.service';
@@ -43,9 +44,9 @@ export class Energy {
 
   tipps = [{
     title: 'Niedrige Waschtemperatur wählen',
-    text: 'Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Gradsind nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienischsauber zu bekommen.'
+    text: 'Moderne Waschmittel erlauben deutlich geringere Waschtemperaturen als früher. Kochwaschprogramme bei 90 Gradsind nicht mehr notwendig. Selbst bei stark verschmutzter Wäsche reichen 60 Grad, um die Wäsche hygienisch sauber zu bekommen.'
   }, {
-    title: 'Achten Sie auf die Füllmenge des Wasserkochersn',
+    title: 'Achten Sie auf die Füllmenge des Wasserkochers',
     text: 'Ein Wasserkocher ist für das Erhitzen von Wasser effizienter als der Elektroherd. Kochen Sie jedoch mehr Wasser als nötig, steigen nicht nur der Energiebedarf, sondern auch Ihr CO2-Ausstoß unnötig. Bei einem nicht verwendeten Liter Wasser pro Tag summiert sich das auf 25 kg CO2 im Jahr. Über zehn Franken können Sie im Jahr einsparen, wenn Sie nur so viel Wasser kochen, wie Sie benötigen.'
   }];
 
@@ -161,7 +162,7 @@ export class Energy {
     let d1 = ['now'];
     let d2 = ['past'];
     let x = ['x'];
-    let max = (past.length > now.length) ? past.length : now.length;
+    let max = ((past.length > now.length) ? past.length : now.length) + 1;
     for (let i = 1; i < max; i++) {
       d1[i] = 0;
       d2[i] = 0;
@@ -175,11 +176,10 @@ export class Energy {
       d1[n + 1] = now[n][key]
     }
 
-    x[1] = now[1].week;
+    x[1] = _.min(now.map(n => n.week));
     for (let n = 2; n < max; n++) {
       x[n] = x[n - 1] + 1;
     }
-
 
     for (let n = 1; n < x.length; n++) {
       x[n] = `KW${x[n]}`;

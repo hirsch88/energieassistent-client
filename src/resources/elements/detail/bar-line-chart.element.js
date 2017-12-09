@@ -26,15 +26,15 @@ export class BarLineChartCustomElement {
   build() {
     let colors = {
       blue: {
-        [this.LABEL_NOW()]: 'rgba(114, 195, 252, 0.37)',
+        [this.LABEL_NOW()]: '#72c3fc',
         [this.LABEL_HISTORY(this.selection.value)]: '#1862ab'
       },
       red: {
-        [this.LABEL_NOW()]: 'rgba(255, 168, 168, 0.37)',
+        [this.LABEL_NOW()]: '#ffa8a8',
         [this.LABEL_HISTORY(this.selection.value)]: '#c92a2a'
       },
       yellow: {
-        [this.LABEL_NOW()]: 'rgba(255, 224, 102, 0.37)',
+        [this.LABEL_NOW()]: '#ffe066',
         [this.LABEL_HISTORY(this.selection.value)]: '#e67700'
       }
     };
@@ -65,6 +65,7 @@ export class BarLineChartCustomElement {
         colors: colors[this.options.color] || {}
       },
       tooltip: {
+        order: null,
         format: {
           value: (value, ratio, id) => {
             return this.numberValueConverter.toView(value) + ' ' + this.extension;

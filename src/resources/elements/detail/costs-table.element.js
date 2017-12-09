@@ -32,16 +32,16 @@ export class CostsTableCustomElement {
 
       this.comparePastAndNowValue = this.costNow - this.costPast;
       this.comparePastAndNowText = (this.comparePastAndNowValue < 0)
-        ? 'Sie haben zum Vorjahr gespart.'
-        : 'Sie haben zum Vorjahr mehr benötigt.';
+        ? 'Sie haben zum Vorjahr gespart'
+        : 'Sie haben zum Vorjahr mehr benötigt';
       this.comparePastAndNowClass = (this.comparePastAndNowValue < 0)
         ? 'green'
         : 'red';
 
       this.compareSwissAndNowValue = this.costNow - this.average;
-      this.compareSwissAndNowText = (this.comparePastAndNowValue < 0)
-        ? 'Sie sind über dem Durchschnitt der schweizer Haushalte.'
-        : 'Sie sind unter dem Durchschnitt der schweizer Haushalte.';
+      this.compareSwissAndNowText = (this.compareSwissAndNowValue < 0)
+        ? 'Sie sind unter dem Durchschnitt der schweizer Haushalte'
+        : 'Sie sind über dem Durchschnitt der schweizer Haushalte';
       this.compareSwissAndNowClass = (this.compareSwissAndNowValue < 0)
         ? 'green'
         : 'red';
