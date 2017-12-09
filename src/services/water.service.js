@@ -25,7 +25,7 @@ export class WaterService {
   }
 
   get GetData() {
-    return this.data.reverse();
+    return this.data;
   }
 
   fakeData() {

@@ -1,4 +1,3 @@
-//import {computedFrom} from 'aurelia-framework';
 import { inject, observable } from 'aurelia-framework';
 import { EnergyService } from '../../services/energy.service';
 import { HeatService } from '../../services/heat.service';

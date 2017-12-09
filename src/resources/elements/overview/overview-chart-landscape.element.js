@@ -81,6 +81,7 @@ export class OverviewChartLandscapeCustomElement {
         colors: colors[this.options.color] || {}
       },
       tooltip: {
+        order: null,
         format: {
           value: (value, ratio, id) => {
             return this.numberValueConverter.toView(value) + ' ' + this.extension;

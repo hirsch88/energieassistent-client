@@ -23,7 +23,6 @@ export class OverviewNavCustomElement {
             key: 'week',
             style: 'week',
             onSelect: (item, index) => {
-              console.log('week');
               scope.selectedType = index;
               this.fireChangeEvent();
             }
@@ -32,7 +31,6 @@ export class OverviewNavCustomElement {
             key: 'month',
             style: 'month',
             onSelect: (item, index) => {
-              console.log('month');
               scope.selectedType = index;
               this.fireChangeEvent();
             }
@@ -41,14 +39,12 @@ export class OverviewNavCustomElement {
             key: 'quarter',
             style: 'quarter',
             onSelect: (item, index) => {
-              console.log('quarter');
               scope.selectedType = index;
               this.fireChangeEvent();
             }
           }
         ],
         onSelect: (item, index) => {
-          console.log('all');
           scope.selectedNav = index;
           scope.selectedType = 0;
           this.changeType(item);
