@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import * as _ from 'lodash';
 
 import { inject, observable } from 'aurelia-framework';
 import { HeatService } from '../../services/heat.service';
@@ -137,7 +138,7 @@ export class Heat {
     let d1 = ['now'];
     let d2 = ['past'];
     let x = ['x'];
-    let max = (past.length > now.length) ? past.length : now.length;
+    let max = ((past.length > now.length) ? past.length : now.length) + 1;
     for (let i = 1; i < max; i++) {
       d1[i] = 0;
       d2[i] = 0;
@@ -151,7 +152,7 @@ export class Heat {
       d1[n + 1] = now[n][key]
     }
 
-    x[1] = now[1].week;
+    x[1] = _.min(now.map(n => n.week));
     for (let n = 2; n < max; n++) {
       x[n] = (x[n - 1] + 1);
     }
